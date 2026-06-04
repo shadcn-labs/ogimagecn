@@ -13,7 +13,7 @@
   <a href="https://github.com/shadcn-labs/ogcn"><img src="https://www.shieldcn.dev/github/stars/shadcn-labs/ogcn.svg?variant=secondary&size=xs&theme=zinc" alt="GitHub Stars" /></a>
   <a href="https://github.com/shadcn-labs/ogcn/actions"><img src="https://www.shieldcn.dev/github/ci/shadcn-labs/ogcn.svg?variant=secondary&size=xs&theme=zinc" alt="CI" /></a>
   <a href="https://discord.gg/N6G36KhYK4"><img src="https://www.shieldcn.dev/discord/online-members/N6G36KhYK4.svg?variant=secondary&size=xs&theme=zinc" alt="Discord Members" /></a>
-  <a href="https://x.com/alaymanguy"><img src="https://www.shieldcn.dev/x/follow/alaymanguy.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
+  <a href="https://x.com/shadcnlabs"><img src="https://www.shieldcn.dev/x/follow/shadcnlabs.svg?variant=branded&size=xs&theme=zinc" alt="X Follow" /></a>
 </p>
 
 <p align="center">
