@@ -1,4 +1,4 @@
-export const FALLBACK_SITE_ORIGIN = "https://ogcn.vercel.app" as const;
+export const FALLBACK_SITE_ORIGIN = "https://ogimagecn.vercel.app" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
@@ -20,8 +20,8 @@ export const SITE = {
     TWITTER: "@alaymanguy",
   },
   DESCRIPTION: {
-    LONG: "ogcn is a shadcn registry of beautiful Open Graph image components built on Satori and the next/og runtime.",
-    SHORT: "Beautiful OG image components, on Satori",
+    LONG: "A collection of beautifully designed and customizable Open Graph image components. Built on Satori. Works with shadcn/ui.",
+    SHORT: "Beautiful OG images, made simple",
   },
   KEYWORDS: [
     "og image",
@@ -36,7 +36,7 @@ export const SITE = {
   ] as const,
   NAME: "ogcn",
   OG_IMAGE: `${baseUrl}/og`,
-  REGISTRY: baseUrl,
+  REGISTRY: "@ogcn",
   URL: baseUrl,
 };
 
