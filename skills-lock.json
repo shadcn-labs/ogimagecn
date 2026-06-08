@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "satori": {
+      "source": "usenotra/skills",
+      "sourceType": "github",
+      "skillPath": "skills/satori/SKILL.md",
+      "computedHash": "0e5950c83005ec8d88269cca4541525a0f1c18e5b5035535083fb155d88385cd"
+    }
+  }
+}
