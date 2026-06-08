@@ -1,11 +1,11 @@
 import { ImageResponse } from "next/og";
 
 import { SITE } from "@/constants/site";
-import { Grid } from "@/registry/ogcn/grid";
+import { Grid } from "@/registry/ogimagecn/grid";
 
 /**
  * The site's own Open Graph image — generated with one of the registry
- * components (`grid`) so ogcn dogfoods its own components.
+ * components (`grid`) so ogimagecn dogfoods its own components.
  */
 export const GET = (request: Request) => {
   const { searchParams } = new URL(request.url);

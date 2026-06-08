@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: Install an ogcn component and render it as an Open Graph image.
+description: Install an ogimagecn component and render it as an Open Graph image.
 ---
 
 ## Install a component
@@ -9,7 +9,7 @@ Pick a component from the [gallery](/docs/components) and add it with the shadcn
 CLI. The component is copied into your project at `components/og/<name>.tsx`.
 
 ```bash
-npx shadcn@latest add https://ogcn.vercel.app/r/simple.json
+npx shadcn@latest add https://ogimagecn.vercel.app/r/simple.json
 ```
 
 ## Render it as an OG image
@@ -81,19 +81,19 @@ export async function GET() {
 
 ## Building your own registry
 
-ogcn is a normal shadcn registry, so you can extend it:
+ogimagecn is a normal shadcn registry, so you can extend it:
 
 ### 1. Add a component
 
-Create `registry/ogcn/yours.tsx`. Use **flexbox + inline styles only** so
+Create `registry/ogimagecn/yours.tsx`. Use **flexbox + inline styles only** so
 it renders in both Satori and the browser.
 
 ### 2. Register it
 
 ```json title="registry.json"
 {
-  "name": "ogcn",
-  "homepage": "https://ogcn.vercel.app",
+  "name": "ogimagecn",
+  "homepage": "https://ogimagecn.vercel.app",
   "items": [
     {
       "name": "yours",
@@ -102,7 +102,7 @@ it renders in both Satori and the browser.
       "description": "Your custom OG component.",
       "files": [
         {
-          "path": "registry/ogcn/yours.tsx",
+          "path": "registry/ogimagecn/yours.tsx",
           "type": "registry:component",
           "target": "components/og/yours.tsx"
         }

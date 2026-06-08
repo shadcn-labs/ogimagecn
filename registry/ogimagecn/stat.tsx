@@ -147,7 +147,7 @@ export const Stat = ({
 
 Stat.previewProps = {
   accent: "#22c55e",
-  brand: "ogcn",
+  brand: "ogimagecn",
   caption: "Open Graph images generated with next/og this year.",
   label: "Images rendered",
   trend: "+24%",

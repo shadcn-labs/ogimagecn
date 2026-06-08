@@ -94,7 +94,7 @@ export const Logo = ({
 Logo.previewProps = {
   accent: "#7c3aed",
   background: "#09090b",
-  brand: "ogcn",
+  brand: "ogimagecn",
   monogram: "",
   tagline: "Open Graph images, built on Satori",
 } satisfies LogoProps;

@@ -135,7 +135,7 @@ export const Event = ({
 
 Event.previewProps = {
   accent: "#f59e0b",
-  brand: "ogcn",
+  brand: "ogimagecn",
   date: "Jun 5, 2026 · 10:00 AM PT",
   label: "Live Event",
   location: "Online",

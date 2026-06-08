@@ -1,7 +1,7 @@
 export const GITHUB = {
   branch: "main",
   org: "shadcn-labs",
-  repo: "ogcn",
+  repo: "ogimagecn",
   user: "Aniket-508",
 } as const;
 

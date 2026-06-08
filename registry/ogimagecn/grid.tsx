@@ -142,7 +142,7 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
 
 Grid.previewProps = {
   accent: "#22d3ee",
-  brand: "ogcn",
+  brand: "ogimagecn",
   description:
     "Composable components powered by Satori and the next/og runtime.",
   title: "Build your own OG images",

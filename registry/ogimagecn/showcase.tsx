@@ -206,5 +206,5 @@ Showcase.previewProps = {
   accent: "#6366f1",
   subtitle: "The dashboard that brings every metric into one calm view.",
   title: "Run your business smarter",
-  url: "app.ogcn.dev",
+  url: "app.ogimagecn.dev",
 } satisfies ShowcaseProps;

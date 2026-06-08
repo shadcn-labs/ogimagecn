@@ -80,7 +80,7 @@ export const Terminal = ({ brand, title, caption, accent }: TerminalProps) => (
 
 Terminal.previewProps = {
   accent: "#22c55e",
-  brand: "ogcn",
-  caption: "npx shadcn@latest add ogcn",
+  brand: "ogimagecn",
+  caption: "npx shadcn@latest add ogimagecn",
   title: "Ship beautiful OG images",
 } satisfies TerminalProps;

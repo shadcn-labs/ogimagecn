@@ -34,9 +34,9 @@ export const SITE = {
     "tailwindcss",
     "npx shadcn add",
   ] as const,
-  NAME: "ogcn",
+  NAME: "ogimagecn",
   OG_IMAGE: `${baseUrl}/og`,
-  REGISTRY: "@ogcn",
+  REGISTRY: "@ogimagecn",
   URL: baseUrl,
 };
 

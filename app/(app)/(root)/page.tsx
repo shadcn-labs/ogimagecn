@@ -3,10 +3,10 @@ import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
 import { PageTransition } from "@/components/page-transition";
 import { ROUTES } from "@/constants/routes";
-import { Grid } from "@/registry/ogcn/grid";
-import { Quote } from "@/registry/ogcn/quote";
-import { Showcase } from "@/registry/ogcn/showcase";
-import { Simple } from "@/registry/ogcn/simple";
+import { Grid } from "@/registry/ogimagecn/grid";
+import { Quote } from "@/registry/ogimagecn/quote";
+import { Showcase } from "@/registry/ogimagecn/showcase";
+import { Simple } from "@/registry/ogimagecn/simple";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
 export const dynamic = "force-static";

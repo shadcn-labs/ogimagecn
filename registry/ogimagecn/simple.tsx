@@ -138,7 +138,7 @@ export const Simple = ({
 
 Simple.previewProps = {
   accent: "#7c3aed",
-  brand: "ogcn",
+  brand: "ogimagecn",
   description:
     "A shadcn registry of social card components you can copy, paste, and ship.",
   label: "Open Graph",

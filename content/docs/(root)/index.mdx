@@ -1,9 +1,9 @@
 ---
 title: Introduction
-description: ogcn is a shadcn registry of beautiful Open Graph image components built on Satori.
+description: ogimagecn is a shadcn registry of beautiful Open Graph image components built on Satori.
 ---
 
-**ogcn** is a [shadcn registry](https://ui.shadcn.com/docs/registry) of beautiful
+**ogimagecn** is a [shadcn registry](https://ui.shadcn.com/docs/registry) of beautiful
 **Open Graph image components**. Every component is a plain React component that
 renders to a real PNG through Satori and the [`next/og`](https://nextjs.org/docs/app/api-reference/functions/image-response)
 runtime.
@@ -12,7 +12,7 @@ Install a component with the shadcn CLI, drop it into an `ImageResponse`, and yo
 have a polished social card in minutes — fully owned, fully editable code.
 
 ```bash
-npx shadcn@latest add https://ogcn.vercel.app/r/simple.json
+npx shadcn@latest add https://ogimagecn.vercel.app/r/simple.json
 ```
 
 ## Why these components are different
@@ -42,14 +42,14 @@ Satori produces.
 
 ## How It Works
 
-1. Each component lives at `registry/ogcn/<name>.tsx`
+1. Each component lives at `registry/ogimagecn/<name>.tsx`
 2. It is listed in `registry.json`
 3. `pnpm registry:build` emits installable JSON to `public/r`
 
 Users then install any component:
 
 ```bash
-npx shadcn@latest add https://ogcn.vercel.app/r/blog.json
+npx shadcn@latest add https://ogimagecn.vercel.app/r/blog.json
 ```
 
 …and render it on the server:
@@ -104,7 +104,7 @@ Can I add my own components?
 </AccordionTrigger>
 <AccordionContent>
 
-Absolutely. Add a file to `registry/ogcn/`, list it in `registry.json`,
+Absolutely. Add a file to `registry/ogimagecn/`, list it in `registry.json`,
 write an MDX doc, and run `pnpm registry:build`.
 
 </AccordionContent>

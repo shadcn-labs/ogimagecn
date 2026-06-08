@@ -1,19 +1,19 @@
 import { ImageResponse } from "next/og";
 
-import { Blog } from "@/registry/ogcn/blog";
-import { Changelog } from "@/registry/ogcn/changelog";
-import { Editorial } from "@/registry/ogcn/editorial";
-import { Event } from "@/registry/ogcn/event";
-import { Grid } from "@/registry/ogcn/grid";
-import { Logo } from "@/registry/ogcn/logo";
-import { Photo } from "@/registry/ogcn/photo";
-import { Product } from "@/registry/ogcn/product";
-import { Profile } from "@/registry/ogcn/profile";
-import { Quote } from "@/registry/ogcn/quote";
-import { Showcase } from "@/registry/ogcn/showcase";
-import { Simple } from "@/registry/ogcn/simple";
-import { Stat } from "@/registry/ogcn/stat";
-import { Terminal } from "@/registry/ogcn/terminal";
+import { Blog } from "@/registry/ogimagecn/blog";
+import { Changelog } from "@/registry/ogimagecn/changelog";
+import { Editorial } from "@/registry/ogimagecn/editorial";
+import { Event } from "@/registry/ogimagecn/event";
+import { Grid } from "@/registry/ogimagecn/grid";
+import { Logo } from "@/registry/ogimagecn/logo";
+import { Photo } from "@/registry/ogimagecn/photo";
+import { Product } from "@/registry/ogimagecn/product";
+import { Profile } from "@/registry/ogimagecn/profile";
+import { Quote } from "@/registry/ogimagecn/quote";
+import { Showcase } from "@/registry/ogimagecn/showcase";
+import { Simple } from "@/registry/ogimagecn/simple";
+import { Stat } from "@/registry/ogimagecn/stat";
+import { Terminal } from "@/registry/ogimagecn/terminal";
 
 const SIZE = { height: 630, width: 1200 };
 

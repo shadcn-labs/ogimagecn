@@ -99,7 +99,7 @@ export const Photo = ({ image, label, title, brand }: PhotoProps) => {
 };
 
 Photo.previewProps = {
-  brand: "ogcn",
+  brand: "ogimagecn",
   image: "",
   label: "Travel",
   title: "Chasing light across the northern coast",

@@ -132,7 +132,7 @@ export const Changelog = ({
 
 Changelog.previewProps = {
   accent: "#34d399",
-  brand: "ogcn",
+  brand: "ogimagecn",
   date: "June 2026",
   items: [
     "Seven new OG image components",

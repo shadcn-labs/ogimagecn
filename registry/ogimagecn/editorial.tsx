@@ -112,7 +112,7 @@ export const Editorial = ({
 
 Editorial.previewProps = {
   accent: "#e11d48",
-  author: "ogcn",
+  author: "ogimagecn",
   ghost: "",
   kicker: "Essay",
   meta: "Issue 04",

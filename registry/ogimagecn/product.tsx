@@ -127,7 +127,7 @@ export const Product = ({
 
 Product.previewProps = {
   accent: "#6366f1",
-  brand: "ogcn",
+  brand: "ogimagecn",
   description: "Copy-paste social cards rendered with next/og.",
   image: "",
   price: "$49",
