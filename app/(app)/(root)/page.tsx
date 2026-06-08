@@ -3,8 +3,9 @@ import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
 import { PageTransition } from "@/components/page-transition";
 import { ROUTES } from "@/constants/routes";
-import { Blog } from "@/registry/ogcn/blog";
 import { Grid } from "@/registry/ogcn/grid";
+import { Quote } from "@/registry/ogcn/quote";
+import { Showcase } from "@/registry/ogcn/showcase";
 import { Simple } from "@/registry/ogcn/simple";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
@@ -39,10 +40,13 @@ export default function IndexPage() {
               <Simple {...Simple.previewProps} />
             </ComponentPreview>
             <ComponentPreview>
-              <Blog {...Blog.previewProps} />
+              <Quote {...Quote.previewProps} />
             </ComponentPreview>
             <ComponentPreview>
               <Grid {...Grid.previewProps} />
+            </ComponentPreview>
+            <ComponentPreview>
+              <Showcase {...Showcase.previewProps} />
             </ComponentPreview>
           </div>
         </section>
