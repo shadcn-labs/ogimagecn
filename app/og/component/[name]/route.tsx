@@ -4,7 +4,6 @@ import { Blog } from "@/registry/ogcn/blog";
 import { Changelog } from "@/registry/ogcn/changelog";
 import { Editorial } from "@/registry/ogcn/editorial";
 import { Event } from "@/registry/ogcn/event";
-import { Gradient } from "@/registry/ogcn/gradient";
 import { Grid } from "@/registry/ogcn/grid";
 import { Logo } from "@/registry/ogcn/logo";
 import { Photo } from "@/registry/ogcn/photo";
@@ -41,16 +40,6 @@ const renderComponent = (
           accent={get("accent")}
           brand={get("brand")}
           description={get("description")}
-          title={get("title")}
-        />
-      );
-    }
-    case "gradient": {
-      return (
-        <Gradient
-          description={get("description")}
-          gradient={get("gradient")}
-          label={get("label")}
           title={get("title")}
         />
       );

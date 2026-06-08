@@ -4,7 +4,6 @@ import { HomeCtas } from "@/components/home-ctas";
 import { PageTransition } from "@/components/page-transition";
 import { ROUTES } from "@/constants/routes";
 import { Blog } from "@/registry/ogcn/blog";
-import { Gradient } from "@/registry/ogcn/gradient";
 import { Grid } from "@/registry/ogcn/grid";
 import { Simple } from "@/registry/ogcn/simple";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
@@ -36,9 +35,6 @@ export default function IndexPage() {
 
         <section className="container-wrapper pb-12 lg:pb-20">
           <div className="container grid gap-6 sm:grid-cols-2">
-            <ComponentPreview>
-              <Gradient {...Gradient.previewProps} />
-            </ComponentPreview>
             <ComponentPreview>
               <Simple {...Simple.previewProps} />
             </ComponentPreview>

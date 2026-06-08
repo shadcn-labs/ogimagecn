@@ -30,19 +30,6 @@
       ]
     },
     {
-      "name": "gradient",
-      "type": "registry:component",
-      "title": "Gradient",
-      "description": "A bold Open Graph image with a vibrant gradient backdrop and a frosted glass content panel.",
-      "files": [
-        {
-          "path": "registry/ogcn/gradient.tsx",
-          "type": "registry:component",
-          "target": "components/og/gradient.tsx"
-        }
-      ]
-    },
-    {
       "name": "blog",
       "type": "registry:component",
       "title": "Blog",
