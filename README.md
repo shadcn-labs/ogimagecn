@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://ogcn.vercel.app/og" alt="ogcn banner" />
+  <img src="public/og.png" alt="ogcn banner" />
 </p>
 
 <h1 align="center">ogcn</h1>
