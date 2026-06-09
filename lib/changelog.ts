@@ -21,14 +21,14 @@ export const getDateFromFile = (slugs: string[]) => {
     `${slugs.at(-1)}.mdx`
   );
 
-  try {
-    const content = fs.readFileSync(filePath, "utf-8");
-    const match = content.match(/^date:\s*(.+)$/m);
-    if (match?.[1]) {
-      return new Date(match[1].trim());
-    }
-  } catch {
-    // File missing or invalid frontmatter.
+  if (!fs.existsSync(filePath)) {
+    return null;
+  }
+
+  const content = fs.readFileSync(filePath, "utf-8");
+  const match = content.match(/^date:\s*(.+)$/m);
+  if (match?.[1]) {
+    return new Date(match[1].trim());
   }
 
   return null;

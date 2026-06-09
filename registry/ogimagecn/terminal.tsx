@@ -1,17 +1,6 @@
-/**
- * terminal
- *
- * A minimal, technical statement Open Graph image — a small wordmark with an
- * accent side-bar at the top and a large, wide-tracked uppercase headline.
- * Modeled on the spare developer-tool cards (Stripe, early).
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface TerminalProps {
   brand: string;
   title: string;
-  /** Optional kicker shown under the title. */
   caption?: string;
   accent?: string;
 }

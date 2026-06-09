@@ -1,17 +1,7 @@
-/**
- * changelog
- *
- * A release / changelog Open Graph image with a version pill, date, title, and
- * a checklist of highlights.
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface ChangelogProps {
   version: string;
   date: string;
   title: string;
-  /** Up to ~4 highlight lines. */
   items: string[];
   brand: string;
   accent?: string;
@@ -93,7 +83,6 @@ export const Changelog = ({
               width: "40px",
             }}
           >
-            {/* Inline SVG so the check renders regardless of the loaded font */}
             <svg
               fill="none"
               height="22"

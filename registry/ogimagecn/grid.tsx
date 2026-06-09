@@ -1,13 +1,3 @@
-/**
- * grid
- *
- * A framed, technical-looking Open Graph image with a dashed border grid and
- * a corner brand mark. Great for docs, dev tools, and changelogs.
- *
- * Built for Satori / `next/og` — inline styles only, renders identically in
- * the browser and as a server-generated PNG.
- */
-
 export interface GridProps {
   title: string;
   description: string;
@@ -26,7 +16,6 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
       width: "100%",
     }}
   >
-    {/* Vertical guide lines */}
     <div
       style={{
         borderLeft: "1px dashed #292929",
@@ -47,7 +36,6 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
         width: "1px",
       }}
     />
-    {/* Horizontal guide lines */}
     <div
       style={{
         borderTop: "1px dashed #292929",
@@ -69,7 +57,6 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
       }}
     />
 
-    {/* Content */}
     <div
       style={{
         display: "flex",
@@ -106,7 +93,6 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
       </div>
     </div>
 
-    {/* Brand mark, bottom-right inside the frame */}
     <div
       style={{
         alignItems: "center",

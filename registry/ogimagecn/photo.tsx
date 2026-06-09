@@ -1,16 +1,4 @@
-/**
- * photo
- *
- * A full-bleed photo Open Graph image with a dark gradient scrim and bottom
- * aligned title block.
- *
- * Built for Satori / `next/og` — inline styles only. Pass an `image` URL for
- * the background; when omitted a rich gradient is used as a fallback so the
- * component always renders.
- */
-
 export interface PhotoProps {
-  /** Background image URL. Must be absolute when rendered on the server. */
   image?: string;
   label: string;
   title: string;
@@ -38,7 +26,6 @@ export const Photo = ({ image, label, title, brand }: PhotoProps) => {
         width: "100%",
       }}
     >
-      {/* Dark scrim so text stays readable over any photo */}
       <div
         style={{
           backgroundImage:

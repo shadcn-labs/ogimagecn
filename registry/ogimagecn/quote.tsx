@@ -1,13 +1,3 @@
-/**
- * quote
- *
- * A testimonial / tweet-style Open Graph image with a large quote and an
- * author row (avatar, name, handle).
- *
- * Built for Satori / `next/og` — inline styles only. Pass an `avatar` URL to
- * use a real image; otherwise the author's initials are rendered in a circle.
- */
-
 export interface QuoteProps {
   quote: string;
   author: string;

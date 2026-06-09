@@ -1,22 +1,8 @@
-/**
- * editorial
- *
- * A poster-style Open Graph image with oversized display type and a large,
- * faint "ghost" word set behind the content. Modeled on the expressive
- * editorial cards (Sculpting Harmony, chevez, Jun Ioneda).
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface EditorialProps {
-  /** Small kicker / section label. */
   kicker: string;
   title: string;
-  /** Author or brand shown in the footer. */
   author: string;
-  /** Meta line shown next to the author (e.g. an issue or date). */
   meta: string;
-  /** Large faint word set behind the title. Defaults to the first word. */
   ghost?: string;
   accent?: string;
 }
@@ -43,7 +29,6 @@ export const Editorial = ({
       width: "100%",
     }}
   >
-    {/* Oversized faint word behind the content */}
     <div
       style={{
         bottom: "-60px",

@@ -1,22 +1,8 @@
-/**
- * logo
- *
- * A centered brand / wordmark Open Graph image — a logo tile, a large
- * wordmark, and an optional tagline on a soft gradient field. Modeled on the
- * common "just the brand" social cards (OpenAI, area, TWYG).
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface LogoProps {
-  /** The wordmark text. */
   brand: string;
-  /** Optional tagline shown under the wordmark. */
   tagline?: string;
-  /** Monogram shown in the logo tile. Defaults to the brand's first letter. */
   monogram?: string;
   accent?: string;
-  /** Background CSS color or gradient. */
   background: string;
 }
 

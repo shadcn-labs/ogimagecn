@@ -1,14 +1,4 @@
-/**
- * event
- *
- * An event / launch Open Graph image — an eyebrow label and brand at the top,
- * a large title in the middle, and a date · location footer row.
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface EventProps {
-  /** Small eyebrow / kind label (e.g. "Live Event"). */
   label: string;
   brand: string;
   title: string;
@@ -107,7 +97,6 @@ export const Event = ({
           gap: "14px",
         }}
       >
-        {/* Calendar glyph — inline SVG so it renders regardless of font */}
         <svg
           fill="none"
           height="30"

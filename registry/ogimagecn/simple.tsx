@@ -1,35 +1,8 @@
-/**
- * simple
- *
- * A minimal, centered Open Graph image component.
- *
- * Built for Satori / `next/og`. Every style here uses the Satori-compatible
- * CSS subset (flexbox + inline styles), so the exact same component renders
- * both as a real PNG on the server and as a live DOM preview in the browser.
- *
- * Usage (server, app/og/route.tsx):
- *
- *   import { ImageResponse } from "next/og";
- *   import { Simple } from "@/components/og/simple";
- *
- *   export function GET() {
- *     return new ImageResponse(<Simple title="Hello world" />, {
- *       width: 1200,
- *       height: 630,
- *     });
- *   }
- */
-
 export interface SimpleProps {
-  /** Small eyebrow / category label shown above the title. */
   label: string;
-  /** The headline. */
   title: string;
-  /** Supporting copy shown below the title. */
   description: string;
-  /** Brand name shown in the footer. */
   brand: string;
-  /** Accent color used for the label and brand dot. */
   accent?: string;
 }
 

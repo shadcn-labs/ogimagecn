@@ -1,21 +1,8 @@
-/**
- * product
- *
- * A two-column product / pricing Open Graph image — brand and copy on the
- * left, a product shot on the right, with a price pill anchored to the bottom.
- *
- * Built for Satori / `next/og` — inline styles only. Pass an `image` URL for
- * the product shot; when omitted a soft gradient panel is shown instead.
- */
-
 export interface ProductProps {
-  /** Brand name shown in the top-left. */
   brand: string;
   title: string;
   description: string;
-  /** Price string shown in the pill (e.g. "$49" or "Free"). */
   price: string;
-  /** Product image URL. Must be absolute when rendered on the server. */
   image?: string;
   accent?: string;
 }

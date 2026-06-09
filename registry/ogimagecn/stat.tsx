@@ -1,20 +1,7 @@
-/**
- * stat
- *
- * A metric / dashboard Open Graph image — an eyebrow label, one oversized
- * number with an optional trend pill, and a caption, with a brand footer.
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface StatProps {
-  /** Small eyebrow label shown above the value. */
   label: string;
-  /** The headline metric (e.g. "10M+"). */
   value: string;
-  /** Caption shown under the value. */
   caption: string;
-  /** Optional trend string shown in a pill (e.g. "+24%"). */
   trend?: string;
   brand: string;
   accent?: string;
@@ -89,7 +76,6 @@ export const Stat = ({
             padding: "10px 22px",
           }}
         >
-          {/* Upward trend arrow — inline SVG so it renders regardless of font */}
           <svg
             fill="none"
             height="26"

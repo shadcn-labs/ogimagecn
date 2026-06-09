@@ -1,22 +1,8 @@
-/**
- * profile
- *
- * A personal / portfolio Open Graph image — a circular avatar beside a name,
- * role, short bio, and a website pill.
- *
- * Built for Satori / `next/og` — inline styles only. Pass an `avatar` URL to
- * use a real image; otherwise the person's initials are rendered in a circle.
- */
-
 export interface ProfileProps {
   name: string;
-  /** Role / title shown under the name. */
   role: string;
-  /** Short supporting bio. */
   bio: string;
-  /** Optional avatar image URL. Falls back to initials. */
   avatar?: string;
-  /** Website shown in the pill (e.g. "aniketpawar.com"). */
   website: string;
   accent?: string;
 }

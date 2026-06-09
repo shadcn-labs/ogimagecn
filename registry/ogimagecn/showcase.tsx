@@ -1,18 +1,6 @@
-/**
- * showcase
- *
- * A product-showcase Open Graph image — a centered headline and subtitle above
- * a faux browser window that bleeds off the bottom edge, with a minimal
- * dashboard UI rendered entirely from divs. Modeled on the most common SaaS
- * cards (Midday, Dovetail, Linear).
- *
- * Built for Satori / `next/og` — inline styles only.
- */
-
 export interface ShowcaseProps {
   title: string;
   subtitle: string;
-  /** URL shown in the faux browser address bar. */
   url: string;
   accent?: string;
 }
@@ -57,7 +45,6 @@ export const Showcase = ({ title, subtitle, url, accent }: ShowcaseProps) => (
       {subtitle}
     </div>
 
-    {/* Faux browser window */}
     <div
       style={{
         backgroundColor: "#0a0a0a",
@@ -120,7 +107,6 @@ export const Showcase = ({ title, subtitle, url, accent }: ShowcaseProps) => (
       </div>
 
       <div style={{ display: "flex", flex: 1 }}>
-        {/* Sidebar */}
         <div
           style={{
             borderRight: "1px solid rgba(250,250,250,0.08)",
@@ -144,7 +130,6 @@ export const Showcase = ({ title, subtitle, url, accent }: ShowcaseProps) => (
           ))}
         </div>
 
-        {/* Content */}
         <div
           style={{
             display: "flex",

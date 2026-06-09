@@ -1,21 +1,9 @@
-/**
- * blog
- *
- * An article / blog post Open Graph image with a category badge, headline,
- * excerpt, and an author row (avatar, name, and meta).
- *
- * Built for Satori / `next/og` — inline styles only. Pass an `avatar` URL to
- * use a real image; otherwise the author's initials are rendered in a circle.
- */
-
 export interface BlogProps {
   category: string;
   title: string;
   excerpt: string;
   author: string;
-  /** Meta line shown next to the author (e.g. date · read time). */
   meta: string;
-  /** Optional avatar image URL. Falls back to author initials. */
   avatar?: string;
   accent?: string;
 }

@@ -187,14 +187,6 @@ const renderComponent = (
   }
 };
 
-/**
- * Renders any OG component as a real PNG via Satori (`next/og`).
- *
- * GET /og/component/simple?title=Hello&description=World
- *
- * This is what proves the registry components work on the server — the exact
- * same components power the live DOM previews in the docs.
- */
 export const GET = async (
   request: Request,
   { params }: RouteContext<"/og/component/[name]">
