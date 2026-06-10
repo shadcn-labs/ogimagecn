@@ -12,6 +12,40 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
+const initResvgWorker = () => {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  // eslint-disable-next-line unicorn/relative-url-style
+  const worker = new Worker(new URL("./resvg-worker.ts", import.meta.url));
+
+  const pending = new Map();
+  worker.addEventListener("message", (e) => {
+    const { _id, url } = e.data;
+    const resolve = pending.get(_id);
+    if (resolve) {
+      resolve(url);
+      pending.delete(_id);
+    }
+  });
+
+  return (msg: object) => {
+    const _id = Math.random();
+    /* eslint-disable unicorn/require-post-message-target-origin */
+    worker.postMessage({
+      ...msg,
+      _id,
+    });
+    // eslint-disable-next-line promise/avoid-new
+    return new Promise((resolve) => {
+      pending.set(_id, resolve);
+    });
+  };
+};
+
+const renderPNG = initResvgWorker();
+
 export const DownloadButton = ({
   svg,
   width,
@@ -37,21 +71,12 @@ export const DownloadButton = ({
     }
     try {
       setDownloading(true);
-      const worker = new Worker(new URL("resvg-worker.ts", import.meta.url));
-      const _id = Math.random();
-      // eslint-disable-next-line promise/avoid-new
-      const url = await new Promise<string>((resolve) => {
-        worker.addEventListener(
-          "message",
-          (e) => {
-            resolve(e.data.url);
-          },
-          { once: true }
-        );
-        // eslint-disable-next-line unicorn/require-post-message-target-origin
-        worker.postMessage({ _id, svg, width });
+      const pngDownloadUrl = await renderPNG?.({
+        svg,
+        width,
       });
-      setDownloadUrl(url);
+
+      setDownloadUrl(pngDownloadUrl as string);
     } finally {
       setDownloading(false);
     }

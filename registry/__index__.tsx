@@ -1,19 +1,31 @@
-import dynamic from "next/dynamic";
-
 import type { ControlConfig } from "@/lib/customizer-config";
+import { Blog } from "@/registry/ogimagecn/blog";
 import { blogConfig } from "@/registry/ogimagecn/blog/config";
+import { Changelog } from "@/registry/ogimagecn/changelog";
 import { changelogConfig } from "@/registry/ogimagecn/changelog/config";
+import { Editorial } from "@/registry/ogimagecn/editorial";
 import { editorialConfig } from "@/registry/ogimagecn/editorial/config";
+import { Event } from "@/registry/ogimagecn/event";
 import { eventConfig } from "@/registry/ogimagecn/event/config";
+import { Grid } from "@/registry/ogimagecn/grid";
 import { gridConfig } from "@/registry/ogimagecn/grid/config";
+import { Logo } from "@/registry/ogimagecn/logo";
 import { logoConfig } from "@/registry/ogimagecn/logo/config";
+import { Photo } from "@/registry/ogimagecn/photo";
 import { photoConfig } from "@/registry/ogimagecn/photo/config";
+import { Product } from "@/registry/ogimagecn/product";
 import { productConfig } from "@/registry/ogimagecn/product/config";
+import { Profile } from "@/registry/ogimagecn/profile";
 import { profileConfig } from "@/registry/ogimagecn/profile/config";
+import { Quote } from "@/registry/ogimagecn/quote";
 import { quoteConfig } from "@/registry/ogimagecn/quote/config";
+import { Showcase } from "@/registry/ogimagecn/showcase";
 import { showcaseConfig } from "@/registry/ogimagecn/showcase/config";
+import { Simple } from "@/registry/ogimagecn/simple";
 import { simpleConfig } from "@/registry/ogimagecn/simple/config";
+import { Stat } from "@/registry/ogimagecn/stat";
 import { statConfig } from "@/registry/ogimagecn/stat/config";
+import { Terminal } from "@/registry/ogimagecn/terminal";
 import { terminalConfig } from "@/registry/ogimagecn/terminal/config";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,108 +36,21 @@ export interface RegistryEntry {
   config: ControlConfig;
 }
 
-const lazy = (loader: () => Promise<{ default: AnyComponent }>) =>
-  dynamic(loader, { ssr: false });
-
 const registry: Record<string, RegistryEntry> = {
-  blog: {
-    Component: lazy(async () => {
-      const { Blog } = await import("@/registry/ogimagecn/blog");
-      return { default: Blog };
-    }),
-    config: blogConfig,
-  },
-  changelog: {
-    Component: lazy(async () => {
-      const { Changelog } = await import("@/registry/ogimagecn/changelog");
-      return { default: Changelog };
-    }),
-    config: changelogConfig,
-  },
-  editorial: {
-    Component: lazy(async () => {
-      const { Editorial } = await import("@/registry/ogimagecn/editorial");
-      return { default: Editorial };
-    }),
-    config: editorialConfig,
-  },
-  event: {
-    Component: lazy(async () => {
-      const { Event } = await import("@/registry/ogimagecn/event");
-      return { default: Event };
-    }),
-    config: eventConfig,
-  },
-  grid: {
-    Component: lazy(async () => {
-      const { Grid } = await import("@/registry/ogimagecn/grid");
-      return { default: Grid };
-    }),
-    config: gridConfig,
-  },
-  logo: {
-    Component: lazy(async () => {
-      const { Logo } = await import("@/registry/ogimagecn/logo");
-      return { default: Logo };
-    }),
-    config: logoConfig,
-  },
-  photo: {
-    Component: lazy(async () => {
-      const { Photo } = await import("@/registry/ogimagecn/photo");
-      return { default: Photo };
-    }),
-    config: photoConfig,
-  },
-  product: {
-    Component: lazy(async () => {
-      const { Product } = await import("@/registry/ogimagecn/product");
-      return { default: Product };
-    }),
-    config: productConfig,
-  },
-  profile: {
-    Component: lazy(async () => {
-      const { Profile } = await import("@/registry/ogimagecn/profile");
-      return { default: Profile };
-    }),
-    config: profileConfig,
-  },
-  quote: {
-    Component: lazy(async () => {
-      const { Quote } = await import("@/registry/ogimagecn/quote");
-      return { default: Quote };
-    }),
-    config: quoteConfig,
-  },
-  showcase: {
-    Component: lazy(async () => {
-      const { Showcase } = await import("@/registry/ogimagecn/showcase");
-      return { default: Showcase };
-    }),
-    config: showcaseConfig,
-  },
-  simple: {
-    Component: lazy(async () => {
-      const { Simple } = await import("@/registry/ogimagecn/simple");
-      return { default: Simple };
-    }),
-    config: simpleConfig,
-  },
-  stat: {
-    Component: lazy(async () => {
-      const { Stat } = await import("@/registry/ogimagecn/stat");
-      return { default: Stat };
-    }),
-    config: statConfig,
-  },
-  terminal: {
-    Component: lazy(async () => {
-      const { Terminal } = await import("@/registry/ogimagecn/terminal");
-      return { default: Terminal };
-    }),
-    config: terminalConfig,
-  },
+  blog: { Component: Blog, config: blogConfig },
+  changelog: { Component: Changelog, config: changelogConfig },
+  editorial: { Component: Editorial, config: editorialConfig },
+  event: { Component: Event, config: eventConfig },
+  grid: { Component: Grid, config: gridConfig },
+  logo: { Component: Logo, config: logoConfig },
+  photo: { Component: Photo, config: photoConfig },
+  product: { Component: Product, config: productConfig },
+  profile: { Component: Profile, config: profileConfig },
+  quote: { Component: Quote, config: quoteConfig },
+  showcase: { Component: Showcase, config: showcaseConfig },
+  simple: { Component: Simple, config: simpleConfig },
+  stat: { Component: Stat, config: statConfig },
+  terminal: { Component: Terminal, config: terminalConfig },
 };
 
 export default registry;
