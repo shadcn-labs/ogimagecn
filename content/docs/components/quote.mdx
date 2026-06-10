@@ -20,7 +20,7 @@ import { Quote } from "@/registry/ogimagecn/quote";
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add https://ogimagecn.vercel.app/r/quote.json
+npx shadcn@latest add @ogimagecn/quote
 ```
 
 </TabsContent>
@@ -55,7 +55,7 @@ export function GET() {
       handle="@gracehopper"
       quote="This is hands down the fastest way to ship beautiful OG images."
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```

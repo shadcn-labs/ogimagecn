@@ -20,7 +20,7 @@ import { Logo } from "@/registry/ogimagecn/logo";
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add https://ogimagecn.vercel.app/r/logo.json
+npx shadcn@latest add @ogimagecn/logo
 ```
 
 </TabsContent>
@@ -51,7 +51,7 @@ import { Logo } from "@/components/og/logo";
 export function GET() {
   return new ImageResponse(
     <Logo brand="acme" tagline="The all-in-one platform" accent="#6366f1" />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```

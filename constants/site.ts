@@ -36,7 +36,7 @@ export const SITE = {
   ] as const,
   NAME: "ogimagecn",
   OG_IMAGE: `${baseUrl}/og.png`,
-  REGISTRY: "https://ogimagecn.vercel.app/r",
+  REGISTRY: "@ogimagecn",
   URL: baseUrl,
 };
 

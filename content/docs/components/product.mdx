@@ -20,7 +20,7 @@ import { Product } from "@/registry/ogimagecn/product";
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add https://ogimagecn.vercel.app/r/product.json
+npx shadcn@latest add @ogimagecn/product
 ```
 
 </TabsContent>
@@ -56,7 +56,7 @@ export function GET() {
       price="$49"
       image="https://example.com/product.png"
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```

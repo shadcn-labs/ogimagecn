@@ -9,7 +9,7 @@ Pick a component from the [gallery](/docs/components) and add it with the shadcn
 CLI. The component is copied into your project at `components/og/<name>.tsx`.
 
 ```bash
-npx shadcn@latest add https://ogimagecn.vercel.app/r/simple.json
+npx shadcn@latest add @ogimagecn/simple
 ```
 
 ## Render it as an OG image
@@ -31,7 +31,7 @@ export function GET(request: Request) {
       title={searchParams.get("title") ?? undefined}
       description={searchParams.get("description") ?? undefined}
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```
@@ -66,7 +66,7 @@ import { Simple } from "@/components/og/simple";
 
 export async function GET() {
   const font = await fetch(
-    new URL("./Inter-SemiBold.ttf", import.meta.url)
+    new URL("./Inter-SemiBold.ttf", import.meta.url),
   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(<Simple />, {

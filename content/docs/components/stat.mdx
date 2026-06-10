@@ -20,7 +20,7 @@ import { Stat } from "@/registry/ogimagecn/stat";
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add https://ogimagecn.vercel.app/r/stat.json
+npx shadcn@latest add @ogimagecn/stat
 ```
 
 </TabsContent>
@@ -56,7 +56,7 @@ export function GET() {
       trend="+24%"
       caption="Open Graph images generated with next/og this year."
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```
