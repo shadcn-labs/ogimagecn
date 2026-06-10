@@ -1,5 +1,8 @@
 "use client";
 
+import { PlusIcon, XIcon } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import {
@@ -7,6 +10,7 @@ import {
   NativeSelectOption,
 } from "@/components/ui/native-select";
 import type { ControlConfig } from "@/lib/customizer-config";
+import { cn } from "@/lib/utils";
 
 interface ComponentCustomizerProps {
   controls: ControlConfig;
@@ -23,7 +27,13 @@ export const ComponentCustomizer = ({
     {Object.entries(controls).map(([key, ctrl]) => {
       const id = `ctrl-${key}`;
       return (
-        <div key={key} className="flex flex-col gap-2 justify-center">
+        <div
+          key={key}
+          className={cn(
+            "flex flex-col gap-2 justify-center",
+            ["image", "array"].includes(ctrl.type) && "col-span-2"
+          )}
+        >
           <Label htmlFor={id}>{ctrl.label}</Label>
 
           {ctrl.type === "text" && (
@@ -110,29 +120,28 @@ export const ComponentCustomizer = ({
                       onChange(key, arr);
                     }}
                   />
-                  <button
-                    type="button"
+                  <Button
+                    size="icon"
+                    variant="outline"
                     onClick={() => {
                       const arr = (values[key] as string[]).filter(
                         (_, j) => j !== i
                       );
                       onChange(key, arr);
                     }}
-                    className="shrink-0 text-muted-foreground hover:text-foreground"
                   >
-                    ×
-                  </button>
+                    <XIcon />
+                  </Button>
                 </div>
               ))}
-              <button
-                type="button"
+              <Button
+                variant="ghost"
                 onClick={() =>
                   onChange(key, [...(values[key] as string[]), ""])
                 }
-                className="text-muted-foreground hover:text-foreground"
               >
-                + Add item
-              </button>
+                <PlusIcon /> Add item
+              </Button>
             </div>
           )}
         </div>
