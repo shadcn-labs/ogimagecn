@@ -66,10 +66,3 @@ export const Terminal = ({ brand, title, caption, accent }: TerminalProps) => (
     </div>
   </div>
 );
-
-Terminal.previewProps = {
-  accent: "#22c55e",
-  brand: "ogimagecn",
-  caption: "npx shadcn@latest add ogimagecn",
-  title: "Ship beautiful OG images",
-} satisfies TerminalProps;

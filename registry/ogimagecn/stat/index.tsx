@@ -130,12 +130,3 @@ export const Stat = ({
     </div>
   </div>
 );
-
-Stat.previewProps = {
-  accent: "#22c55e",
-  brand: "ogimagecn",
-  caption: "Open Graph images generated with next/og this year.",
-  label: "Images rendered",
-  trend: "+24%",
-  value: "10M+",
-} satisfies StatProps;

@@ -94,12 +94,3 @@ export const Editorial = ({
     </div>
   </div>
 );
-
-Editorial.previewProps = {
-  accent: "#e11d48",
-  author: "ogimagecn",
-  ghost: "",
-  kicker: "Essay",
-  meta: "Issue 04",
-  title: "Designing at the edge of the canvas",
-} satisfies EditorialProps;
