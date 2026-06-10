@@ -121,12 +121,3 @@ export const Event = ({
     </div>
   </div>
 );
-
-Event.previewProps = {
-  accent: "#f59e0b",
-  brand: "ogimagecn",
-  date: "Jun 5, 2026 · 10:00 AM PT",
-  label: "Live Event",
-  location: "Online",
-  title: "Shipping beautiful OG images at scale",
-} satisfies EventProps;

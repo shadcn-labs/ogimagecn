@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export interface BlogProps {
   category: string;
   title: string;
@@ -119,14 +120,3 @@ export const Blog = ({
     </div>
   </div>
 );
-
-Blog.previewProps = {
-  accent: "#7c3aed",
-  author: "Ada Lovelace",
-  avatar: "",
-  category: "Engineering",
-  excerpt:
-    "A deep dive into Satori, the next/og runtime, and shipping fast cards.",
-  meta: "Jun 5, 2026 · 6 min read",
-  title: "How we generate social images at the edge",
-} satisfies BlogProps;

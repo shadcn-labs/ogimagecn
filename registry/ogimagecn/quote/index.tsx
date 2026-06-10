@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export interface QuoteProps {
   quote: string;
   author: string;
@@ -104,11 +105,3 @@ export const Quote = ({
     </div>
   </div>
 );
-
-Quote.previewProps = {
-  accent: "#f472b6",
-  author: "Grace Hopper",
-  avatar: "",
-  handle: "@gracehopper",
-  quote: "This is hands down the fastest way to ship beautiful OG images.",
-} satisfies QuoteProps;

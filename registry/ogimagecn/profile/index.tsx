@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export interface ProfileProps {
   name: string;
   role: string;
@@ -124,12 +125,3 @@ export const Profile = ({
     </div>
   </div>
 );
-
-Profile.previewProps = {
-  accent: "#f43f5e",
-  avatar: "",
-  bio: "Building tools for the open web. Writing about design systems, performance, and shipping fast.",
-  name: "Ada Lovelace",
-  role: "Founder & Engineer",
-  website: "ada.dev",
-} satisfies ProfileProps;

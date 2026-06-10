@@ -125,11 +125,3 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
     </div>
   </div>
 );
-
-Grid.previewProps = {
-  accent: "#22d3ee",
-  brand: "ogimagecn",
-  description:
-    "Composable components powered by Satori and the next/og runtime.",
-  title: "Build your own OG images",
-} satisfies GridProps;
