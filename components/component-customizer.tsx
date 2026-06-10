@@ -24,14 +24,7 @@ export const ComponentCustomizer = ({
       const id = `ctrl-${key}`;
       return (
         <div key={key} className="flex flex-col gap-2 justify-center">
-          <div className="flex items-center justify-between gap-2">
-            <Label
-              htmlFor={id}
-              className="text-xs font-medium text-fd-muted-foreground"
-            >
-              {ctrl.label}
-            </Label>
-          </div>
+          <Label htmlFor={id}>{ctrl.label}</Label>
 
           {ctrl.type === "text" && (
             <Input
@@ -49,13 +42,13 @@ export const ComponentCustomizer = ({
                 type="color"
                 value={values[key] as string}
                 onChange={(e) => onChange(key, e.target.value)}
-                className="size-9 shrink-0 cursor-pointer rounded-md border border-fd-border bg-transparent p-0.5"
+                className="size-9 shrink-0 cursor-pointer rounded-md border bg-transparent p-0.5"
               />
               <Input
                 type="text"
                 value={values[key] as string}
                 onChange={(e) => onChange(key, e.target.value)}
-                className="font-mono text-xs"
+                className="font-mono "
               />
             </div>
           )}
@@ -69,7 +62,7 @@ export const ComponentCustomizer = ({
                 placeholder="Image URL"
                 onChange={(e) => onChange(key, e.target.value)}
               />
-              <label className="shrink-0 cursor-pointer rounded-md border border-fd-border px-2 py-1.5 text-xs hover:bg-fd-muted">
+              <label className="shrink-0 cursor-pointer rounded-md border px-2 py-1.5 hover:bg-muted">
                 Upload
                 <input
                   type="file"
@@ -125,7 +118,7 @@ export const ComponentCustomizer = ({
                       );
                       onChange(key, arr);
                     }}
-                    className="shrink-0 text-fd-muted-foreground hover:text-fd-foreground"
+                    className="shrink-0 text-muted-foreground hover:text-foreground"
                   >
                     ×
                   </button>
@@ -136,7 +129,7 @@ export const ComponentCustomizer = ({
                 onClick={() =>
                   onChange(key, [...(values[key] as string[]), ""])
                 }
-                className="text-xs text-fd-muted-foreground hover:text-fd-foreground"
+                className="text-muted-foreground hover:text-foreground"
               >
                 + Add item
               </button>
