@@ -1,15 +1,19 @@
 "use client";
-
+import type { ComponentType, CSSProperties, ReactNode } from "react";
 import { useLayoutEffect, useRef, useState } from "react";
-import type { CSSProperties, ReactNode } from "react";
 
 const OG_WIDTH = 1200;
 const OG_HEIGHT = 630;
 
 export const ComponentPreviewClient = ({
+  Component,
+  props,
   children,
 }: {
-  children: ReactNode;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Component?: ComponentType<any>;
+  props?: Record<string, unknown>;
+  children?: ReactNode;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0);
@@ -45,7 +49,7 @@ export const ComponentPreviewClient = ({
         className="absolute top-0 left-0"
         style={scale ? stageStyle : { ...stageStyle, visibility: "hidden" }}
       >
-        {children}
+        {Component && props ? <Component {...props} /> : children}
       </div>
     </div>
   );

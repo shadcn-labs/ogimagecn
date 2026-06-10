@@ -14,6 +14,7 @@
     "prepare": "lefthook install"
   },
   "dependencies": {
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/postcss": "^4.2.4",
     "@vercel/analytics": "^2.0.1",
     "@web-kits/audio": "^0.1.0",
@@ -35,6 +36,7 @@
     "react-dom": "19.2.5",
     "react-hotkeys-hook": "^5.2.4",
     "rehype-pretty-code": "^0.14.3",
+    "satori": "^0.26.0",
     "shiki": "^4.0.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0",
