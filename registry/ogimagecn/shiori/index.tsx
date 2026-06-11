@@ -1,25 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
 export interface ShioriProps {
-  title: string;
-  description: string;
   background: string;
-  titleColor: string;
-  descriptionColor: string;
+  brand: string;
+  brandColor: string;
   logo: string;
+  title: string;
+  titleColor: string;
 }
 
 export const Shiori = ({
   title,
-  description,
   background,
   titleColor,
-  descriptionColor,
   logo,
+  brand,
+  brandColor,
 }: ShioriProps) => (
   <div
     style={{
       backgroundColor: background,
-      color: titleColor,
       display: "flex",
       flexDirection: "column",
       height: "100%",
@@ -51,7 +50,7 @@ export const Shiori = ({
     >
       <div
         style={{
-          color: titleColor,
+          color: brandColor,
           flex: 0.25,
           fontSize: "64px",
           fontWeight: 600,
@@ -59,12 +58,12 @@ export const Shiori = ({
           lineHeight: 1.3,
         }}
       >
-        {title}
+        {brand}
       </div>
 
       <div
         style={{
-          color: descriptionColor,
+          color: titleColor,
           flex: 0.6,
           fontSize: "64px",
           fontWeight: 600,
@@ -72,7 +71,7 @@ export const Shiori = ({
           lineHeight: 1.3,
         }}
       >
-        {description}
+        {title}
       </div>
 
       <div style={{ flex: 0.25 }} />

@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 export interface ChangelogProps {
   version: string;
   date: string;
   title: string;
   items: string[];
   brand: string;
-  accent?: string;
+  logo?: string;
 }
 
 export const Changelog = ({
@@ -13,7 +14,7 @@ export const Changelog = ({
   title,
   items,
   brand,
-  accent,
+  logo = "",
 }: ChangelogProps) => (
   <div
     style={{
@@ -31,15 +32,29 @@ export const Changelog = ({
     <div style={{ alignItems: "center", display: "flex", gap: "20px" }}>
       <div
         style={{
-          backgroundColor: accent,
+          alignItems: "center",
+          backgroundColor: "rgba(52,211,153,0.15)",
           borderRadius: "999px",
-          color: "#0a0a0a",
+          color: "#34d399",
           display: "flex",
           fontSize: "28px",
           fontWeight: 700,
+          gap: "8px",
           padding: "10px 22px",
         }}
       >
+        {logo ? (
+          <img
+            alt=""
+            height={20}
+            src={logo}
+            width={20}
+            style={{
+              borderRadius: "4px",
+              objectFit: "contain",
+            }}
+          />
+        ) : null}
         {version}
       </div>
       <div style={{ color: "#a1a1aa", display: "flex", fontSize: "28px" }}>
@@ -86,7 +101,7 @@ export const Changelog = ({
             <svg
               fill="none"
               height="22"
-              stroke={accent}
+              stroke="#34d399"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="3"
@@ -105,16 +120,50 @@ export const Changelog = ({
 
     <div
       style={{
-        bottom: "64px",
-        color: "#71717a",
+        alignItems: "center",
         display: "flex",
-        fontSize: "28px",
-        fontWeight: 600,
+        gap: "12px",
         position: "absolute",
         right: "80px",
+        top: "80px",
       }}
     >
-      {brand}
+      {logo ? (
+        <img
+          alt=""
+          height={40}
+          src={logo}
+          width={40}
+          style={{
+            borderRadius: "8px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            alignItems: "center",
+            backgroundColor: "#34d399",
+            borderRadius: "8px",
+            color: "#0a0a0a",
+            display: "flex",
+            fontSize: "20px",
+            fontWeight: 700,
+            height: "40px",
+            justifyContent: "center",
+            width: "40px",
+          }}
+        />
+      )}
+      <div
+        style={{
+          color: "#71717a",
+          fontSize: "32px",
+          fontWeight: 700,
+        }}
+      >
+        {brand}
+      </div>
     </div>
   </div>
 );

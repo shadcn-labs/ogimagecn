@@ -1,19 +1,20 @@
+/* eslint-disable @next/next/no-img-element */
 export interface EditorialProps {
   kicker: string;
   title: string;
-  author: string;
   meta: string;
   ghost?: string;
-  accent?: string;
+  brand: string;
+  logo?: string;
 }
 
 export const Editorial = ({
   kicker,
   title,
-  author,
   meta,
   ghost,
-  accent,
+  brand,
+  logo,
 }: EditorialProps) => (
   <div
     style={{
@@ -49,9 +50,9 @@ export const Editorial = ({
       style={{
         alignItems: "center",
         alignSelf: "flex-start",
-        backgroundColor: accent,
+        backgroundColor: "rgba(225,29,72,0.15)",
         borderRadius: "999px",
-        color: "#ffffff",
+        color: "#e11d48",
         display: "flex",
         fontSize: "26px",
         fontWeight: 700,
@@ -85,8 +86,37 @@ export const Editorial = ({
         paddingTop: "28px",
       }}
     >
-      <div style={{ display: "flex", fontSize: "32px", fontWeight: 700 }}>
-        {author}
+      <div style={{ alignItems: "center", display: "flex", gap: "12px" }}>
+        {logo ? (
+          <img
+            alt=""
+            height={32}
+            src={logo}
+            width={32}
+            style={{
+              borderRadius: "6px",
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              alignItems: "center",
+              backgroundColor: "#e11d48",
+              borderRadius: "6px",
+              color: "#ffffff",
+              display: "flex",
+              fontSize: "16px",
+              fontWeight: 700,
+              height: "32px",
+              justifyContent: "center",
+              width: "32px",
+            }}
+          />
+        )}
+        <div style={{ display: "flex", fontSize: "32px", fontWeight: 700 }}>
+          {brand}
+        </div>
       </div>
       <div style={{ color: "#52525b", display: "flex", fontSize: "30px" }}>
         {meta}

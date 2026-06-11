@@ -1,11 +1,19 @@
+/* eslint-disable @next/next/no-img-element */
 export interface PhotoProps {
   image?: string;
   label: string;
   title: string;
   brand: string;
+  logo?: string;
 }
 
-export const Photo = ({ image, label, title, brand }: PhotoProps) => {
+export const Photo = ({
+  image,
+  label,
+  title,
+  brand,
+  logo = "",
+}: PhotoProps) => {
   const fallback =
     "linear-gradient(135deg, #0f172a 0%, #1e3a8a 45%, #7c3aed 100%)";
 
@@ -72,14 +80,48 @@ export const Photo = ({ image, label, title, brand }: PhotoProps) => {
 
       <div
         style={{
-          color: "rgba(255,255,255,0.85)",
+          alignItems: "center",
           display: "flex",
-          fontSize: "28px",
-          fontWeight: 600,
+          gap: "12px",
           marginTop: "32px",
         }}
       >
-        {brand}
+        {logo ? (
+          <img
+            alt=""
+            height={36}
+            src={logo}
+            width={36}
+            style={{
+              borderRadius: "8px",
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              alignItems: "center",
+              backgroundColor: "rgba(255,255,255,0.2)",
+              borderRadius: "8px",
+              color: "#ffffff",
+              display: "flex",
+              fontSize: "16px",
+              fontWeight: 700,
+              height: "36px",
+              justifyContent: "center",
+              width: "36px",
+            }}
+          />
+        )}
+        <div
+          style={{
+            color: "rgba(255,255,255,0.85)",
+            fontSize: "28px",
+            fontWeight: 600,
+          }}
+        >
+          {brand}
+        </div>
       </div>
     </div>
   );

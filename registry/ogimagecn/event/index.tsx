@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 export interface EventProps {
   label: string;
   brand: string;
   title: string;
   date: string;
   location: string;
-  accent?: string;
+  logo?: string;
 }
 
 export const Event = ({
@@ -13,7 +14,7 @@ export const Event = ({
   title,
   date,
   location,
-  accent,
+  logo = "",
 }: EventProps) => (
   <div
     style={{
@@ -40,9 +41,9 @@ export const Event = ({
         style={{
           alignItems: "center",
           backgroundColor: "rgba(245,158,11,0.15)",
-          border: `1px solid ${accent}`,
+          border: "1px solid rgba(245,158,11,0.4)",
           borderRadius: "999px",
-          color: accent,
+          color: "#f59e0b",
           display: "flex",
           fontSize: "26px",
           fontWeight: 600,
@@ -54,7 +55,7 @@ export const Event = ({
       >
         <div
           style={{
-            backgroundColor: accent,
+            backgroundColor: "#f59e0b",
             borderRadius: "999px",
             height: "12px",
             width: "12px",
@@ -64,13 +65,47 @@ export const Event = ({
       </div>
       <div
         style={{
-          color: "#a1a1aa",
+          alignItems: "center",
           display: "flex",
-          fontSize: "28px",
-          fontWeight: 600,
+          gap: "12px",
         }}
       >
-        {brand}
+        {logo ? (
+          <img
+            alt=""
+            height={40}
+            src={logo}
+            width={40}
+            style={{
+              borderRadius: "8px",
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              alignItems: "center",
+              backgroundColor: "#f59e0b",
+              borderRadius: "8px",
+              color: "#0a0a0a",
+              display: "flex",
+              fontSize: "20px",
+              fontWeight: 700,
+              height: "40px",
+              justifyContent: "center",
+              width: "40px",
+            }}
+          />
+        )}
+        <div
+          style={{
+            color: "#a1a1aa",
+            fontSize: "28px",
+            fontWeight: 600,
+          }}
+        >
+          {brand}
+        </div>
       </div>
     </div>
 
@@ -100,7 +135,7 @@ export const Event = ({
         <svg
           fill="none"
           height="30"
-          stroke={accent}
+          stroke="#f59e0b"
           strokeLinecap="round"
           strokeLinejoin="round"
           strokeWidth="2"

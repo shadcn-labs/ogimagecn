@@ -1,7 +1,6 @@
 import type { ControlConfig } from "@/lib/customizer-config";
 
 export const simpleConfig: ControlConfig = {
-  accent: { default: "#7c3aed", label: "Accent Color", type: "color" },
   brand: { default: "ogimagecn", label: "Brand", type: "text" },
   description: {
     default:
@@ -10,6 +9,7 @@ export const simpleConfig: ControlConfig = {
     type: "text",
   },
   label: { default: "Open Graph", label: "Label", type: "text" },
+  logo: { default: "", label: "Logo", type: "image" },
   title: {
     default: "Beautiful OG images, built on Satori",
     label: "Title",

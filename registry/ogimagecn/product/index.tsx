@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 export interface ProductProps {
   brand: string;
   title: string;
   description: string;
   price: string;
   image?: string;
-  accent?: string;
+  logo?: string;
 }
 
 export const Product = ({
@@ -13,7 +14,7 @@ export const Product = ({
   description,
   price,
   image,
-  accent,
+  logo,
 }: ProductProps) => (
   <div
     style={{
@@ -35,14 +36,27 @@ export const Product = ({
       }}
     >
       <div style={{ alignItems: "center", display: "flex", gap: "14px" }}>
-        <div
-          style={{
-            backgroundColor: accent,
-            borderRadius: "10px",
-            height: "32px",
-            width: "32px",
-          }}
-        />
+        {logo ? (
+          <img
+            alt=""
+            height={32}
+            src={logo}
+            width={32}
+            style={{
+              borderRadius: "10px",
+              objectFit: "contain",
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              backgroundColor: "#6366f1",
+              borderRadius: "10px",
+              height: "32px",
+              width: "32px",
+            }}
+          />
+        )}
         <div style={{ display: "flex", fontSize: "28px", fontWeight: 600 }}>
           {brand}
         </div>
@@ -79,7 +93,7 @@ export const Product = ({
         style={{
           alignItems: "center",
           alignSelf: "flex-start",
-          backgroundColor: accent,
+          backgroundColor: "#6366f1",
           borderRadius: "999px",
           color: "#ffffff",
           display: "flex",

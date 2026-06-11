@@ -72,25 +72,27 @@ export const ComponentCustomizer = ({
                 placeholder="Image URL"
                 onChange={(e) => onChange(key, e.target.value)}
               />
-              <label className="shrink-0 cursor-pointer rounded-md border px-2 py-1.5 hover:bg-muted">
-                Upload
-                <input
-                  type="file"
-                  accept="image/*"
-                  className="hidden"
-                  onChange={(e) => {
-                    const file = e.target.files?.[0];
-                    if (!file) {
-                      return;
-                    }
-                    const reader = new FileReader();
-                    reader.addEventListener("load", () =>
-                      onChange(key, reader.result as string)
-                    );
-                    reader.readAsDataURL(file);
-                  }}
-                />
-              </label>
+              <Button variant="outline" asChild>
+                <label>
+                  Upload
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    onChange={(e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) {
+                        return;
+                      }
+                      const reader = new FileReader();
+                      reader.addEventListener("load", () =>
+                        onChange(key, reader.result as string)
+                      );
+                      reader.readAsDataURL(file);
+                    }}
+                  />
+                </label>
+              </Button>
             </div>
           )}
 

@@ -1,7 +1,6 @@
 import type { ControlConfig } from "@/lib/customizer-config";
 
 export const changelogConfig: ControlConfig = {
-  accent: { default: "#34d399", label: "Accent Color", type: "color" },
   brand: { default: "ogimagecn", label: "Brand", type: "text" },
   date: { default: "June 2026", label: "Date", type: "text" },
   items: {
@@ -13,6 +12,7 @@ export const changelogConfig: ControlConfig = {
     label: "Items",
     type: "array",
   },
+  logo: { default: "", label: "Logo", type: "image" },
   title: { default: "What's new", label: "Title", type: "text" },
   version: { default: "v2.0", label: "Version", type: "text" },
 };

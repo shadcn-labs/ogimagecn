@@ -45,10 +45,17 @@ import { ImageResponse } from "next/og";
 import { Grid } from "@/components/og/grid";
 
 export function GET() {
-  return new ImageResponse(<Grid title="Build your own OG images" />, {
-    width: 1200,
-    height: 630,
-  });
+  return new ImageResponse(
+    <Grid
+      title="Build your own OG images"
+      description="Composable components powered by Satori and the next/og runtime."
+      brand="ogimagecn"
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
 }
 ```
 
@@ -61,4 +68,4 @@ export function GET() {
 | `title`       | `string` | -       |
 | `description` | `string` | -       |
 | `brand`       | `string` | -       |
-| `accent`      | `string` | -       |
+| `logo`        | `string` | -       |

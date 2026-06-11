@@ -46,7 +46,7 @@ import { Logo } from "@/components/og/logo";
 
 export function GET() {
   return new ImageResponse(
-    <Logo brand="acme" tagline="The all-in-one platform" accent="#6366f1" />,
+    <Logo brand="acme" tagline="The all-in-one platform" background="#09090b" />,
     { width: 1200, height: 630 }
   );
 }
@@ -61,5 +61,5 @@ export function GET() {
 | `brand`      | `string` | -       |
 | `tagline`    | `string` | -       |
 | `monogram`   | `string` | -       |
-| `accent`     | `string` | -       |
 | `background` | `string` | -       |
+| `logo`       | `string` | -       |

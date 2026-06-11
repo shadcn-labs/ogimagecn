@@ -1,7 +1,6 @@
 import type { ControlConfig } from "@/lib/customizer-config";
 
 export const profileConfig: ControlConfig = {
-  accent: { default: "#f43f5e", label: "Accent Color", type: "color" },
   avatar: { default: "", label: "Avatar", type: "image" },
   bio: {
     default:

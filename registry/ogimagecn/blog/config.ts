@@ -1,9 +1,9 @@
 import type { ControlConfig } from "@/lib/customizer-config";
 
 export const blogConfig: ControlConfig = {
-  accent: { default: "#7c3aed", label: "Accent Color", type: "color" },
   author: { default: "Ada Lovelace", label: "Author", type: "text" },
   avatar: { default: "", label: "Avatar", type: "image" },
+  brand: { default: "ogimagecn", label: "Brand", type: "text" },
   category: { default: "Engineering", label: "Category", type: "text" },
   excerpt: {
     default:
@@ -11,6 +11,7 @@ export const blogConfig: ControlConfig = {
     label: "Excerpt",
     type: "text",
   },
+  logo: { default: "", label: "Logo", type: "image" },
   meta: {
     default: "Jun 5, 2026 · 6 min read",
     label: "Meta",

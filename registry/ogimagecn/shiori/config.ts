@@ -6,24 +6,20 @@ export const shioriConfig: ControlConfig = {
     label: "Background Color",
     type: "color",
   },
-  description: {
-    default: "A beautifully simple read-it-later app",
-    label: "Description",
-    type: "text",
-  },
-  descriptionColor: {
-    default: "#8b7e74",
-    label: "Description Color",
-    type: "color",
-  },
+  brand: { default: "Shiori", label: "Brand", type: "text" },
+  brandColor: { default: "#1a1a1a", label: "Brand Color", type: "color" },
   logo: {
     default: "https://www.shiori.sh/logo.png",
     label: "Logo",
     type: "image",
   },
-  title: { default: "Shiori", label: "Title", type: "text" },
+  title: {
+    default: "A beautifully simple read-it-later app",
+    label: "Title",
+    type: "text",
+  },
   titleColor: {
-    default: "#1a1a1a",
+    default: "#8b7e74",
     label: "Title Color",
     type: "color",
   },

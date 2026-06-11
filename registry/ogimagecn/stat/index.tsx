@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 export interface StatProps {
   label: string;
   value: string;
   caption: string;
   trend?: string;
   brand: string;
-  accent?: string;
+  logo?: string;
 }
 
 export const Stat = ({
@@ -13,7 +14,7 @@ export const Stat = ({
   caption,
   trend,
   brand,
-  accent,
+  logo,
 }: StatProps) => (
   <div
     style={{
@@ -67,7 +68,7 @@ export const Stat = ({
             alignItems: "center",
             backgroundColor: "rgba(34,197,94,0.15)",
             borderRadius: "999px",
-            color: accent,
+            color: "#22c55e",
             display: "flex",
             fontSize: "34px",
             fontWeight: 700,
@@ -79,7 +80,7 @@ export const Stat = ({
           <svg
             fill="none"
             height="26"
-            stroke={accent}
+            stroke="#22c55e"
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth="3"
@@ -118,14 +119,27 @@ export const Stat = ({
         position: "absolute",
       }}
     >
-      <div
-        style={{
-          backgroundColor: accent,
-          borderRadius: "8px",
-          height: "24px",
-          width: "24px",
-        }}
-      />
+      {logo ? (
+        <img
+          alt=""
+          height={24}
+          src={logo}
+          width={24}
+          style={{
+            borderRadius: "6px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            backgroundColor: "#22c55e",
+            borderRadius: "8px",
+            height: "24px",
+            width: "24px",
+          }}
+        />
+      )}
       {brand}
     </div>
   </div>
