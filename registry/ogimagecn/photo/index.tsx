@@ -84,10 +84,3 @@ export const Photo = ({ image, label, title, brand }: PhotoProps) => {
     </div>
   );
 };
-
-Photo.previewProps = {
-  brand: "ogimagecn",
-  image: "",
-  label: "Travel",
-  title: "Chasing light across the northern coast",
-} satisfies PhotoProps;

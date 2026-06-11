@@ -3,10 +3,6 @@ import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
 import { PageTransition } from "@/components/page-transition";
 import { ROUTES } from "@/constants/routes";
-import { Grid } from "@/registry/ogimagecn/grid";
-import { Quote } from "@/registry/ogimagecn/quote";
-import { Showcase } from "@/registry/ogimagecn/showcase";
-import { Simple } from "@/registry/ogimagecn/simple";
 import { BreadcrumbJsonLd } from "@/seo/json-ld";
 
 export const dynamic = "force-static";
@@ -36,18 +32,10 @@ export default function IndexPage() {
 
         <section className="container-wrapper pb-12 lg:pb-20">
           <div className="container grid gap-6 sm:grid-cols-2">
-            <ComponentPreview>
-              <Simple {...Simple.previewProps} />
-            </ComponentPreview>
-            <ComponentPreview>
-              <Quote {...Quote.previewProps} />
-            </ComponentPreview>
-            <ComponentPreview>
-              <Grid {...Grid.previewProps} />
-            </ComponentPreview>
-            <ComponentPreview>
-              <Showcase {...Showcase.previewProps} />
-            </ComponentPreview>
+            <ComponentPreview name="simple" hideCustomizer />
+            <ComponentPreview name="quote" hideCustomizer />
+            <ComponentPreview name="grid" hideCustomizer />
+            <ComponentPreview name="showcase" hideCustomizer />
           </div>
         </section>
       </PageTransition>

@@ -118,16 +118,3 @@ export const Changelog = ({
     </div>
   </div>
 );
-
-Changelog.previewProps = {
-  accent: "#34d399",
-  brand: "ogimagecn",
-  date: "June 2026",
-  items: [
-    "Seven new OG image components",
-    "Live in-browser previews",
-    "One-line shadcn install",
-  ],
-  title: "What's new",
-  version: "v2.0",
-} satisfies ChangelogProps;

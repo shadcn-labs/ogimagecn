@@ -111,12 +111,3 @@ export const Product = ({
     />
   </div>
 );
-
-Product.previewProps = {
-  accent: "#6366f1",
-  brand: "ogimagecn",
-  description: "Copy-paste social cards rendered with next/og.",
-  image: "",
-  price: "$49",
-  title: "The OG image toolkit",
-} satisfies ProductProps;

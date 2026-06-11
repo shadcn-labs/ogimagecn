@@ -186,10 +186,3 @@ export const Showcase = ({ title, subtitle, url, accent }: ShowcaseProps) => (
     </div>
   </div>
 );
-
-Showcase.previewProps = {
-  accent: "#6366f1",
-  subtitle: "The dashboard that brings every metric into one calm view.",
-  title: "Run your business smarter",
-  url: "app.ogimagecn.dev",
-} satisfies ShowcaseProps;

@@ -108,12 +108,3 @@ export const Simple = ({
     </div>
   </div>
 );
-
-Simple.previewProps = {
-  accent: "#7c3aed",
-  brand: "ogimagecn",
-  description:
-    "A shadcn registry of social card components you can copy, paste, and ship.",
-  label: "Open Graph",
-  title: "Beautiful OG images, built on Satori",
-} satisfies SimpleProps;
