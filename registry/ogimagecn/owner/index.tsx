@@ -3,29 +3,11 @@ export interface OwnerProps {
   eyebrow: string;
   title: string;
   brand: string;
-  images?: string[];
+  images: string[];
+  logo?: string;
 }
 
-const getRotation = (i: number) => {
-  if (i === 0) {
-    return -3;
-  }
-  if (i === 2) {
-    return 3;
-  }
-  return 0;
-};
-
-export const Owner = ({
-  eyebrow,
-  title,
-  brand,
-  images = [
-    "https://picsum.photos/id/1005/400/400",
-    "https://picsum.photos/id/1012/400/400",
-    "https://picsum.photos/id/1025/400/400",
-  ],
-}: OwnerProps) => (
+export const Owner = ({ eyebrow, title, brand, images, logo }: OwnerProps) => (
   <div
     style={{
       backgroundColor: "#f5f5f5",
@@ -33,99 +15,126 @@ export const Owner = ({
       display: "flex",
       flexDirection: "column",
       height: "100%",
-      padding: "80px",
-      position: "relative",
+      padding: "8px",
       width: "100%",
     }}
   >
     <div
       style={{
-        alignItems: "center",
+        backgroundColor: "#ffffff",
+        borderRadius: "56px",
         display: "flex",
-        gap: "12px",
-        position: "absolute",
-        right: "80px",
-        top: "80px",
+        flexDirection: "column",
+        height: "100%",
+        overflow: "hidden",
+        padding: "48px",
+        position: "relative",
+        width: "100%",
       }}
     >
-      <svg
-        height="40"
-        viewBox="0 0 24 24"
-        width="40"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-      >
-        <circle cx="12" cy="12" r="3" />
-        <path d="M12 2a10 10 0 0 0-10 10c0 7.5 10 12 10 12s10-4.5 10-12A10 10 0 0 0 12 2z" />
-      </svg>
-      <span
+      <div
         style={{
-          fontSize: "32px",
-          fontWeight: 700,
+          color: "#a3a3a3",
+          display: "flex",
+          fontSize: "64px",
+          fontWeight: 600,
+          letterSpacing: "-0.03em",
+          lineHeight: 1.05,
         }}
       >
-        {brand}
-      </span>
-    </div>
+        {eyebrow}
+      </div>
 
-    <div
-      style={{
-        color: "#a3a3a3",
-        display: "flex",
-        fontSize: "64px",
-        fontWeight: 400,
-        letterSpacing: "-0.02em",
-      }}
-    >
-      {eyebrow}
-    </div>
+      <div
+        style={{
+          display: "flex",
+          fontSize: "64px",
+          fontWeight: 600,
+          letterSpacing: "-0.03em",
+          lineHeight: 1.05,
+          maxWidth: "800px",
+        }}
+      >
+        {title}
+      </div>
 
-    <div
-      style={{
-        display: "flex",
-        fontSize: title.length > 50 ? 72 : 80,
-        fontWeight: 700,
-        letterSpacing: "-0.03em",
-        lineHeight: 1.05,
-        marginTop: "16px",
-        maxWidth: "900px",
-      }}
-    >
-      {title}
-    </div>
+      <div
+        style={{
+          alignItems: "flex-end",
+          bottom: "0px",
+          display: "flex",
+          gap: "16px",
+          left: "48px",
+          position: "absolute",
+          right: "48px",
+        }}
+      >
+        {images.map((src, i) => (
+          <div
+            key={i}
+            style={{
+              borderRadius: "24px 24px 0 0",
+              display: "flex",
+              flex: 1,
+              height: i === 1 ? "300px" : "260px",
+              overflow: "hidden",
+            }}
+          >
+            <img
+              alt=""
+              src={src}
+              style={{
+                borderRadius: "24px 24px 0 0",
+                height: "100%",
+                objectFit: "cover",
+                width: "100%",
+              }}
+            />
+          </div>
+        ))}
+      </div>
 
-    <div
-      style={{
-        bottom: "60px",
-        display: "flex",
-        gap: "28px",
-        left: "80px",
-        position: "absolute",
-      }}
-    >
-      {images.map((src, i) => (
-        <div
-          key={i}
-          style={{
-            borderRadius: "24px",
-            height: "320px",
-            overflow: "hidden",
-            transform: `rotate(${getRotation(i)}deg)`,
-            width: "300px",
-          }}
-        >
+      <div
+        style={{
+          alignItems: "center",
+          display: "flex",
+          gap: "8px",
+          position: "absolute",
+          right: "36px",
+          top: "36px",
+        }}
+      >
+        {logo ? (
           <img
             alt=""
-            src={src}
+            height={32}
+            src={logo}
+            width={32}
             style={{
-              height: "100%",
-              objectFit: "cover",
-              width: "100%",
+              borderRadius: "8px",
+              objectFit: "contain",
             }}
           />
+        ) : (
+          <div
+            style={{
+              backgroundColor: "#1a1a1a",
+              borderRadius: "8px",
+              height: "32px",
+              width: "32px",
+            }}
+          />
+        )}
+        <div
+          style={{
+            fontSize: "28px",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+          }}
+        >
+          {brand}
         </div>
-      ))}
+      </div>
     </div>
   </div>
 );
