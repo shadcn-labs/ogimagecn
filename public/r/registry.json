@@ -192,7 +192,7 @@
       "description": "A clean, minimal Open Graph image with a light cream background, an orange gradient circle logo, and a bold title beside a muted description.",
       "files": [
         {
-          "path": "registry/ogimagecn/shiori.tsx",
+          "path": "registry/ogimagecn/shiori/index.tsx",
           "type": "registry:component",
           "target": "components/og/shiori.tsx"
         }
@@ -205,7 +205,7 @@
       "description": "A clean Open Graph image with a light background, eyebrow text, bold headline, and three rounded photos at the bottom.",
       "files": [
         {
-          "path": "registry/ogimagecn/owner.tsx",
+          "path": "registry/ogimagecn/owner/index.tsx",
           "type": "registry:component",
           "target": "components/og/owner.tsx"
         }

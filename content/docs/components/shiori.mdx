@@ -5,9 +5,7 @@ description: A clean, minimal Open Graph image with a light cream background, an
 
 import { Shiori } from "@/registry/ogimagecn/shiori";
 
-<ComponentPreview hideCode>
-  <Shiori {...Shiori.previewProps} />
-</ComponentPreview>
+<ComponentPreview hideCode name="shiori" />
 
 ## Installation
 
@@ -56,7 +54,7 @@ export function GET() {
       accent="#f97316"
       accentSecondary="#ea580c"
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```

@@ -70,10 +70,3 @@ export const Shiori = ({
     </div>
   </div>
 );
-
-Shiori.previewProps = {
-  accent: "#f97316",
-  accentSecondary: "#ea580c",
-  description: "A beautifully simple read-it-later app",
-  title: "Shiori",
-} satisfies ShioriProps;

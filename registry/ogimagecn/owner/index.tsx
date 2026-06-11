@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 export interface OwnerProps {
   eyebrow: string;
   title: string;
@@ -128,14 +129,3 @@ export const Owner = ({
     </div>
   </div>
 );
-
-Owner.previewProps = {
-  brand: "Owner",
-  eyebrow: "Meet Owner.",
-  images: [
-    "https://picsum.photos/id/1005/400/400",
-    "https://picsum.photos/id/1012/400/400",
-    "https://picsum.photos/id/1025/400/400",
-  ],
-  title: "We make online growth easy for restaurants.",
-} satisfies OwnerProps;

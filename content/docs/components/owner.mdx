@@ -5,9 +5,7 @@ description: A clean Open Graph image with a light background, eyebrow text, bol
 
 import { Owner } from "@/registry/ogimagecn/owner";
 
-<ComponentPreview hideCode>
-  <Owner {...Owner.previewProps} />
-</ComponentPreview>
+<ComponentPreview hideCode name="owner" />
 
 ## Installation
 
@@ -60,7 +58,7 @@ export function GET() {
         "https://picsum.photos/id/1025/400/400",
       ]}
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630 },
   );
 }
 ```
