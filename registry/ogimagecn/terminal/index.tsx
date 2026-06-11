@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 export interface TerminalProps {
   brand: string;
   title: string;
   caption?: string;
-  accent?: string;
+  logo?: string;
 }
 
-export const Terminal = ({ brand, title, caption, accent }: TerminalProps) => (
+export const Terminal = ({ brand, title, caption, logo }: TerminalProps) => (
   <div
     style={{
       backgroundColor: "#0a0a0a",
@@ -18,15 +19,34 @@ export const Terminal = ({ brand, title, caption, accent }: TerminalProps) => (
       width: "100%",
     }}
   >
-    <div style={{ alignItems: "center", display: "flex", gap: "20px" }}>
-      <div
-        style={{
-          backgroundColor: accent,
-          borderRadius: "4px",
-          height: "44px",
-          width: "6px",
-        }}
-      />
+    <div style={{ alignItems: "center", display: "flex", gap: "16px" }}>
+      {logo ? (
+        <img
+          alt=""
+          height={44}
+          src={logo}
+          width={44}
+          style={{
+            borderRadius: "8px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            alignItems: "center",
+            backgroundColor: "#22c55e",
+            borderRadius: "8px",
+            color: "#ffffff",
+            display: "flex",
+            fontSize: "20px",
+            fontWeight: 700,
+            height: "44px",
+            justifyContent: "center",
+            width: "44px",
+          }}
+        />
+      )}
       <div style={{ display: "flex", fontSize: "34px", fontWeight: 700 }}>
         {brand}
       </div>
@@ -52,7 +72,7 @@ export const Terminal = ({ brand, title, caption, accent }: TerminalProps) => (
             backgroundColor: "rgba(250,250,250,0.06)",
             border: "1px solid rgba(250,250,250,0.12)",
             borderRadius: "10px",
-            color: accent,
+            color: "#22c55e",
             display: "flex",
             fontSize: "30px",
             fontWeight: 600,

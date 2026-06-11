@@ -1,9 +1,9 @@
 ---
-title: Logo
-description: A centered brand Open Graph image with a logo tile, a large wordmark, and an optional tagline on a soft gradient field.
+title: Shiori
+description: A clean, minimal Open Graph image with a light cream background, a circular logo, and a bold brand beside a muted title.
 ---
 
-<ComponentPreview hideCode name="logo" />
+<ComponentPreview hideCode name="shiori" />
 
 ## Installation
 
@@ -16,7 +16,7 @@ description: A centered brand Open Graph image with a logo tile, a large wordmar
 <TabsContent value="cli">
 
 ```bash
-npx shadcn@latest add @ogimagecn/logo
+npx shadcn@latest add @ogimagecn/shiori
 ```
 
 </TabsContent>
@@ -27,7 +27,7 @@ npx shadcn@latest add @ogimagecn/logo
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource name="logo" title="components/og/logo.tsx" />
+<ComponentSource name="shiori" title="components/og/shiori.tsx" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -42,14 +42,17 @@ npx shadcn@latest add @ogimagecn/logo
 ```tsx
 import { ImageResponse } from "next/og";
 
-import { Logo } from "@/components/og/logo";
+import { Shiori } from "@/components/og/shiori";
 
 export function GET() {
   return new ImageResponse(
-    <Logo
-      brand="acme"
-      tagline="The all-in-one platform"
-      background="#09090b"
+    <Shiori
+      title="A beautifully simple read-it-later app"
+      background="#faf6f1"
+      titleColor="#8b7e74"
+      logo="https://www.shiori.sh/logo.png"
+      brand="Shiori"
+      brandColor="#1a1a1a"
     />,
     { width: 1200, height: 630 }
   );
@@ -58,12 +61,13 @@ export function GET() {
 
 ## API Reference
 
-### Logo
+### Shiori
 
 | Prop         | Type     |
 | ------------ | -------- |
-| `brand`      | `string` |
-| `tagline`    | `string` |
-| `monogram`   | `string` |
+| `title`      | `string` |
 | `background` | `string` |
+| `titleColor` | `string` |
 | `logo`       | `string` |
+| `brand`      | `string` |
+| `brandColor` | `string` |

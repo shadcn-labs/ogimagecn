@@ -1,9 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 export interface SimpleProps {
   label: string;
   title: string;
   description: string;
   brand: string;
-  accent?: string;
+  logo?: string;
 }
 
 export const Simple = ({
@@ -11,7 +12,7 @@ export const Simple = ({
   title,
   description,
   brand,
-  accent,
+  logo,
 }: SimpleProps) => (
   <div
     style={{
@@ -46,7 +47,7 @@ export const Simple = ({
     >
       <div
         style={{
-          backgroundColor: accent,
+          backgroundColor: "#7c3aed",
           borderRadius: "999px",
           height: "10px",
           width: "10px",
@@ -96,14 +97,27 @@ export const Simple = ({
         position: "absolute",
       }}
     >
-      <div
-        style={{
-          backgroundColor: accent,
-          borderRadius: "8px",
-          height: "28px",
-          width: "28px",
-        }}
-      />
+      {logo ? (
+        <img
+          alt=""
+          height={28}
+          src={logo}
+          width={28}
+          style={{
+            borderRadius: "6px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            backgroundColor: "#7c3aed",
+            borderRadius: "8px",
+            height: "28px",
+            width: "28px",
+          }}
+        />
+      )}
       {brand}
     </div>
   </div>

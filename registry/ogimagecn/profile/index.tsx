@@ -5,7 +5,6 @@ export interface ProfileProps {
   bio: string;
   avatar?: string;
   website: string;
-  accent?: string;
 }
 
 const initials = (name: string) =>
@@ -16,14 +15,7 @@ const initials = (name: string) =>
     .join("")
     .toUpperCase();
 
-export const Profile = ({
-  name,
-  role,
-  bio,
-  avatar,
-  website,
-  accent,
-}: ProfileProps) => (
+export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
   <div
     style={{
       alignItems: "center",
@@ -53,7 +45,7 @@ export const Profile = ({
       <div
         style={{
           alignItems: "center",
-          backgroundColor: accent,
+          backgroundColor: "#f43f5e",
           border: "4px solid rgba(250,250,250,0.15)",
           borderRadius: "999px",
           color: "#ffffff",
@@ -84,7 +76,7 @@ export const Profile = ({
       </div>
       <div
         style={{
-          color: accent,
+          color: "#f43f5e",
           display: "flex",
           fontSize: "34px",
           fontWeight: 600,

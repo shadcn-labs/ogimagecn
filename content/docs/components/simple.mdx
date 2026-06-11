@@ -45,10 +45,18 @@ import { ImageResponse } from "next/og";
 import { Simple } from "@/components/og/simple";
 
 export function GET() {
-  return new ImageResponse(<Simple title="Hello world" />, {
-    width: 1200,
-    height: 630,
-  });
+  return new ImageResponse(
+    <Simple
+      label="Open Graph"
+      title="Hello world"
+      description="A shadcn registry of social card components."
+      brand="ogimagecn"
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
 }
 ```
 
@@ -56,10 +64,10 @@ export function GET() {
 
 ### Simple
 
-| Prop          | Type     | Default |
-| ------------- | -------- | ------- |
-| `label`       | `string` | -       |
-| `title`       | `string` | -       |
-| `description` | `string` | -       |
-| `brand`       | `string` | -       |
-| `accent`      | `string` | -       |
+| Prop          | Type     |
+| ------------- | -------- |
+| `label`       | `string` |
+| `title`       | `string` |
+| `description` | `string` |
+| `brand`       | `string` |
+| `logo`        | `string` |

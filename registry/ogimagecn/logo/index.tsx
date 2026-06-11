@@ -1,17 +1,18 @@
+/* eslint-disable @next/next/no-img-element */
 export interface LogoProps {
   brand: string;
   tagline?: string;
   monogram?: string;
-  accent?: string;
   background: string;
+  logo?: string;
 }
 
 export const Logo = ({
   brand,
   tagline,
   monogram,
-  accent,
   background,
+  logo = "",
 }: LogoProps) => {
   const isColor = background.startsWith("#");
 
@@ -21,7 +22,7 @@ export const Logo = ({
         alignItems: "center",
         backgroundColor: isColor ? background : "#09090b",
         backgroundImage: isColor
-          ? `radial-gradient(circle at 50% 50%, ${accent}33, transparent 60%)`
+          ? `radial-gradient(circle at 50% 50%, rgba(124,58,237,0.2), transparent 60%)`
           : background,
         color: "#fafafa",
         display: "flex",
@@ -31,23 +32,36 @@ export const Logo = ({
         width: "100%",
       }}
     >
-      <div
-        style={{
-          alignItems: "center",
-          backgroundColor: accent,
-          borderRadius: "28px",
-          boxShadow: `0 24px 80px ${accent}55`,
-          color: "#ffffff",
-          display: "flex",
-          fontSize: "72px",
-          fontWeight: 800,
-          height: "140px",
-          justifyContent: "center",
-          width: "140px",
-        }}
-      >
-        {monogram ?? brand.charAt(0).toUpperCase()}
-      </div>
+      {logo ? (
+        <img
+          alt=""
+          height={140}
+          src={logo}
+          width={140}
+          style={{
+            borderRadius: "28px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            alignItems: "center",
+            backgroundColor: "#7c3aed",
+            borderRadius: "28px",
+            boxShadow: "0 24px 80px rgba(124,58,237,0.33)",
+            color: "#ffffff",
+            display: "flex",
+            fontSize: "72px",
+            fontWeight: 800,
+            height: "140px",
+            justifyContent: "center",
+            width: "140px",
+          }}
+        >
+          {monogram}
+        </div>
+      )}
 
       <div
         style={{

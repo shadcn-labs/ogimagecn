@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import satori from "satori";
+import type { Font } from "satori";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -22,23 +23,34 @@ export const PreviewRenderer = ({
   height: number;
 }) => {
   const [svg, setSvg] = useState("");
-  const [fontData, setFontData] = useState<ArrayBuffer | null>(null);
+  const [fonts, setFonts] = useState<Font[]>([]);
   const onSvgReadyRef = useRef(onSvgReady);
   onSvgReadyRef.current = onSvgReady;
 
   useEffect(() => {
-    const loadFont = async () => {
-      const res = await fetch(
-        "https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-400-normal.woff"
+    const loadFonts = async () => {
+      const weights = [400, 500, 600, 700, 800] as const;
+      const loaded = await Promise.all(
+        weights.map(async (weight) => {
+          const res = await fetch(
+            `https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-${weight}-normal.woff`
+          );
+          const buf = await res.arrayBuffer();
+          return {
+            data: buf,
+            name: "Inter" as const,
+            style: "normal" as const,
+            weight,
+          };
+        })
       );
-      const buf = await res.arrayBuffer();
-      setFontData(buf);
+      setFonts(loaded);
     };
-    void loadFont();
+    void loadFonts();
   }, []);
 
   useEffect(() => {
-    if (!fontData) {
+    if (fonts.length === 0) {
       return;
     }
     let cancelled = false;
@@ -46,13 +58,7 @@ export const PreviewRenderer = ({
     const render = async () => {
       try {
         const svgResult = await satori(<Component {...values} />, {
-          fonts: [
-            {
-              data: fontData,
-              name: "Inter",
-              style: "normal",
-            },
-          ],
+          fonts,
           height,
           width,
         });
@@ -70,7 +76,7 @@ export const PreviewRenderer = ({
     return () => {
       cancelled = true;
     };
-  }, [values, fontData, Component, width, height]);
+  }, [values, fonts, Component, width, height]);
 
   return (
     <div className="relative w-full min-w-0 overflow-hidden rounded-xl border bg-background shadow-sm">

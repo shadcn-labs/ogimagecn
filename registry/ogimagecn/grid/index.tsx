@@ -1,11 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 export interface GridProps {
   title: string;
   description: string;
   brand: string;
-  accent?: string;
+  logo?: string;
 }
 
-export const Grid = ({ title, description, brand, accent }: GridProps) => (
+export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
   <div
     style={{
       backgroundColor: "#0a0a0a",
@@ -105,22 +106,33 @@ export const Grid = ({ title, description, brand, accent }: GridProps) => (
         right: "104px",
       }}
     >
-      <div
-        style={{
-          alignItems: "center",
-          backgroundColor: accent,
-          borderRadius: "12px",
-          color: "#0a0a0a",
-          display: "flex",
-          fontSize: "26px",
-          fontWeight: 800,
-          height: "44px",
-          justifyContent: "center",
-          width: "44px",
-        }}
-      >
-        {brand.charAt(0).toUpperCase()}
-      </div>
+      {logo ? (
+        <img
+          alt=""
+          height={44}
+          src={logo}
+          width={44}
+          style={{
+            borderRadius: "12px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            alignItems: "center",
+            backgroundColor: "#22d3ee",
+            borderRadius: "12px",
+            color: "#0a0a0a",
+            display: "flex",
+            fontSize: "26px",
+            fontWeight: 800,
+            height: "44px",
+            justifyContent: "center",
+            width: "44px",
+          }}
+        />
+      )}
       {brand}
     </div>
   </div>

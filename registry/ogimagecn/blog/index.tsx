@@ -6,7 +6,8 @@ export interface BlogProps {
   author: string;
   meta: string;
   avatar?: string;
-  accent?: string;
+  brand: string;
+  logo?: string;
 }
 
 const initials = (name: string) =>
@@ -24,7 +25,8 @@ export const Blog = ({
   author,
   meta,
   avatar,
-  accent,
+  brand,
+  logo,
 }: BlogProps) => (
   <div
     style={{
@@ -35,15 +37,16 @@ export const Blog = ({
       height: "100%",
       justifyContent: "space-between",
       padding: "80px",
+      position: "relative",
       width: "100%",
     }}
   >
     <div
       style={{
         alignSelf: "flex-start",
-        backgroundColor: accent,
+        backgroundColor: "rgba(124,58,237,0.15)",
         borderRadius: "999px",
-        color: "#ffffff",
+        color: "#7c3aed",
         display: "flex",
         fontSize: "26px",
         fontWeight: 600,
@@ -95,7 +98,7 @@ export const Blog = ({
         <div
           style={{
             alignItems: "center",
-            backgroundColor: accent,
+            backgroundColor: "#7c3aed",
             borderRadius: "999px",
             color: "#ffffff",
             display: "flex",
@@ -116,6 +119,53 @@ export const Blog = ({
         <div style={{ color: "#71717a", display: "flex", fontSize: "24px" }}>
           {meta}
         </div>
+      </div>
+    </div>
+
+    <div
+      style={{
+        alignItems: "center",
+        display: "flex",
+        gap: "12px",
+        position: "absolute",
+        right: "80px",
+        top: "80px",
+      }}
+    >
+      {logo ? (
+        <img
+          alt=""
+          height={40}
+          src={logo}
+          width={40}
+          style={{
+            borderRadius: "8px",
+            objectFit: "contain",
+          }}
+        />
+      ) : (
+        <div
+          style={{
+            alignItems: "center",
+            backgroundColor: "#7c3aed",
+            borderRadius: "8px",
+            color: "#ffffff",
+            display: "flex",
+            fontSize: "20px",
+            fontWeight: 700,
+            height: "40px",
+            justifyContent: "center",
+            width: "40px",
+          }}
+        />
+      )}
+      <div
+        style={{
+          fontSize: "32px",
+          fontWeight: 700,
+        }}
+      >
+        {brand}
       </div>
     </div>
   </div>

@@ -1,7 +1,6 @@
 import type { ControlConfig } from "@/lib/customizer-config";
 
 export const eventConfig: ControlConfig = {
-  accent: { default: "#f59e0b", label: "Accent Color", type: "color" },
   brand: { default: "ogimagecn", label: "Brand", type: "text" },
   date: {
     default: "Jun 5, 2026 · 10:00 AM PT",
@@ -10,6 +9,7 @@ export const eventConfig: ControlConfig = {
   },
   label: { default: "Live Event", label: "Label", type: "text" },
   location: { default: "Online", label: "Location", type: "text" },
+  logo: { default: "", label: "Logo", type: "image" },
   title: {
     default: "Shipping beautiful OG images at scale",
     label: "Title",

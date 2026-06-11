@@ -4,7 +4,6 @@ export interface QuoteProps {
   author: string;
   handle: string;
   avatar?: string;
-  accent?: string;
 }
 
 const initials = (name: string) =>
@@ -15,13 +14,7 @@ const initials = (name: string) =>
     .join("")
     .toUpperCase();
 
-export const Quote = ({
-  quote,
-  author,
-  handle,
-  avatar,
-  accent,
-}: QuoteProps) => (
+export const Quote = ({ quote, author, handle, avatar }: QuoteProps) => (
   <div
     style={{
       backgroundColor: "#18181b",
@@ -36,7 +29,7 @@ export const Quote = ({
   >
     <div
       style={{
-        color: accent,
+        color: "#f472b6",
         display: "flex",
         fontSize: "140px",
         fontWeight: 800,
@@ -80,7 +73,7 @@ export const Quote = ({
         <div
           style={{
             alignItems: "center",
-            backgroundColor: accent,
+            backgroundColor: "#f472b6",
             borderRadius: "999px",
             color: "#18181b",
             display: "flex",
