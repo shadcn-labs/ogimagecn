@@ -1,20 +1,25 @@
+/* eslint-disable @next/next/no-img-element */
 export interface ShioriProps {
   title: string;
   description: string;
-  accent?: string;
-  accentSecondary?: string;
+  background: string;
+  titleColor: string;
+  descriptionColor: string;
+  logo: string;
 }
 
 export const Shiori = ({
   title,
   description,
-  accent,
-  accentSecondary,
+  background,
+  titleColor,
+  descriptionColor,
+  logo,
 }: ShioriProps) => (
   <div
     style={{
-      backgroundColor: "#faf6f1",
-      color: "#1a1a1a",
+      backgroundColor: background,
+      color: titleColor,
       display: "flex",
       flexDirection: "column",
       height: "100%",
@@ -23,18 +28,19 @@ export const Shiori = ({
       width: "100%",
     }}
   >
-    <div
+    <img
+      alt=""
+      height={96}
+      src={logo}
+      width={96}
       style={{
-        background: `linear-gradient(135deg, ${accent}, ${accentSecondary})`,
         borderRadius: "50%",
-        height: "96px",
-        width: "96px",
+        objectFit: "contain",
       }}
     />
 
     <div
       style={{
-        alignItems: "start",
         bottom: "60px",
         display: "flex",
         justifyContent: "space-between",
@@ -45,9 +51,11 @@ export const Shiori = ({
     >
       <div
         style={{
-          flex: "0.2",
+          color: titleColor,
+          flex: 0.25,
           fontSize: "64px",
           fontWeight: 600,
+          letterSpacing: "-0.03em",
           lineHeight: 1.3,
         }}
       >
@@ -56,17 +64,18 @@ export const Shiori = ({
 
       <div
         style={{
-          color: "#8b7e74",
+          color: descriptionColor,
+          flex: 0.6,
           fontSize: "64px",
-          fontWeight: 500,
+          fontWeight: 600,
+          letterSpacing: "-0.03em",
           lineHeight: 1.3,
-          maxWidth: "600px",
         }}
       >
         {description}
       </div>
 
-      <div style={{ flex: "0.2" }} />
+      <div style={{ flex: 0.25 }} />
     </div>
   </div>
 );

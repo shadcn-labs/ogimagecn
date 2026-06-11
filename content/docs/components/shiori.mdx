@@ -1,6 +1,6 @@
 ---
 title: Shiori
-description: A clean, minimal Open Graph image with a light cream background, an orange gradient circle logo, and a bold title beside a muted description.
+description: A clean, minimal Open Graph image with a light cream background, a circular logo, and a bold title beside a muted description.
 ---
 
 import { Shiori } from "@/registry/ogimagecn/shiori";
@@ -51,10 +51,12 @@ export function GET() {
     <Shiori
       title="Shiori"
       description="A beautifully simple read-it-later app"
-      accent="#f97316"
-      accentSecondary="#ea580c"
+      background="#faf6f1"
+      titleColor="#1a1a1a"
+      descriptionColor="#8b7e74"
+      logo="https://www.shiori.sh/logo.png"
     />,
-    { width: 1200, height: 630 },
+    { width: 1200, height: 630 }
   );
 }
 ```
@@ -63,9 +65,11 @@ export function GET() {
 
 ### Shiori
 
-| Prop              | Type     | Default |
-| ----------------- | -------- | ------- |
-| `title`           | `string` | -       |
-| `description`     | `string` | -       |
-| `accent`          | `string` | -       |
-| `accentSecondary` | `string` | -       |
+| Prop               | Type     | Default                          |
+| ------------------ | -------- | -------------------------------- |
+| `title`            | `string` | -                                |
+| `description`      | `string` | -                                |
+| `background`       | `string` | `#faf6f1`                        |
+| `titleColor`       | `string` | `#1a1a1a`                        |
+| `descriptionColor` | `string` | `#8b7e74`                        |
+| `logo`             | `string` | `https://www.shiori.sh/logo.png` |
