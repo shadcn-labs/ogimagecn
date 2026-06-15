@@ -1,6 +1,12 @@
 {
   "version": 1,
   "skills": {
+    "launch-shadcn-registry": {
+      "source": "shadcn-labs/skills",
+      "sourceType": "github",
+      "skillPath": "skills/launch-shadcn-registry/SKILL.md",
+      "computedHash": "17a0c8751bac286ce315bcfdec7c9a6b500883d048e40bc61ae75844491f7783"
+    },
     "satori": {
       "source": "usenotra/skills",
       "sourceType": "github",
