@@ -1,0 +1,75 @@
+---
+title: Shadcn Registry 3
+description: A bold dark Open Graph image with large title, circular badge, ghost watermark, and credit text.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-3" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-3
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-3"
+  title="components/og/shadcn-registry-3.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry3 } from "@/components/og/shadcn-registry-3";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry3
+      title="Brand new uncommon components for your Next.js project. fast-growing freemium (Works with Shadcn CLI 3.0)"
+      credit="Design And Devloped By @Gxuri"
+      ghost="SKIPER"
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry3
+
+| Prop     | Type     |
+| -------- | -------- |
+| `title`  | `string` |
+| `credit` | `string` |
+| `ghost`  | `string` |
+| `logo`   | `string` |
+| `accent` | `string` |

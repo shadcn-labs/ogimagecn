@@ -1,0 +1,76 @@
+---
+title: Shadcn Registry 1
+description: A showcase Open Graph image for shadcn registries with logo, name, URL, description, and tag badges.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-1" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-1
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-1"
+  title="components/og/shadcn-registry-1.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry1 } from "@/components/og/shadcn-registry-1";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry1
+      name="shadcn/ui"
+      url="ui.shadcn.com"
+      description="Beautifully designed components built with Radix UI and Tailwind CSS."
+      items={["159+ components", "open source", "accessible"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry1
+
+| Prop          | Type       |
+| ------------- | ---------- |
+| `name`        | `string`   |
+| `url`         | `string`   |
+| `description` | `string`   |
+| `logo`        | `string`   |
+| `items`       | `string[]` |
