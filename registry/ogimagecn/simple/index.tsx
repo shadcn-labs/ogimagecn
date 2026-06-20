@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 export interface SimpleProps {
   label: string;
   title: string;

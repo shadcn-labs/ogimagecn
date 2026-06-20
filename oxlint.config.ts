@@ -15,4 +15,12 @@ export default defineConfig({
     ".web-kits/**",
     "audio/**",
   ],
+  overrides: [
+    {
+      files: ["registry/**"],
+      rules: {
+        "@next/next/no-img-element": "off",
+      },
+    },
+  ],
 });

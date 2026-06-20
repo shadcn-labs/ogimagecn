@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 export interface ShioriProps {
   background: string;
   brand: string;

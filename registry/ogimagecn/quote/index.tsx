@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 export interface QuoteProps {
   quote: string;
   author: string;

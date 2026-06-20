@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 export interface LogoProps {
   brand: string;
   tagline?: string;
