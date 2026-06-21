@@ -3,7 +3,6 @@ export interface ShadcnRegistry3Props {
   credit?: string;
   ghost?: string;
   logo?: string;
-  accent?: string;
 }
 
 export const ShadcnRegistry3 = ({
@@ -11,7 +10,6 @@ export const ShadcnRegistry3 = ({
   credit = "",
   ghost = "",
   logo = "",
-  accent = "#3b82f6",
 }: ShadcnRegistry3Props) => (
   <div
     style={{
@@ -44,29 +42,41 @@ export const ShadcnRegistry3 = ({
       {ghost || title.split(" ")[0]}
     </div>
 
-    {/* Top Section - Title + Badge */}
+    {/* Title + Badge */}
     <div
       style={{
         alignItems: "flex-start",
         display: "flex",
         justifyContent: "space-between",
         position: "relative",
-        zIndex: 1,
       }}
     >
       {/* Title */}
       <div
         style={{
           display: "flex",
+          flexDirection: "column",
           fontSize: title.length > 60 ? 52 : 64,
           fontWeight: 700,
           letterSpacing: "-0.03em",
           lineHeight: 1.1,
           maxWidth: "800px",
-          textWrap: "balance" as const,
+          textWrap: "balance",
         }}
       >
         {title}
+        {credit ? (
+          <div
+            style={{
+              color: "#52525b",
+              fontSize: "24px",
+              fontWeight: 400,
+              marginTop: "24px",
+            }}
+          >
+            {credit}
+          </div>
+        ) : null}
       </div>
 
       {/* Badge/Logo */}
@@ -80,64 +90,28 @@ export const ShadcnRegistry3 = ({
           height: "160px",
           justifyContent: "center",
           marginLeft: "40px",
+          overflow: "hidden",
           width: "160px",
         }}
       >
         {logo ? (
           <img
-            alt=""
-            height={120}
+            height={140}
             src={logo}
-            width={120}
-            style={{ borderRadius: "999px", objectFit: "contain" }}
+            width={140}
+            style={{ borderRadius: "999px", objectFit: "cover" }}
           />
         ) : (
           <div
             style={{
-              alignItems: "center",
-              background: `linear-gradient(135deg, ${accent}, ${accent}66)`,
+              background: "linear-gradient(135deg, #60EFFF, #0061FF)",
               borderRadius: "999px",
-              display: "flex",
-              height: "120px",
-              justifyContent: "center",
-              width: "120px",
+              height: "140px",
+              width: "140px",
             }}
-          >
-            <svg
-              width="48"
-              height="48"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#ffffff"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="10" />
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-              <path d="M2 12h20" />
-            </svg>
-          </div>
+          />
         )}
       </div>
     </div>
-
-    {/* Spacer */}
-    <div style={{ flex: 1 }} />
-
-    {/* Credit - Below ghost text */}
-    {credit && (
-      <div
-        style={{
-          color: "#52525b",
-          fontSize: "24px",
-          fontWeight: 400,
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {credit}
-      </div>
-    )}
   </div>
 );
