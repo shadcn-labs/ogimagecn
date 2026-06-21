@@ -3,7 +3,7 @@ import type { ControlConfig } from "@/lib/customizer-config";
 export const shadcnRegistry6Config: ControlConfig = {
   brand: { default: "ogimagecn", label: "Brand", type: "text" },
   description: {
-    default: "Composable components powered by Satori and the next/og runtime.",
+    default: "Composable OG image components built with Satori.",
     label: "Description",
     type: "text",
   },
