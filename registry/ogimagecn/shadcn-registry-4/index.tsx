@@ -18,8 +18,8 @@ export const ShadcnRegistry4 = ({
       alignItems: "center",
       backgroundColor: "#0a0a0a",
       backgroundImage:
-        "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 1px, transparent 1px)",
-      backgroundSize: "40px 40px",
+        "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.1), transparent 70%)",
+      backgroundSize: "100% 100%",
       color: "#fafafa",
       display: "flex",
       flexDirection: "column",
@@ -41,7 +41,6 @@ export const ShadcnRegistry4 = ({
     >
       {logo ? (
         <img
-          alt=""
           height={56}
           src={logo}
           width={56}
@@ -68,24 +67,36 @@ export const ShadcnRegistry4 = ({
       </div>
     </div>
 
-    {/* Title */}
+    {/* Title with alternating word colors */}
     <div
       style={{
         display: "flex",
+        flexWrap: "wrap",
         fontSize: title.length > 60 ? 52 : 64,
         fontWeight: 700,
+        justifyContent: "center",
         letterSpacing: "-0.03em",
         lineHeight: 1.15,
         maxWidth: "900px",
         textAlign: "center",
-        textWrap: "balance" as const,
+        textWrap: "balance",
       }}
     >
-      {title}
+      {title.split(" ").map((word, i) => (
+        <span
+          key={i}
+          style={{
+            color: i % 2 === 0 ? "#71717a" : "#fafafa",
+            marginRight: "0.3em",
+          }}
+        >
+          {word}
+        </span>
+      ))}
     </div>
 
     {/* URL */}
-    {url && (
+    {url ? (
       <div
         style={{
           color: "#52525b",
@@ -97,6 +108,6 @@ export const ShadcnRegistry4 = ({
       >
         {url}
       </div>
-    )}
+    ) : null}
   </div>
 );
