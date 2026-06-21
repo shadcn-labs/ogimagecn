@@ -18,7 +18,7 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
   >
     <div
       style={{
-        borderLeft: "1px dashed #292929",
+        borderLeft: "1px dashed #44403c",
         bottom: 0,
         left: "64px",
         position: "absolute",
@@ -28,7 +28,7 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
     />
     <div
       style={{
-        borderLeft: "1px dashed #292929",
+        borderLeft: "1px dashed #44403c",
         bottom: 0,
         position: "absolute",
         right: "64px",
@@ -38,7 +38,7 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
     />
     <div
       style={{
-        borderTop: "1px dashed #292929",
+        borderTop: "1px dashed #44403c",
         height: "1px",
         left: 0,
         position: "absolute",
@@ -48,7 +48,7 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
     />
     <div
       style={{
-        borderTop: "1px dashed #292929",
+        borderTop: "1px dashed #44403c",
         bottom: "64px",
         height: "1px",
         left: 0,
@@ -59,34 +59,40 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
 
     <div
       style={{
+        bottom: "128px",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "center",
         left: "128px",
         position: "absolute",
         right: "128px",
         top: "128px",
+        width: "896px",
       }}
     >
       <div
         style={{
           display: "flex",
-          fontSize: title.length > 36 ? 68 : 84,
-          fontWeight: 700,
+          flexGrow: 1,
+          fontSize: title && title.length > 20 ? 64 : 80,
+          fontWeight: 600,
           letterSpacing: "-0.04em",
-          lineHeight: 1.05,
-          maxWidth: "880px",
+          lineHeight: 1.1,
+          textWrap: "balance",
         }}
       >
         {title}
       </div>
       <div
         style={{
-          color: "#a3a3a3",
+          color: "#a8a29e",
           display: "flex",
-          fontSize: "34px",
-          lineHeight: 1.4,
-          marginTop: "32px",
-          maxWidth: "780px",
+          flexGrow: 1,
+          fontSize: "40px",
+          fontWeight: 500,
+          lineHeight: 1.5,
+          marginTop: "24px",
+          textWrap: "balance",
         }}
       >
         {description}
@@ -96,21 +102,19 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
     <div
       style={{
         alignItems: "center",
-        bottom: "104px",
+        bottom: "96px",
         display: "flex",
-        fontSize: "30px",
-        fontWeight: 600,
         gap: "14px",
         position: "absolute",
-        right: "104px",
+        right: "96px",
       }}
     >
       {logo ? (
         <img
           alt=""
-          height={44}
+          height={48}
           src={logo}
-          width={44}
+          width={48}
           style={{
             borderRadius: "12px",
             objectFit: "contain",
@@ -120,19 +124,26 @@ export const Grid = ({ title, description, brand, logo = "" }: GridProps) => (
         <div
           style={{
             alignItems: "center",
-            backgroundColor: "#22d3ee",
+            backgroundColor: "#ffffff",
             borderRadius: "12px",
             color: "#0a0a0a",
             display: "flex",
             fontSize: "26px",
             fontWeight: 800,
-            height: "44px",
+            height: "48px",
             justifyContent: "center",
-            width: "44px",
+            width: "48px",
           }}
         />
       )}
-      {brand}
+      <span
+        style={{
+          fontSize: "30px",
+          fontWeight: 600,
+        }}
+      >
+        {brand}
+      </span>
     </div>
   </div>
 );
