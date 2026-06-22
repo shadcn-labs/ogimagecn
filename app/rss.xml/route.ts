@@ -14,7 +14,7 @@ export const GET = () => {
     .map((page) => {
       const data = page.data as ChangelogPageData;
       const date = page.date?.toUTCString() ?? new Date().toUTCString();
-      const link = `${SITE.URL}${ROUTES.DOCS}/${page.slugs.join("/")}`;
+      const link = `${SITE.URL}${page.url}`;
 
       return `    <item>
       <title><![CDATA[${data.title}]]></title>
