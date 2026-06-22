@@ -1,0 +1,77 @@
+---
+title: Shadcn Registry 2
+description: A clean Open Graph image with a light background, logo, name, category, title, and dot-separated tags.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-2" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-2
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-2"
+  title="components/og/shadcn-registry-2.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry2 } from "@/components/og/shadcn-registry-2";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry2
+      name="PaceKit"
+      category="GSAP"
+      title="Animated components crafted for smooth interaction"
+      items={["Reusable", "Scalable", "Composable"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry2
+
+| Prop       | Type       |
+| ---------- | ---------- |
+| `name`     | `string`   |
+| `category` | `string`   |
+| `title`    | `string`   |
+| `items`    | `string[]` |
+| `logo`     | `string`   |
+| `accent`   | `string`   |

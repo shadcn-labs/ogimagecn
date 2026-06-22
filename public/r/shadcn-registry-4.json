@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "shadcn-registry-4",
+  "title": "Shadcn Registry 4",
+  "description": "A centered dark Open Graph image with logo, name, title, and URL on a subtle dot pattern background.",
+  "files": [
+    {
+      "path": "registry/ogimagecn/shadcn-registry-4/index.tsx",
+      "content": "export interface ShadcnRegistry4Props {\n  name: string;\n  title: string;\n  url?: string;\n  logo?: string;\n}\n\nexport const ShadcnRegistry4 = ({\n  name,\n  title,\n  url = \"\",\n  logo = \"\",\n}: ShadcnRegistry4Props) => (\n  <div\n    style={{\n      alignItems: \"center\",\n      backgroundColor: \"#0a0a0a\",\n      backgroundImage:\n        \"radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.1), transparent 70%)\",\n      backgroundSize: \"100% 100%\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"center\",\n      padding: \"80px\",\n      position: \"relative\",\n      width: \"100%\",\n    }}\n  >\n    {/* Logo + Name */}\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        gap: \"16px\",\n        marginBottom: \"48px\",\n      }}\n    >\n      {logo ? (\n        <img\n          height={56}\n          src={logo}\n          width={56}\n          style={{ objectFit: \"contain\" }}\n        />\n      ) : (\n        <div\n          style={{\n            backgroundColor: \"rgba(255,255,255,0.3)\",\n            borderRadius: \"12px\",\n            height: \"56px\",\n            width: \"56px\",\n          }}\n        />\n      )}\n      <div\n        style={{ fontSize: \"40px\", fontWeight: 600, letterSpacing: \"-0.02em\" }}\n      >\n        {name}\n      </div>\n    </div>\n\n    {/* Title with alternating word colors */}\n    <div\n      style={{\n        display: \"flex\",\n        flexWrap: \"wrap\",\n        fontSize: title.length > 60 ? 52 : 64,\n        fontWeight: 700,\n        justifyContent: \"center\",\n        letterSpacing: \"-0.03em\",\n        lineHeight: 1.15,\n        maxWidth: \"900px\",\n        textAlign: \"center\",\n        textWrap: \"balance\",\n      }}\n    >\n      {title.split(\" \").map((word, i) => (\n        <span\n          key={i}\n          style={{\n            color: i % 2 === 0 ? \"#71717a\" : \"#fafafa\",\n            marginRight: \"0.3em\",\n          }}\n        >\n          {word}\n        </span>\n      ))}\n    </div>\n\n    {/* URL */}\n    {url ? (\n      <div\n        style={{\n          color: \"#52525b\",\n          fontSize: \"24px\",\n          fontWeight: 500,\n          letterSpacing: \"0.02em\",\n          marginTop: \"48px\",\n        }}\n      >\n        {url}\n      </div>\n    ) : null}\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/shadcn-registry-4.tsx"
+    }
+  ],
+  "type": "registry:component"
+}

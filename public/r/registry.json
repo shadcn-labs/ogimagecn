@@ -69,6 +69,84 @@
       ]
     },
     {
+      "name": "shadcn-registry-1",
+      "type": "registry:component",
+      "title": "Shadcn Registry 1",
+      "description": "A showcase Open Graph image for shadcn registries with logo, name, URL, description, and tag badges.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-1/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-1.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-2",
+      "type": "registry:component",
+      "title": "Shadcn Registry 2",
+      "description": "A clean Open Graph image with a light background, logo, name, category, title, and dot-separated tags.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-2/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-2.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-3",
+      "type": "registry:component",
+      "title": "Shadcn Registry 3",
+      "description": "A bold dark Open Graph image with large title, circular badge, ghost watermark, and credit text.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-3/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-3.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-4",
+      "type": "registry:component",
+      "title": "Shadcn Registry 4",
+      "description": "A centered dark Open Graph image with logo, name, title, and URL on a subtle dot pattern background.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-4/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-4.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-5",
+      "type": "registry:component",
+      "title": "Shadcn Registry 5",
+      "description": "A clean light Open Graph image with centered logo, name, title, and description inside a bordered frame.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-5/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-5.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-6",
+      "type": "registry:component",
+      "title": "Shadcn Registry 6",
+      "description": "A minimal Open Graph image with solid border lines, a logo in the top-left, and title/description at the bottom.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-6/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-6.tsx"
+        }
+      ]
+    },
+    {
       "name": "photo",
       "type": "registry:component",
       "title": "Photo",

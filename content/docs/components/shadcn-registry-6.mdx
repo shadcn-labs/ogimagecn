@@ -1,0 +1,74 @@
+---
+title: Shadcn Registry 6
+description: A minimal Open Graph image with solid border lines, a logo in the top-left, and title/description at the bottom.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-6" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-6
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-6"
+  title="components/og/shadcn-registry-6.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry6 } from "@/components/og/shadcn-registry-6";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry6
+      title="Build your own OG images"
+      description="Composable components powered by Satori and the next/og runtime."
+      brand="ogimagecn"
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry6
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `title`       | `string` |
+| `description` | `string` |
+| `brand`       | `string` |
+| `logo`        | `string` |

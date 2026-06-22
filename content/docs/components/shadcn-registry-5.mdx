@@ -1,0 +1,75 @@
+---
+title: Shadcn Registry 5
+description: A clean light Open Graph image with centered logo, name, title, and description inside a bordered frame.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-5" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-5
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-5"
+  title="components/og/shadcn-registry-5.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry5 } from "@/components/og/shadcn-registry-5";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry5
+      name="Eldora UI"
+      title="Modern Next.js Templates"
+      description="Built with React, Typescript, shadcn/ui, Tailwind CSS, and Motion."
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry5
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `name`        | `string` |
+| `title`       | `string` |
+| `description` | `string` |
+| `logo`        | `string` |
+| `accent`      | `string` |

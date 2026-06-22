@@ -20,6 +20,7 @@ export default defineConfig({
       files: ["registry/**"],
       rules: {
         "@next/next/no-img-element": "off",
+        "jsx-a11y/alt-text": "off",
       },
     },
   ],
