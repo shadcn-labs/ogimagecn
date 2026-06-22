@@ -5,6 +5,7 @@ import {
   metaSchema,
 } from "fumadocs-mdx/config";
 import { rehypePrettyCode } from "rehype-pretty-code";
+import { z } from "zod";
 
 import { DOCS_DIR } from "@/lib/docs";
 import { transformers } from "@/lib/highlight-code";
@@ -35,7 +36,9 @@ export const docs = defineDocs({
     postprocess: {
       includeProcessedMarkdown: true,
     },
-    schema: frontmatterSchema,
+    schema: frontmatterSchema.extend({
+      date: z.string().or(z.date()).optional(),
+    }),
   },
   meta: {
     schema: metaSchema,
