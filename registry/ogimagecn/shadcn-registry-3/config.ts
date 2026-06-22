@@ -2,11 +2,11 @@ import type { ControlConfig } from "@/lib/customizer-config";
 
 export const shadcnRegistry3Config: ControlConfig = {
   credit: {
-    default: "Design And Developed By @alaymanguy",
+    default: "Developed By @alaymanguy",
     label: "Credit",
     type: "text",
   },
-  ghost: { default: "SKIPER", label: "Ghost Text", type: "text" },
+  ghost: { default: "LOREM", label: "Ghost Text", type: "text" },
   logo: {
     default: "",
     label: "Logo",
@@ -14,7 +14,7 @@ export const shadcnRegistry3Config: ControlConfig = {
   },
   title: {
     default:
-      "Brand new uncommon components for your Next.js project. fast-growing freemium (Works with Shadcn CLI 3.0)",
+      "Beautifully designed open source components built with Radix UI and Tailwind CSS for your next project",
     label: "Title",
     type: "text",
   },

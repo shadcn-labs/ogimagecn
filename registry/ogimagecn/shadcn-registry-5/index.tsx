@@ -3,7 +3,6 @@ export interface ShadcnRegistry5Props {
   title: string;
   description?: string;
   logo?: string;
-  accent?: string;
 }
 
 export const ShadcnRegistry5 = ({
@@ -11,7 +10,6 @@ export const ShadcnRegistry5 = ({
   title,
   description = "",
   logo = "",
-  accent = "#0ea5e9",
 }: ShadcnRegistry5Props) => (
   <div
     style={{
@@ -100,24 +98,12 @@ export const ShadcnRegistry5 = ({
         ) : (
           <div
             style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "4px",
+              backgroundColor: "rgba(0,0,0,0.3)",
+              borderRadius: "12px",
+              height: "40px",
               width: "40px",
             }}
-          >
-            {Array.from({ length: 9 }).map((_, i) => (
-              <div
-                key={i}
-                style={{
-                  backgroundColor: i === 4 ? accent : `${accent}66`,
-                  borderRadius: "999px",
-                  height: "8px",
-                  width: "8px",
-                }}
-              />
-            ))}
-          </div>
+          />
         )}
         <div style={{ color: "#18181b", fontSize: "28px", fontWeight: 600 }}>
           {name}

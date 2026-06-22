@@ -13,6 +13,6 @@ export const shadcnRegistry1Config: ControlConfig = {
     type: "array",
   },
   logo: { default: "", label: "Logo", type: "image" },
-  name: { default: "shadcn/ui", label: "Name", type: "text" },
+  name: { default: "ogimagecn", label: "Name", type: "text" },
   url: { default: "ui.shadcn.com", label: "URL", type: "text" },
 };

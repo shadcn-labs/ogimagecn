@@ -3,7 +3,6 @@ export interface ShadcnRegistry4Props {
   title: string;
   url?: string;
   logo?: string;
-  accent?: string;
 }
 
 export const ShadcnRegistry4 = ({
@@ -11,7 +10,6 @@ export const ShadcnRegistry4 = ({
   title,
   url = "",
   logo = "",
-  accent = "#ffffff",
 }: ShadcnRegistry4Props) => (
   <div
     style={{
@@ -47,18 +45,14 @@ export const ShadcnRegistry4 = ({
           style={{ objectFit: "contain" }}
         />
       ) : (
-        <svg
-          width="56"
-          height="56"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke={accent}
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 2L2 19h20L12 2z" />
-        </svg>
+        <div
+          style={{
+            backgroundColor: "rgba(255,255,255,0.3)",
+            borderRadius: "12px",
+            height: "56px",
+            width: "56px",
+          }}
+        />
       )}
       <div
         style={{ fontSize: "40px", fontWeight: 600, letterSpacing: "-0.02em" }}
