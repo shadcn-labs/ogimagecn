@@ -1,0 +1,77 @@
+---
+title: Shadcn Registry 9
+description: A dark grid-based Open Graph image with a blue brand icon, tab navigation with active state, and a monospace tagline.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-9" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-9
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-9"
+  title="components/og/shadcn-registry-9.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry9 } from "@/components/og/shadcn-registry-9";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry9
+      title="The hub for rebellious thinkers"
+      brand="MyBrand"
+      tabs={["Components", "Toolbox", "Logs"]}
+      activeTab={0}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry9
+
+| Prop        | Type       |
+| ----------- | ---------- |
+| `title`     | `string`   |
+| `brand`     | `string`   |
+| `tabs`      | `string[]` |
+| `activeTab` | `string`   |
+| `logo`      | `string`   |
+| `brandColor`| `string`   |

@@ -1,0 +1,78 @@
+---
+title: Shadcn Registry 10
+description: A dark Open Graph image with dot pattern background, brand logo, highlighted title, badge pills, and floating component tags.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-10" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-10
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-10"
+  title="components/og/shadcn-registry-10.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry10 } from "@/components/og/shadcn-registry-10";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry10
+      title="Micro-interactions library for people who care."
+      highlight="Micro-interactions"
+      brand="uselayouts"
+      badges={["$ 100% Free to use", "Open Source"]}
+      items={["Inline Edit", "Folder", "Discrete Tabs", "Status Button"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry10
+
+| Prop        | Type       |
+| ----------- | ---------- |
+| `title`     | `string`   |
+| `highlight` | `string`   |
+| `brand`     | `string`   |
+| `badges`    | `string[]` |
+| `items`     | `string[]` |
+| `logo`      | `string`   |

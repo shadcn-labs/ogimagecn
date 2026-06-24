@@ -288,6 +288,97 @@
           "target": "components/og/owner.tsx"
         }
       ]
+    },
+    {
+      "name": "shadcn-registry-7",
+      "type": "registry:component",
+      "title": "Shadcn Registry 7",
+      "description": "A dark, technical Open Graph image with border frame, corner accents, logo and brand on top, and title with description at the bottom.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-7/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-7.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-8",
+      "type": "registry:component",
+      "title": "Shadcn Registry 8",
+      "description": "A dark hero-style Open Graph image with badge pills, a large headline with diamond accent, feature pills, and a centered brand logo.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-8/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-8.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-9",
+      "type": "registry:component",
+      "title": "Shadcn Registry 9",
+      "description": "A dark grid-based Open Graph image with a blue brand icon, tab navigation with active state, and a monospace tagline.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-9/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-9.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-10",
+      "type": "registry:component",
+      "title": "Shadcn Registry 10",
+      "description": "A dark Open Graph image with dot pattern background, brand logo, highlighted title, badge pills, and floating component tags.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-10/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-10.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-11",
+      "type": "registry:component",
+      "title": "Shadcn Registry 11",
+      "description": "A dark warm-toned Open Graph image with brand logo, large description text, tech stack icons, and a radial gradient glow.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-11/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-11.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-12",
+      "type": "registry:component",
+      "title": "Shadcn Registry 12",
+      "description": "A clean light Open Graph image with centered logo, bold headline, description, tech icons, and a component preview grid.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-12/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-12.tsx"
+        }
+      ]
+    },
+    {
+      "name": "shadcn-registry-13",
+      "type": "registry:component",
+      "title": "Shadcn Registry 13",
+      "description": "A clean light Open Graph image with brand logo, large headline, description, tech icons pill, and a tilted 3D preview grid on the right.",
+      "files": [
+        {
+          "path": "registry/ogimagecn/shadcn-registry-13/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/shadcn-registry-13.tsx"
+        }
+      ]
     }
   ]
 }
