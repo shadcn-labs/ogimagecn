@@ -1,0 +1,78 @@
+---
+title: Shadcn Registry 8
+description: A dark hero-style Open Graph image with badge pills, a large headline with diamond accent, feature pills, and a centered brand logo.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-8" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-8
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-8"
+  title="components/og/shadcn-registry-8.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry8 } from "@/components/og/shadcn-registry-8";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry8
+      title="AI Native Components,"
+      subtitle="Design Systems & Templates"
+      brand="AI Canvas"
+      badges={["Open Source", "MIT license"]}
+      features={["CLI install", "MCP ready", "shadcn registry"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry8
+
+| Prop       | Type       |
+| ---------- | ---------- |
+| `title`    | `string`   |
+| `subtitle` | `string`   |
+| `brand`    | `string`   |
+| `badges`   | `string[]` |
+| `features` | `string[]` |
+| `logo`     | `string`   |
