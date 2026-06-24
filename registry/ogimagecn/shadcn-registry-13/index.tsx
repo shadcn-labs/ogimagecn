@@ -19,7 +19,6 @@ export const ShadcnRegistry13 = ({
       color: "#18181b",
       display: "flex",
       height: "100%",
-      position: "relative",
       width: "100%",
     }}
   >
@@ -32,15 +31,12 @@ export const ShadcnRegistry13 = ({
         gap: "32px",
         justifyContent: "center",
         padding: "80px",
-        position: "relative",
-        zIndex: 1,
       }}
     >
       {/* Logo + Brand */}
       <div style={{ alignItems: "center", display: "flex", gap: "16px" }}>
         {logo ? (
           <img
-            alt=""
             height={64}
             src={logo}
             width={64}
@@ -138,7 +134,7 @@ export const ShadcnRegistry13 = ({
       ) : null}
     </div>
 
-    {/* Right side: Tilted preview grid */}
+    {/* Right side: Tilted preview grid (using flex + skew instead of grid + 3D) */}
     <div
       style={{
         display: "flex",
@@ -150,14 +146,14 @@ export const ShadcnRegistry13 = ({
     >
       <div
         style={{
-          display: "grid",
-          gap: "16px",
-          gridTemplateColumns: "repeat(3, 200px)",
-          gridTemplateRows: "repeat(4, 140px)",
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "12px",
           position: "absolute",
-          right: "-40px",
+          right: "-20px",
           top: "40px",
-          transform: "perspective(1200px) rotateY(-8deg) rotateX(4deg)",
+          transform: "skew(-4deg, 2deg)",
+          width: "500px",
         }}
       >
         {Array.from({ length: 12 }).map((_, i) => (
@@ -167,6 +163,8 @@ export const ShadcnRegistry13 = ({
               backgroundColor: "#ffffff",
               border: "1px solid #e4e4e7",
               borderRadius: "12px",
+              height: "120px",
+              width: "150px",
             }}
           />
         ))}

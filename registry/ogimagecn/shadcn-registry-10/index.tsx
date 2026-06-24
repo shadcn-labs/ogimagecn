@@ -56,7 +56,6 @@ export const ShadcnRegistry10 = ({
       >
         {logo ? (
           <img
-            alt=""
             height={44}
             src={logo}
             width={44}

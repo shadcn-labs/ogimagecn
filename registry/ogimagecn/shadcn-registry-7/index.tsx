@@ -164,7 +164,6 @@ export const ShadcnRegistry7 = ({
       <div style={{ alignItems: "center", display: "flex", gap: "20px" }}>
         {logo ? (
           <img
-            alt=""
             height={64}
             src={logo}
             width={64}
