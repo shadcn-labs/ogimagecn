@@ -22,32 +22,62 @@ export const ShadcnRegistry8 = ({
       display: "flex",
       flexDirection: "column",
       height: "100%",
+      position: "relative",
       width: "100%",
     }}
   >
-    {/* Background grid of blurred cards */}
+    {/* Background grid of dimmed preview cards */}
     <div
       style={{
         display: "flex",
-        filter: "blur(2px)",
         flexWrap: "wrap",
-        gap: "16px",
+        gap: "12px",
         inset: 0,
-        opacity: 0.08,
-        padding: "40px",
+        opacity: 0.12,
+        padding: "24px",
         position: "absolute",
       }}
     >
-      {Array.from({ length: 20 }).map((_, i) => (
+      {Array.from({ length: 24 }).map((_, i) => (
         <div
           key={i}
           style={{
-            backgroundColor: "#ffffff",
-            borderRadius: "12px",
-            height: "120px",
-            width: "180px",
+            backgroundColor: "#1a1a1a",
+            border: "1px solid #262626",
+            borderRadius: "10px",
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px",
+            height: "130px",
+            padding: "10px",
+            width: "190px",
           }}
-        />
+        >
+          <div
+            style={{
+              backgroundColor: "#262626",
+              borderRadius: "6px",
+              flex: 1,
+              width: "100%",
+            }}
+          />
+          <div
+            style={{
+              backgroundColor: "#262626",
+              borderRadius: "4px",
+              height: "10px",
+              width: "60%",
+            }}
+          />
+          <div
+            style={{
+              backgroundColor: "#262626",
+              borderRadius: "4px",
+              height: "8px",
+              width: "40%",
+            }}
+          />
+        </div>
       ))}
     </div>
 
@@ -57,7 +87,7 @@ export const ShadcnRegistry8 = ({
         alignItems: "center",
         display: "flex",
         flexDirection: "column",
-        gap: "24px",
+        gap: "20px",
         height: "100%",
         justifyContent: "center",
         position: "relative",
@@ -66,7 +96,13 @@ export const ShadcnRegistry8 = ({
     >
       {/* Badge pills */}
       {badges.length > 0 ? (
-        <div style={{ alignItems: "center", display: "flex", gap: "12px" }}>
+        <div
+          style={{
+            alignItems: "center",
+            display: "flex",
+            gap: "12px",
+          }}
+        >
           {badges.map((badge) => (
             <div
               key={badge}
@@ -90,16 +126,15 @@ export const ShadcnRegistry8 = ({
         </div>
       ) : null}
 
-      {/* Title */}
+      {/* Title: two lines, second italic */}
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          fontSize: title.length > 40 ? 80 : 96,
+          fontSize: title.length > 30 ? 76 : 88,
           fontWeight: 700,
           letterSpacing: "-0.03em",
-          lineHeight: 1,
-          maxWidth: "900px",
+          lineHeight: 1.05,
           textAlign: "center",
         }}
       >
@@ -107,29 +142,30 @@ export const ShadcnRegistry8 = ({
           style={{
             alignItems: "center",
             display: "flex",
-            gap: "20px",
+            gap: "16px",
             justifyContent: "center",
           }}
         >
-          <span>{title.split("◆")[0]}</span>
+          <span>AI</span>
           <span
             style={{
-              backgroundColor: "#eab308",
+              backgroundColor: "#84cc16",
               borderRadius: "4px",
               display: "inline-block",
-              height: "24px",
+              height: "28px",
               transform: "rotate(45deg)",
-              width: "24px",
+              width: "28px",
             }}
           />
-          {title.split("◆")[1] || ""}
+          <span>Native Components,</span>
         </div>
         {subtitle ? (
           <span
             style={{
               color: "#d4d4d8",
-              fontSize: title.length > 40 ? 72 : 88,
+              fontSize: title.length > 30 ? 68 : 80,
               fontStyle: "italic",
+              letterSpacing: "-0.03em",
             }}
           >
             {subtitle}
@@ -144,10 +180,10 @@ export const ShadcnRegistry8 = ({
             alignItems: "center",
             display: "flex",
             gap: "12px",
-            marginTop: "16px",
+            marginTop: "12px",
           }}
         >
-          {features.map((feature) => (
+          {features.map((feature, i) => (
             <div
               key={feature}
               style={{
@@ -163,44 +199,56 @@ export const ShadcnRegistry8 = ({
                 padding: "10px 24px",
               }}
             >
+              <span style={{ fontSize: "16px", opacity: 0.6 }}>
+                {["⌘", "📦", "☰"][i] || "☰"}
+              </span>
               {feature}
             </div>
           ))}
         </div>
       ) : null}
 
-      {/* Brand + Logo */}
+      {/* Brand + Logo at bottom */}
       <div
         style={{
           alignItems: "center",
           display: "flex",
           gap: "10px",
-          marginTop: "40px",
+          marginTop: "auto",
+          paddingBottom: "40px",
         }}
       >
         {logo ? (
           <img
             alt=""
-            height={36}
+            height={32}
             src={logo}
-            width={36}
-            style={{ borderRadius: "6px", objectFit: "contain" }}
+            width={32}
+            style={{
+              borderRadius: "6px",
+              objectFit: "contain",
+            }}
           />
         ) : (
           <div
             style={{
-              backgroundColor: "#eab308",
-              borderRadius: "6px",
-              height: "36px",
-              transform: "rotate(45deg)",
-              width: "36px",
+              alignItems: "center",
+              backgroundColor: "#84cc16",
+              borderRadius: "50%",
+              color: "#000000",
+              display: "flex",
+              fontSize: "16px",
+              fontWeight: 700,
+              height: "32px",
+              justifyContent: "center",
+              width: "32px",
             }}
           />
         )}
         <span
           style={{
             color: "#a1a1aa",
-            fontSize: "28px",
+            fontSize: "26px",
             fontWeight: 500,
             letterSpacing: "-0.01em",
           }}
