@@ -20,3 +20,13 @@ export const formatTitleFromSlug = (slug: string): string =>
 export const homeContentRoute = `${ROUTES.LLMS_MD}/content.md`;
 export const docsContentRoute = `${ROUTES.LLMS_MD}${ROUTES.DOCS}`;
 export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
+
+export const PAGES_NEW: string[] = [
+  ROUTES.DOCS_CHANGELOG,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-1`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-2`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-3`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-4`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-5`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-6`,
+];
