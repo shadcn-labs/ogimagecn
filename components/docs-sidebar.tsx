@@ -14,7 +14,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
-import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import { EXCLUDED_SECTIONS, isComponentsFolder, PAGES_NEW } from "@/lib/docs";
 import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 
@@ -28,8 +28,31 @@ const TOP_LEVEL_SECTIONS = [
   { href: ROUTES.DOCS_CHANGELOG, name: "Changelog" },
 ];
 
-const MENU_BUTTON_CLS =
-  "relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48";
+const SidebarMenuItemLink = ({
+  href,
+  isActive,
+  children,
+}: {
+  href: string;
+  isActive: boolean;
+  children: React.ReactNode;
+}) => (
+  <SidebarMenuItem>
+    <SidebarMenuButton
+      asChild
+      className="relative h-[30px] w-fit overflow-visible border border-transparent text-[0.8rem] font-medium after:absolute after:inset-x-0 after:-inset-y-1 after:z-0 after:rounded-md data-[active=true]:border-accent data-[active=true]:bg-accent 3xl:fixed:w-full 3xl:fixed:max-w-48"
+      isActive={isActive}
+    >
+      <Link href={href}>
+        <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
+        {children}
+        {PAGES_NEW.includes(href) && (
+          <span className="flex size-2 rounded-full bg-blue-500" title="New" />
+        )}
+      </Link>
+    </SidebarMenuButton>
+  </SidebarMenuItem>
+);
 
 const SidebarPageGroup = ({
   label,
@@ -52,18 +75,13 @@ const SidebarPageGroup = ({
       <SidebarGroupContent>
         <SidebarMenu>
           {pages.map((page) => (
-            <SidebarMenuItem key={page.url}>
-              <SidebarMenuButton
-                asChild
-                className={MENU_BUTTON_CLS}
-                isActive={page.url === pathname}
-              >
-                <Link href={page.url}>
-                  <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                  {page.name}
-                </Link>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <SidebarMenuItemLink
+              key={page.url}
+              href={page.url}
+              isActive={page.url === pathname}
+            >
+              {page.name}
+            </SidebarMenuItemLink>
           ))}
         </SidebarMenu>
       </SidebarGroupContent>
@@ -94,22 +112,17 @@ export const DocsSidebar = ({
           <SidebarGroupContent>
             <SidebarMenu>
               {TOP_LEVEL_SECTIONS.map(({ name, href }) => (
-                <SidebarMenuItem key={name}>
-                  <SidebarMenuButton
-                    asChild
-                    className={MENU_BUTTON_CLS}
-                    isActive={
-                      href === ROUTES.DOCS
-                        ? pathname === href
-                        : pathname.startsWith(href)
-                    }
-                  >
-                    <Link href={href}>
-                      <span className="absolute inset-0 flex w-(--sidebar-menu-width) bg-transparent" />
-                      {name}
-                    </Link>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
+                <SidebarMenuItemLink
+                  key={name}
+                  href={href}
+                  isActive={
+                    href === ROUTES.DOCS
+                      ? pathname === href
+                      : pathname.startsWith(href)
+                  }
+                >
+                  {name}
+                </SidebarMenuItemLink>
               ))}
             </SidebarMenu>
           </SidebarGroupContent>
