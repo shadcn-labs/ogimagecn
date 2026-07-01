@@ -33,6 +33,20 @@ import { ShadcnRegistry5 } from "@/registry/ogimagecn/shadcn-registry-5";
 import { shadcnRegistry5Config } from "@/registry/ogimagecn/shadcn-registry-5/config";
 import { ShadcnRegistry6 } from "@/registry/ogimagecn/shadcn-registry-6";
 import { shadcnRegistry6Config } from "@/registry/ogimagecn/shadcn-registry-6/config";
+import { ShadcnRegistry7 } from "@/registry/ogimagecn/shadcn-registry-7";
+import { shadcnRegistry7Config } from "@/registry/ogimagecn/shadcn-registry-7/config";
+import { ShadcnRegistry8 } from "@/registry/ogimagecn/shadcn-registry-8";
+import { shadcnRegistry8Config } from "@/registry/ogimagecn/shadcn-registry-8/config";
+import { ShadcnRegistry9 } from "@/registry/ogimagecn/shadcn-registry-9";
+import { shadcnRegistry9Config } from "@/registry/ogimagecn/shadcn-registry-9/config";
+import { ShadcnRegistry10 } from "@/registry/ogimagecn/shadcn-registry-10";
+import { shadcnRegistry10Config } from "@/registry/ogimagecn/shadcn-registry-10/config";
+import { ShadcnRegistry11 } from "@/registry/ogimagecn/shadcn-registry-11";
+import { shadcnRegistry11Config } from "@/registry/ogimagecn/shadcn-registry-11/config";
+import { ShadcnRegistry12 } from "@/registry/ogimagecn/shadcn-registry-12";
+import { shadcnRegistry12Config } from "@/registry/ogimagecn/shadcn-registry-12/config";
+import { ShadcnRegistry13 } from "@/registry/ogimagecn/shadcn-registry-13";
+import { shadcnRegistry13Config } from "@/registry/ogimagecn/shadcn-registry-13/config";
 import { Shiori } from "@/registry/ogimagecn/shiori";
 import { shioriConfig } from "@/registry/ogimagecn/shiori/config";
 import { Showcase } from "@/registry/ogimagecn/showcase";
@@ -68,6 +82,22 @@ const registry: Record<string, RegistryEntry> = {
     Component: ShadcnRegistry1,
     config: shadcnRegistry1Config,
   },
+  "shadcn-registry-10": {
+    Component: ShadcnRegistry10,
+    config: shadcnRegistry10Config,
+  },
+  "shadcn-registry-11": {
+    Component: ShadcnRegistry11,
+    config: shadcnRegistry11Config,
+  },
+  "shadcn-registry-12": {
+    Component: ShadcnRegistry12,
+    config: shadcnRegistry12Config,
+  },
+  "shadcn-registry-13": {
+    Component: ShadcnRegistry13,
+    config: shadcnRegistry13Config,
+  },
   "shadcn-registry-2": {
     Component: ShadcnRegistry2,
     config: shadcnRegistry2Config,
@@ -87,6 +117,18 @@ const registry: Record<string, RegistryEntry> = {
   "shadcn-registry-6": {
     Component: ShadcnRegistry6,
     config: shadcnRegistry6Config,
+  },
+  "shadcn-registry-7": {
+    Component: ShadcnRegistry7,
+    config: shadcnRegistry7Config,
+  },
+  "shadcn-registry-8": {
+    Component: ShadcnRegistry8,
+    config: shadcnRegistry8Config,
+  },
+  "shadcn-registry-9": {
+    Component: ShadcnRegistry9,
+    config: shadcnRegistry9Config,
   },
   shiori: { Component: Shiori, config: shioriConfig },
   showcase: { Component: Showcase, config: showcaseConfig },
