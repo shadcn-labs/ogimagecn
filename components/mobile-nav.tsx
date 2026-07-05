@@ -13,30 +13,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { ROUTES } from "@/constants/routes";
+import { TOP_LEVEL_SECTIONS } from "@/constants/site";
 import { useFeedback } from "@/hooks/use-feedback";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
 import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
-
-const TOP_LEVEL_SECTIONS = [
-  { href: ROUTES.DOCS, name: "Introduction" },
-  {
-    href: ROUTES.DOCS_COMPONENTS,
-    name: "Components",
-  },
-  {
-    href: ROUTES.DOCS_INSTALLATION,
-    name: "Installation",
-  },
-  {
-    href: ROUTES.DOCS_MCP,
-    name: "MCP",
-  },
-  {
-    href: ROUTES.DOCS_REGISTRY,
-    name: "Registry",
-  },
-];
 
 const MobileLink = ({
   href,
