@@ -16,7 +16,7 @@ import { ROUTES } from "@/constants/routes";
 import { TOP_LEVEL_SECTIONS } from "@/constants/site";
 import { useFeedback } from "@/hooks/use-feedback";
 import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
-import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
+import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
 const MobileLink = ({
@@ -52,10 +52,12 @@ const MobileLink = ({
 };
 
 const MobileNavGroup = ({
+  href,
   label,
   pages,
   setOpen,
 }: {
+  href?: string;
   label: React.ReactNode;
   pages: { url: string; name: React.ReactNode }[];
   setOpen: (open: boolean) => void;
@@ -65,7 +67,17 @@ const MobileNavGroup = ({
   }
   return (
     <div className="flex flex-col gap-4">
-      <div className="text-muted-foreground text-sm font-medium">{label}</div>
+      {href ? (
+        <MobileLink
+          className="text-sm text-muted-foreground"
+          href={href}
+          onOpenChange={setOpen}
+        >
+          {label}
+        </MobileLink>
+      ) : (
+        <div className="text-sm font-medium text-muted-foreground">{label}</div>
+      )}
       <div className="flex flex-col gap-3">
         {pages.map((page) => (
           <MobileLink key={page.url} href={page.url} onOpenChange={setOpen}>
@@ -167,17 +179,25 @@ export const MobileNav = ({
               return null;
             }
 
-            const pages = isComponentsFolder(item)
-              ? getAllPagesFromFolder(item).filter(
-                  (page) => page.url !== ROUTES.DOCS_COMPONENTS
+            if (isComponentsFolder(item)) {
+              return getFolderGroups(item).map(
+                ({ folder, indexPage, pages }) => (
+                  <MobileNavGroup
+                    href={indexPage?.url}
+                    key={folder.$id}
+                    label={folder.name}
+                    pages={pages}
+                    setOpen={setOpen}
+                  />
                 )
-              : getPagesFromFolder(item);
+              );
+            }
 
             return (
               <MobileNavGroup
                 key={item.$id}
                 label={item.name}
-                pages={pages}
+                pages={getPagesFromFolder(item)}
                 setOpen={setOpen}
               />
             );

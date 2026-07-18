@@ -7,7 +7,14 @@ export const DOCS_DIR = `content${ROUTES.DOCS}`;
 export const EXCLUDED_SECTIONS = new Set(["installation", "(root)"]);
 
 export const isComponentsFolder = (folder: PageTreeFolder) =>
-  folder.$id === "components" || folder.name === "Components";
+  folder.$id === "components";
+
+export const getComponentNameFromUrl = (url: string) => {
+  const parts = url.split("/").filter(Boolean);
+  const name = parts.at(-1) ?? "";
+
+  return parts.at(-2) === "shadcn-registry" ? `shadcn-registry-${name}` : name;
+};
 
 const TITLE_OVERRIDES: Record<string, string> = {
   json: "JSON",
@@ -23,11 +30,11 @@ export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 
 export const PAGES_NEW: string[] = [
   ROUTES.DOCS_CHANGELOG,
-  `${ROUTES.DOCS_COMPONENTS}/dither-registry`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-1`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-2`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-3`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-4`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-5`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-6`,
+  `${ROUTES.DOCS_COMPONENTS}/dither/dither-registry`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/1`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/2`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/3`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/4`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/5`,
+  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/6`,
 ];

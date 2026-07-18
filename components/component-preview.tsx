@@ -49,11 +49,13 @@ export const ComponentPreview = ({
   title,
   hideCustomizer = false,
   className,
+  previewClassName,
 }: {
   name: string;
   title?: string;
   hideCustomizer?: boolean;
   className?: string;
+  previewClassName?: string;
 }) => {
   const entry = registry[name];
   const [values, setValues] = useState(() =>
@@ -94,6 +96,7 @@ export const ComponentPreview = ({
         onSvgReady={setSvg}
         width={OG_WIDTH}
         height={OG_HEIGHT}
+        className={previewClassName}
       />
 
       {!hideCustomizer && (
