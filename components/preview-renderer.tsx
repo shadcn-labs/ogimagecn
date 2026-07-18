@@ -5,6 +5,28 @@ import satori from "satori";
 import type { Font } from "satori";
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { cn } from "@/lib/utils";
+
+let fontsPromise: Promise<Font[]> | undefined;
+
+const loadFonts = () => {
+  fontsPromise ??= Promise.all(
+    ([400, 500, 600, 700, 800] as const).map(async (weight) => {
+      const res = await fetch(
+        `https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-${weight}-normal.woff`
+      );
+      const buf = await res.arrayBuffer();
+      return {
+        data: buf,
+        name: "Inter" as const,
+        style: "normal" as const,
+        weight,
+      };
+    })
+  );
+
+  return fontsPromise;
+};
 
 export const PreviewRenderer = ({
   Component,
@@ -13,6 +35,7 @@ export const PreviewRenderer = ({
   onSvgReady,
   width,
   height,
+  className,
 }: {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Component: React.ComponentType<any>;
@@ -21,6 +44,7 @@ export const PreviewRenderer = ({
   onSvgReady?: (svg: string) => void;
   width: number;
   height: number;
+  className?: string;
 }) => {
   const [svg, setSvg] = useState("");
   const [fonts, setFonts] = useState<Font[]>([]);
@@ -28,25 +52,20 @@ export const PreviewRenderer = ({
   onSvgReadyRef.current = onSvgReady;
 
   useEffect(() => {
-    const loadFonts = async () => {
-      const weights = [400, 500, 600, 700, 800] as const;
-      const loaded = await Promise.all(
-        weights.map(async (weight) => {
-          const res = await fetch(
-            `https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-${weight}-normal.woff`
-          );
-          const buf = await res.arrayBuffer();
-          return {
-            data: buf,
-            name: "Inter" as const,
-            style: "normal" as const,
-            weight,
-          };
-        })
-      );
-      setFonts(loaded);
+    let cancelled = false;
+
+    const updateFonts = async () => {
+      const loaded = await loadFonts();
+      if (!cancelled) {
+        setFonts(loaded);
+      }
     };
-    void loadFonts();
+
+    void updateFonts();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   useEffect(() => {
@@ -79,7 +98,12 @@ export const PreviewRenderer = ({
   }, [values, fonts, Component, width, height]);
 
   return (
-    <div className="relative w-full min-w-0 overflow-hidden rounded-xl border bg-background shadow-sm">
+    <div
+      className={cn(
+        "relative w-full min-w-0 overflow-hidden rounded-xl border bg-background shadow-sm",
+        className
+      )}
+    >
       <AspectRatio ratio={width / height}>
         {svg ? (
           // eslint-disable-next-line @next/next/no-img-element

@@ -1,6 +1,9 @@
 "use client";
 
-import type { Root as PageTreeRoot } from "fumadocs-core/page-tree";
+import type {
+  Node as PageTreeNode,
+  Root as PageTreeRoot,
+} from "fumadocs-core/page-tree";
 import {
   ArrowRightIcon,
   CornerDownLeftIcon,
@@ -29,16 +32,23 @@ import {
 } from "@/components/ui/dialog";
 import { Kbd } from "@/components/ui/kbd";
 import { Separator } from "@/components/ui/separator";
-import { ROUTES } from "@/constants/routes";
 import { SITE } from "@/constants/site";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
 import { useFeedback } from "@/hooks/use-feedback";
 import { useIsMac } from "@/hooks/use-is-mac";
 import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { usePackageManager } from "@/hooks/use-package-manager";
-import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
+import {
+  EXCLUDED_SECTIONS,
+  getComponentNameFromUrl,
+  isComponentsFolder,
+} from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
-import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
+import {
+  getAllPagesFromFolder,
+  getFoldersFromFolder,
+  getPagesFromFolder,
+} from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
 type DocUrlKind =
@@ -50,6 +60,32 @@ type DocUrlKind =
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
 
+type PageTreeFolder = Extract<PageTreeNode, { type: "folder" }>;
+type PageTreePage = Extract<PageTreeNode, { type: "page" }>;
+
+interface TreeGroup {
+  label: string;
+  pages: { url: string; name: string }[];
+}
+
+const addTreeGroup = (
+  groups: TreeGroup[],
+  folder: PageTreeFolder,
+  pages: PageTreePage[]
+) => {
+  if (pages.length === 0) {
+    return;
+  }
+
+  groups.push({
+    label: String(folder.name),
+    pages: pages.map((page) => ({
+      name: String(page.name),
+      url: page.url,
+    })),
+  });
+};
+
 const parseDocPageUrl = (url: string): DocUrlKind => {
   const parts = url.split("/").filter(Boolean);
   const themesIdx = parts.indexOf("themes");
@@ -57,8 +93,8 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
     return { kind: "theme", slug: parts[themesIdx + 1] };
   }
   const componentsIdx = parts.indexOf("components");
-  if (componentsIdx !== -1 && parts[componentsIdx + 1]) {
-    return { kind: "component", slug: parts.at(-1) ?? "" };
+  if (componentsIdx !== -1 && parts[componentsIdx + 2]) {
+    return { kind: "component", slug: getComponentNameFromUrl(url) };
   }
   const templatesIdx = parts.indexOf("templates");
   if (templatesIdx !== -1 && parts[templatesIdx + 1]) {
@@ -162,8 +198,8 @@ export const CommandMenu = ({
   });
 
   const treeGroups = useMemo(() => {
-    const groups: { label: string; pages: { url: string; name: string }[] }[] =
-      [];
+    const groups: TreeGroup[] = [];
+
     for (const item of tree.children) {
       if (item.type !== "folder") {
         continue;
@@ -172,23 +208,16 @@ export const CommandMenu = ({
         continue;
       }
 
-      const pages = (
-        isComponentsFolder(item)
-          ? getAllPagesFromFolder(item).filter(
-              (page) => page.url !== ROUTES.DOCS_COMPONENTS
-            )
-          : getPagesFromFolder(item)
-      ).map((p) => ({
-        name: typeof p.name === "string" ? p.name : String(p.name),
-        url: p.url,
-      }));
-      if (pages.length > 0) {
-        groups.push({
-          label: typeof item.name === "string" ? item.name : String(item.name),
-          pages,
-        });
+      if (isComponentsFolder(item)) {
+        for (const category of getFoldersFromFolder(item)) {
+          addTreeGroup(groups, category, getAllPagesFromFolder(category));
+        }
+        continue;
       }
+
+      addTreeGroup(groups, item, getPagesFromFolder(item));
     }
+
     return groups;
   }, [tree]);
 
