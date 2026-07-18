@@ -1,0 +1,94 @@
+---
+title: Dither Registry
+description: A shadcn registry launch card with a raw-pixel Bayer-dithered growth chart and install command.
+---
+
+<ComponentPreview name="dither-registry" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/dither-registry
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the synchronous PNG encoder.</Step>
+
+```bash
+npm install fast-png
+```
+
+<Step>Copy the component into your project.</Step>
+
+<ComponentSource
+  name="dither-registry"
+  title="components/og/dither-registry.tsx"
+/>
+
+<Step>Copy the shared raw bitmap helper.</Step>
+
+<ComponentSource
+  src="registry/lib/dither-bitmap.ts"
+  title="lib/dither-bitmap.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { DitherRegistry } from "@/components/og/dither-registry";
+
+export function GET() {
+  return new ImageResponse(
+    <DitherRegistry
+      registry="@acme/ui"
+      title="Ship your design system as code."
+      description="Composable components your team and coding agents can install in one command."
+      command="npx shadcn@latest add @acme/button"
+      accent="#28d26e"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## How the bitmap works
+
+The component paints a premultiplied RGBA buffer using an ordered 4×4 Bayer
+matrix. The shared helper unpremultiplies and encodes that buffer once as PNG,
+then Satori reuses the encoded image for the crisp and blurred layers. No SVG
+node is created for each dither cell.
+
+## API Reference
+
+### DitherRegistry
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `registry`    | `string` |
+| `title`       | `string` |
+| `description` | `string` |
+| `command`     | `string` |
+| `accent`      | `string` |

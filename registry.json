@@ -30,6 +30,24 @@
       ]
     },
     {
+      "name": "dither-registry",
+      "type": "registry:component",
+      "title": "Dither Registry",
+      "description": "A shadcn registry launch card with a raw-pixel Bayer-dithered growth chart and install command.",
+      "dependencies": ["fast-png@^8.0.0"],
+      "files": [
+        {
+          "path": "registry/components/dither-registry/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/dither-registry.tsx"
+        },
+        {
+          "path": "registry/lib/dither-bitmap.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "blog",
       "type": "registry:component",
       "title": "Blog",

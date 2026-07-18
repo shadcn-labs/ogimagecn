@@ -21,6 +21,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
+    "fast-png": "^8.0.0",
     "fumadocs-core": "^16.8.4",
     "fumadocs-mdx": "^14.3.1",
     "jiti": "^2.6.1",

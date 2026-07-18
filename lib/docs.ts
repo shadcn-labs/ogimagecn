@@ -23,6 +23,7 @@ export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 
 export const PAGES_NEW: string[] = [
   ROUTES.DOCS_CHANGELOG,
+  `${ROUTES.DOCS_COMPONENTS}/dither-registry`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-1`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-2`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry-3`,
