@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 import { SITE } from "@/constants/site";
-import { Grid } from "@/registry/ogimagecn/grid";
+import { Grid } from "@/registry/components/grid";
 
 export const GET = (request: Request) => {
   const { searchParams } = new URL(request.url);

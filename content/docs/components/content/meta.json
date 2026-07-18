@@ -1,0 +1,14 @@
+{
+  "title": "Content",
+  "pages": [
+    "index",
+    "blog",
+    "editorial",
+    "grid",
+    "photo",
+    "profile",
+    "quote",
+    "stat",
+    "terminal"
+  ]
+}

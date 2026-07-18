@@ -14,19 +14,10 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { ROUTES } from "@/constants/routes";
+import { TOP_LEVEL_SECTIONS } from "@/constants/site";
 import { EXCLUDED_SECTIONS, isComponentsFolder, PAGES_NEW } from "@/lib/docs";
-import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
+import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
-
-const TOP_LEVEL_SECTIONS = [
-  { href: ROUTES.DOCS, name: "Introduction" },
-  { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
-  { href: ROUTES.DOCS_COMPONENTS, name: "Components" },
-  { href: ROUTES.DOCS_MCP, name: "MCP" },
-  { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
-  { href: ROUTES.LLMS, name: "llms.txt" },
-  { href: ROUTES.DOCS_CHANGELOG, name: "Changelog" },
-];
 
 const SidebarMenuItemLink = ({
   href,
@@ -55,10 +46,12 @@ const SidebarMenuItemLink = ({
 );
 
 const SidebarPageGroup = ({
+  href,
   label,
   pages,
   pathname,
 }: {
+  href?: string;
   label: React.ReactNode;
   pages: { url: string; name: React.ReactNode }[];
   pathname: string;
@@ -69,9 +62,18 @@ const SidebarPageGroup = ({
 
   return (
     <SidebarGroup>
-      <SidebarGroupLabel className="text-muted-foreground font-medium">
-        {label}
-      </SidebarGroupLabel>
+      {href ? (
+        <SidebarGroupLabel
+          asChild
+          className="text-muted-foreground font-medium hover:text-foreground"
+        >
+          <Link href={href}>{label}</Link>
+        </SidebarGroupLabel>
+      ) : (
+        <SidebarGroupLabel className="text-muted-foreground font-medium">
+          {label}
+        </SidebarGroupLabel>
+      )}
       <SidebarGroupContent>
         <SidebarMenu>
           {pages.map((page) => (
@@ -135,17 +137,23 @@ export const DocsSidebar = ({
             return null;
           }
 
-          const pages = isComponentsFolder(item)
-            ? getAllPagesFromFolder(item).filter(
-                (page) => page.url !== ROUTES.DOCS_COMPONENTS
-              )
-            : getPagesFromFolder(item);
+          if (isComponentsFolder(item)) {
+            return getFolderGroups(item).map(({ folder, indexPage, pages }) => (
+              <SidebarPageGroup
+                href={indexPage?.url}
+                key={folder.$id}
+                label={folder.name}
+                pages={pages}
+                pathname={pathname}
+              />
+            ));
+          }
 
           return (
             <SidebarPageGroup
               key={item.$id}
               label={item.name}
-              pages={pages}
+              pages={getPagesFromFolder(item)}
               pathname={pathname}
             />
           );

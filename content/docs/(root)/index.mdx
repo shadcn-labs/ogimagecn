@@ -42,7 +42,7 @@ Satori produces.
 
 ## How It Works
 
-1. Each component lives at `registry/ogimagecn/<name>.tsx`
+1. Each component lives at `registry/components/<name>.tsx`
 2. It is listed in `registry.json`
 3. `pnpm registry:build` emits installable JSON to `public/r`
 
@@ -104,7 +104,7 @@ Can I add my own components?
 </AccordionTrigger>
 <AccordionContent>
 
-Absolutely. Add a file to `registry/ogimagecn/`, list it in `registry.json`,
+Absolutely. Add a file to `registry/components/`, list it in `registry.json`,
 write an MDX doc, and run `pnpm registry:build`.
 
 </AccordionContent>

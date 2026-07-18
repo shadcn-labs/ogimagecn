@@ -45,7 +45,7 @@ export const formatCode = async (code: string) => {
   let formattedCode = code;
 
   formattedCode = formattedCode.replaceAll(
-    "@/registry/ogimagecn/",
+    "@/registry/components/",
     "@/components/"
   );
 

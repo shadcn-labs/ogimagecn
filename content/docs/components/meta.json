@@ -1,35 +1,4 @@
 {
   "title": "Components",
-  "pages": [
-    "index",
-    "simple",
-    "grid",
-    "blog",
-    "changelog",
-    "quote",
-    "shadcn-registry-1",
-    "shadcn-registry-2",
-    "shadcn-registry-3",
-    "shadcn-registry-4",
-    "shadcn-registry-5",
-    "shadcn-registry-6",
-    "shadcn-registry-7",
-    "shadcn-registry-8",
-    "shadcn-registry-9",
-    "shadcn-registry-10",
-    "shadcn-registry-11",
-    "shadcn-registry-12",
-    "shadcn-registry-13",
-    "photo",
-    "product",
-    "profile",
-    "event",
-    "stat",
-    "logo",
-    "terminal",
-    "editorial",
-    "showcase",
-    "shiori",
-    "owner"
-  ]
+  "pages": ["index", "brand", "content", "product", "shadcn-registry"]
 }

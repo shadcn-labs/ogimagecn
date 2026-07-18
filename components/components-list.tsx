@@ -1,61 +1,97 @@
 import Link from "next/link";
 
-import { ROUTES } from "@/constants/routes";
-import { isComponentsFolder } from "@/lib/docs";
-import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
-import { getAllPagesFromFolder, getPagesFromFolder } from "@/lib/page-tree";
+import { ComponentPreview } from "@/components/component-preview";
+import { getComponentNameFromUrl, isComponentsFolder } from "@/lib/docs";
+import {
+  getFoldersFromFolder,
+  getPagesFromFolderWithoutIndex,
+} from "@/lib/page-tree";
+import type { PageTreeFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
+import { cn } from "@/lib/utils";
 
-const getFolder = (name: string): PageTreeFolder | undefined => {
-  for (const node of source.pageTree.children) {
-    if (
-      node.type === "folder" &&
-      (node.name === name || node.$id === "components")
-    ) {
-      return node;
-    }
-  }
-};
+const componentsFolder = source.pageTree.children.find(
+  (node): node is PageTreeFolder =>
+    node.type === "folder" && isComponentsFolder(node)
+);
+const componentPages = componentsFolder
+  ? getFoldersFromFolder(componentsFolder).flatMap(
+      getPagesFromFolderWithoutIndex
+    )
+  : [];
+const componentPagesByName = new Map(
+  componentPages.map((page) => [getComponentNameFromUrl(page.url), page])
+);
 
-const ComponentGrid = ({ pages }: { pages: PageTreePage[] }) => (
-  <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-x-8 lg:gap-x-16 lg:gap-y-6 xl:gap-x-20">
-    {pages.map((component) => (
-      <Link
-        className="inline-flex items-center gap-2 text-lg font-medium underline-offset-4 hover:underline md:text-base"
-        href={component.url}
-        key={component.$id}
-        transitionTypes={["nav-forward"]}
-      >
-        {component.name}
-      </Link>
-    ))}
+const ComponentCardGrid = ({
+  components,
+  className,
+}: {
+  components: typeof componentPages;
+  className?: string;
+}) => (
+  <div className={cn("grid gap-4 sm:grid-cols-2", className)}>
+    {components.map((component) => {
+      const name = getComponentNameFromUrl(component.url);
+      const title = String(component.name);
+
+      return (
+        <Link
+          className="group rounded-lg bg-code p-1 transition-colors hover:bg-muted/80"
+          href={component.url}
+          key={component.$id ?? component.url}
+          transitionTypes={["nav-forward"]}
+        >
+          <ComponentPreview
+            className="gap-0"
+            previewClassName="rounded-md border-none shadow-none"
+            hideCustomizer
+            name={name}
+            title={title}
+          />
+          <div className="p-2 pb-1 text-base font-medium underline-offset-4 group-hover:underline">
+            {title}
+          </div>
+        </Link>
+      );
+    })}
   </div>
 );
 
 export const ComponentsList = ({
-  folderName = "Components",
+  category,
+  className,
 }: {
-  folderName?: string;
+  category: string;
+  className?: string;
 }) => {
-  const folder = getFolder(folderName);
-  if (!folder) {
+  const categoryFolder = componentsFolder
+    ? getFoldersFromFolder(componentsFolder).find(
+        (folder) => folder.$id?.split("/").at(-1) === category
+      )
+    : undefined;
+
+  if (!categoryFolder) {
     return null;
   }
 
-  if (!isComponentsFolder(folder)) {
-    const pages = getPagesFromFolder(folder);
-    if (pages.length === 0) {
-      return null;
-    }
-    return <ComponentGrid pages={pages} />;
-  }
+  const components = getPagesFromFolderWithoutIndex(categoryFolder);
 
-  const pages = getAllPagesFromFolder(folder).filter(
-    (page) => page.url !== ROUTES.DOCS_COMPONENTS
-  );
-  if (pages.length === 0) {
-    return null;
-  }
-
-  return <ComponentGrid pages={pages} />;
+  return <ComponentCardGrid components={components} className={className} />;
 };
+
+export const ComponentPreviewGrid = ({
+  names,
+  className,
+}: {
+  names: string[];
+  className?: string;
+}) => (
+  <ComponentCardGrid
+    className={className}
+    components={names.flatMap((name) => {
+      const page = componentPagesByName.get(name);
+      return page ? [page] : [];
+    })}
+  />
+);
