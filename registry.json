@@ -10,7 +10,7 @@
       "description": "A minimal, centered Open Graph image with an eyebrow label, title, description, and brand mark.",
       "files": [
         {
-          "path": "registry/ogimagecn/simple/index.tsx",
+          "path": "registry/components/simple/index.tsx",
           "type": "registry:component",
           "target": "components/og/simple.tsx"
         }
@@ -23,7 +23,7 @@
       "description": "A framed, technical Open Graph image with a dashed border grid and a corner brand mark.",
       "files": [
         {
-          "path": "registry/ogimagecn/grid/index.tsx",
+          "path": "registry/components/grid/index.tsx",
           "type": "registry:component",
           "target": "components/og/grid.tsx"
         }
@@ -36,7 +36,7 @@
       "description": "An article Open Graph image with a category badge, headline, excerpt, and author row.",
       "files": [
         {
-          "path": "registry/ogimagecn/blog/index.tsx",
+          "path": "registry/components/blog/index.tsx",
           "type": "registry:component",
           "target": "components/og/blog.tsx"
         }
@@ -49,7 +49,7 @@
       "description": "A release Open Graph image with a version pill, date, title, and a checklist of highlights.",
       "files": [
         {
-          "path": "registry/ogimagecn/changelog/index.tsx",
+          "path": "registry/components/changelog/index.tsx",
           "type": "registry:component",
           "target": "components/og/changelog.tsx"
         }
@@ -62,7 +62,7 @@
       "description": "A testimonial / tweet-style Open Graph image with a large quote and an author row.",
       "files": [
         {
-          "path": "registry/ogimagecn/quote/index.tsx",
+          "path": "registry/components/quote/index.tsx",
           "type": "registry:component",
           "target": "components/og/quote.tsx"
         }
@@ -75,7 +75,7 @@
       "description": "A showcase Open Graph image for shadcn registries with logo, name, URL, description, and tag badges.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-1/index.tsx",
+          "path": "registry/components/shadcn-registry-1/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-1.tsx"
         }
@@ -88,7 +88,7 @@
       "description": "A clean Open Graph image with a light background, logo, name, category, title, and dot-separated tags.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-2/index.tsx",
+          "path": "registry/components/shadcn-registry-2/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-2.tsx"
         }
@@ -101,7 +101,7 @@
       "description": "A bold dark Open Graph image with large title, circular badge, ghost watermark, and credit text.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-3/index.tsx",
+          "path": "registry/components/shadcn-registry-3/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-3.tsx"
         }
@@ -114,7 +114,7 @@
       "description": "A centered dark Open Graph image with logo, name, title, and URL on a subtle dot pattern background.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-4/index.tsx",
+          "path": "registry/components/shadcn-registry-4/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-4.tsx"
         }
@@ -127,7 +127,7 @@
       "description": "A clean light Open Graph image with centered logo, name, title, and description inside a bordered frame.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-5/index.tsx",
+          "path": "registry/components/shadcn-registry-5/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-5.tsx"
         }
@@ -140,7 +140,7 @@
       "description": "A minimal Open Graph image with solid border lines, a logo in the top-left, and title/description at the bottom.",
       "files": [
         {
-          "path": "registry/ogimagecn/shadcn-registry-6/index.tsx",
+          "path": "registry/components/shadcn-registry-6/index.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-6.tsx"
         }
@@ -153,7 +153,7 @@
       "description": "A full-bleed photo Open Graph image with a dark gradient scrim and a bottom-aligned title block.",
       "files": [
         {
-          "path": "registry/ogimagecn/photo/index.tsx",
+          "path": "registry/components/photo/index.tsx",
           "type": "registry:component",
           "target": "components/og/photo.tsx"
         }
@@ -166,7 +166,7 @@
       "description": "A two-column product Open Graph image with brand and copy on the left, a product shot on the right, and a price pill.",
       "files": [
         {
-          "path": "registry/ogimagecn/product/index.tsx",
+          "path": "registry/components/product/index.tsx",
           "type": "registry:component",
           "target": "components/og/product.tsx"
         }
@@ -179,7 +179,7 @@
       "description": "A personal / portfolio Open Graph image with a circular avatar beside a name, role, bio, and website pill.",
       "files": [
         {
-          "path": "registry/ogimagecn/profile/index.tsx",
+          "path": "registry/components/profile/index.tsx",
           "type": "registry:component",
           "target": "components/og/profile.tsx"
         }
@@ -192,7 +192,7 @@
       "description": "An event / launch Open Graph image with an eyebrow label, large title, and a date · location footer row.",
       "files": [
         {
-          "path": "registry/ogimagecn/event/index.tsx",
+          "path": "registry/components/event/index.tsx",
           "type": "registry:component",
           "target": "components/og/event.tsx"
         }
@@ -205,7 +205,7 @@
       "description": "A metric / dashboard Open Graph image with an eyebrow label, an oversized number, a trend pill, and a caption.",
       "files": [
         {
-          "path": "registry/ogimagecn/stat/index.tsx",
+          "path": "registry/components/stat/index.tsx",
           "type": "registry:component",
           "target": "components/og/stat.tsx"
         }
@@ -218,7 +218,7 @@
       "description": "A centered brand Open Graph image with a logo tile, a large wordmark, and an optional tagline on a soft gradient field.",
       "files": [
         {
-          "path": "registry/ogimagecn/logo/index.tsx",
+          "path": "registry/components/logo/index.tsx",
           "type": "registry:component",
           "target": "components/og/logo.tsx"
         }
@@ -231,7 +231,7 @@
       "description": "A minimal, technical Open Graph image with a wordmark and accent side-bar above a large wide-tracked uppercase headline.",
       "files": [
         {
-          "path": "registry/ogimagecn/terminal/index.tsx",
+          "path": "registry/components/terminal/index.tsx",
           "type": "registry:component",
           "target": "components/og/terminal.tsx"
         }
@@ -244,7 +244,7 @@
       "description": "A poster-style Open Graph image with oversized display type and a large faint ghost word set behind the content.",
       "files": [
         {
-          "path": "registry/ogimagecn/editorial/index.tsx",
+          "path": "registry/components/editorial/index.tsx",
           "type": "registry:component",
           "target": "components/og/editorial.tsx"
         }
@@ -257,7 +257,7 @@
       "description": "A product-showcase Open Graph image with a centered headline above a faux browser window and a minimal dashboard UI.",
       "files": [
         {
-          "path": "registry/ogimagecn/showcase/index.tsx",
+          "path": "registry/components/showcase/index.tsx",
           "type": "registry:component",
           "target": "components/og/showcase.tsx"
         }
@@ -270,7 +270,7 @@
       "description": "A clean, minimal Open Graph image with a light cream background, an orange gradient circle logo, and a bold title beside a muted description.",
       "files": [
         {
-          "path": "registry/ogimagecn/shiori/index.tsx",
+          "path": "registry/components/shiori/index.tsx",
           "type": "registry:component",
           "target": "components/og/shiori.tsx"
         }
@@ -283,7 +283,7 @@
       "description": "A clean Open Graph image with a light background, eyebrow text, bold headline, and three rounded photos at the bottom.",
       "files": [
         {
-          "path": "registry/ogimagecn/owner/index.tsx",
+          "path": "registry/components/owner/index.tsx",
           "type": "registry:component",
           "target": "components/og/owner.tsx"
         }
