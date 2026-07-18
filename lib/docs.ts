@@ -30,12 +30,6 @@ export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 
 export const PAGES_NEW: string[] = [
   ROUTES.DOCS_CHANGELOG,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/1`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/2`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/3`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/4`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/5`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/6`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/7`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/8`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/9`,
