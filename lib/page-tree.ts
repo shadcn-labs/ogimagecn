@@ -15,45 +15,24 @@ export const getPagesFromFolder = (folder: PageTreeFolder): PageTreePage[] =>
     (child): child is PageTreePage => child.type === "page"
   );
 
-export const getAllPagesFromFolder = (
-  folder: PageTreeFolder
-): PageTreePage[] => {
-  const pages: PageTreePage[] = [];
+const getFolderPages = (folder: PageTreeFolder) => {
+  const pages = getPagesFromFolder(folder);
+  const indexPage = folder.$id
+    ? pages.find((page) => page.url.endsWith(`/${folder.$id}`))
+    : undefined;
 
-  for (const child of folder.children) {
-    if (child.type === "page") {
-      pages.push(child);
-    } else if (child.type === "folder") {
-      pages.push(...getAllPagesFromFolder(child));
-    }
-  }
-
-  return pages;
-};
-
-export const getFolderIndexPage = (
-  folder: PageTreeFolder
-): PageTreePage | undefined => {
-  if (!folder.$id) {
-    return undefined;
-  }
-
-  const folderUrlSuffix = `/${folder.$id}`;
-  return getPagesFromFolder(folder).find((page) =>
-    page.url.endsWith(folderUrlSuffix)
-  );
+  return {
+    indexPage,
+    pages: pages.filter((page) => page !== indexPage),
+  };
 };
 
 export const getPagesFromFolderWithoutIndex = (
   folder: PageTreeFolder
-): PageTreePage[] => {
-  const indexPage = getFolderIndexPage(folder);
-  return getPagesFromFolder(folder).filter((page) => page !== indexPage);
-};
+): PageTreePage[] => getFolderPages(folder).pages;
 
 export const getFolderGroups = (folder: PageTreeFolder) =>
   getFoldersFromFolder(folder).map((child) => ({
     folder: child,
-    indexPage: getFolderIndexPage(child),
-    pages: getPagesFromFolderWithoutIndex(child),
+    ...getFolderPages(child),
   }));

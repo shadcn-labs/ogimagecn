@@ -1,9 +1,6 @@
 "use client";
 
-import type {
-  Node as PageTreeNode,
-  Root as PageTreeRoot,
-} from "fumadocs-core/page-tree";
+import type { Root as PageTreeRoot } from "fumadocs-core/page-tree";
 import {
   ArrowRightIcon,
   CornerDownLeftIcon,
@@ -44,11 +41,8 @@ import {
   isComponentsFolder,
 } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
-import {
-  getAllPagesFromFolder,
-  getFoldersFromFolder,
-  getPagesFromFolder,
-} from "@/lib/page-tree";
+import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
+import type { PageTreeFolder, PageTreePage } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
 type DocUrlKind =
@@ -59,9 +53,6 @@ type DocUrlKind =
 
 const GROUP_HEADING_CLS =
   "!p-0 [&_[cmdk-group-heading]]:scroll-mt-16 [&_[cmdk-group-heading]]:!p-3 [&_[cmdk-group-heading]]:!pb-1";
-
-type PageTreeFolder = Extract<PageTreeNode, { type: "folder" }>;
-type PageTreePage = Extract<PageTreeNode, { type: "page" }>;
 
 interface TreeGroup {
   label: string;
@@ -209,8 +200,8 @@ export const CommandMenu = ({
       }
 
       if (isComponentsFolder(item)) {
-        for (const category of getFoldersFromFolder(item)) {
-          addTreeGroup(groups, category, getAllPagesFromFolder(category));
+        for (const { folder, pages } of getFolderGroups(item)) {
+          addTreeGroup(groups, folder, pages);
         }
         continue;
       }

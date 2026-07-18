@@ -2,11 +2,11 @@ import Link from "next/link";
 
 import { ComponentPreview } from "@/components/component-preview";
 import { getComponentNameFromUrl, isComponentsFolder } from "@/lib/docs";
-import type { PageTreeFolder } from "@/lib/page-tree";
 import {
   getFoldersFromFolder,
   getPagesFromFolderWithoutIndex,
 } from "@/lib/page-tree";
+import type { PageTreeFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,6 @@ const componentsFolder = source.pageTree.children.find(
   (node): node is PageTreeFolder =>
     node.type === "folder" && isComponentsFolder(node)
 );
-const docsByUrl = new Map(source.getPages().map((page) => [page.url, page]));
 
 export const ComponentsList = ({
   category,
@@ -38,12 +37,8 @@ export const ComponentsList = ({
   return (
     <div className={cn("grid gap-4 sm:grid-cols-2", className)}>
       {components.map((component) => {
-        const document = docsByUrl.get(component.url);
         const name = getComponentNameFromUrl(component.url);
-        const title =
-          typeof component.name === "string"
-            ? component.name
-            : (document?.data.title ?? name);
+        const title = String(component.name);
 
         return (
           <Link
