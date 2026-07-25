@@ -3,8 +3,12 @@ import { Blog } from "@/registry/components/blog";
 import { blogConfig } from "@/registry/components/blog/config";
 import { Changelog } from "@/registry/components/changelog";
 import { changelogConfig } from "@/registry/components/changelog/config";
-import { DitherRegistry } from "@/registry/components/dither-registry";
-import { ditherRegistryConfig } from "@/registry/components/dither-registry/config";
+import { DitherCharts } from "@/registry/components/dither-charts";
+import { ditherChartsConfig } from "@/registry/components/dither-charts/config";
+import { DitherProfile } from "@/registry/components/dither-profile";
+import { ditherProfileConfig } from "@/registry/components/dither-profile/config";
+import { DitherRelease } from "@/registry/components/dither-release";
+import { ditherReleaseConfig } from "@/registry/components/dither-release/config";
 import { Editorial } from "@/registry/components/editorial";
 import { editorialConfig } from "@/registry/components/editorial/config";
 import { Event } from "@/registry/components/event";
@@ -57,9 +61,17 @@ export interface RegistryEntry {
 const registry: Record<string, RegistryEntry> = {
   blog: { Component: Blog, config: blogConfig },
   changelog: { Component: Changelog, config: changelogConfig },
-  "dither-registry": {
-    Component: DitherRegistry,
-    config: ditherRegistryConfig,
+  "dither-charts": {
+    Component: DitherCharts,
+    config: ditherChartsConfig,
+  },
+  "dither-profile": {
+    Component: DitherProfile,
+    config: ditherProfileConfig,
+  },
+  "dither-release": {
+    Component: DitherRelease,
+    config: ditherReleaseConfig,
   },
   editorial: { Component: Editorial, config: editorialConfig },
   event: { Component: Event, config: eventConfig },

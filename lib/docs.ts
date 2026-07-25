@@ -12,8 +12,11 @@ export const isComponentsFolder = (folder: PageTreeFolder) =>
 export const getComponentNameFromUrl = (url: string) => {
   const parts = url.split("/").filter(Boolean);
   const name = parts.at(-1) ?? "";
+  const category = parts.at(-2);
 
-  return parts.at(-2) === "shadcn-registry" ? `shadcn-registry-${name}` : name;
+  return category === "dither" || category === "shadcn-registry"
+    ? `${category}-${name}`
+    : name;
 };
 
 const TITLE_OVERRIDES: Record<string, string> = {
@@ -30,7 +33,9 @@ export const docsImageRoute = `${ROUTES.OG}${ROUTES.DOCS}`;
 
 export const PAGES_NEW: string[] = [
   ROUTES.DOCS_CHANGELOG,
-  `${ROUTES.DOCS_COMPONENTS}/dither/dither-registry`,
+  `${ROUTES.DOCS_COMPONENTS}/dither/charts`,
+  `${ROUTES.DOCS_COMPONENTS}/dither/profile`,
+  `${ROUTES.DOCS_COMPONENTS}/dither/release`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/1`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/2`,
   `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/3`,
