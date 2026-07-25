@@ -12,5 +12,5 @@ export const showcaseConfig: ControlConfig = {
     label: "Title",
     type: "text",
   },
-  url: { default: "app.ogimagecn.dev", label: "URL", type: "text" },
+  url: { default: "app.ogimagecn.com", label: "URL", type: "text" },
 };
