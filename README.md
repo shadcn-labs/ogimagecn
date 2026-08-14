@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/og.png" alt="ogimagecn banner" />
+  <img src="./.github/assets/gh.png" alt="ogimagecn banner" />
 </p>
 
 <h1 align="center">ogimagecn</h1>
@@ -50,8 +50,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 <a href="https://www.star-history.com/?repos=shadcn-labs%2Fogimagecn&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&legend=top-left" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&theme=dark&legend=top-left&sealed_token=JiKEbONnIIE3VLgyDfM2csrG8EZyCuu7tLD_Y78spiwKglEOsL5Wp3LhzoHNrzqCoPUkSkuSLbfD41BDacn7gcNl08Fa0xFeNf6nPt9UJXJ6dYI3QwFucBNe7oniZT7hx_Ifp9PJObOrjdqOLqDboajRYABsTCUhCGLbIj42QdTQOl9Wa293sjal8cpU" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&legend=top-left&sealed_token=JiKEbONnIIE3VLgyDfM2csrG8EZyCuu7tLD_Y78spiwKglEOsL5Wp3LhzoHNrzqCoPUkSkuSLbfD41BDacn7gcNl08Fa0xFeNf6nPt9UJXJ6dYI3QwFucBNe7oniZT7hx_Ifp9PJObOrjdqOLqDboajRYABsTCUhCGLbIj42QdTQOl9Wa293sjal8cpU" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=shadcn-labs/ogimagecn&type=date&legend=top-left&sealed_token=JiKEbONnIIE3VLgyDfM2csrG8EZyCuu7tLD_Y78spiwKglEOsL5Wp3LhzoHNrzqCoPUkSkuSLbfD41BDacn7gcNl08Fa0xFeNf6nPt9UJXJ6dYI3QwFucBNe7oniZT7hx_Ifp9PJObOrjdqOLqDboajRYABsTCUhCGLbIj42QdTQOl9Wa293sjal8cpU" />
  </picture>
 </a>
