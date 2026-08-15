@@ -1,6 +1,4 @@
-import { ROUTES } from "./routes";
-
-export const FALLBACK_SITE_ORIGIN = "https://ogimagecn.vercel.app" as const;
+export const FALLBACK_SITE_ORIGIN = "https://ogimagecn.com" as const;
 
 const getBaseUrl = () => {
   if (process.env.NODE_ENV !== "production") {
@@ -50,13 +48,3 @@ export const META_THEME_COLORS = {
 export const UTM_PARAMS = {
   utm_source: new URL(baseUrl).hostname,
 };
-
-export const TOP_LEVEL_SECTIONS = [
-  { href: ROUTES.DOCS, name: "Introduction" },
-  { href: ROUTES.DOCS_INSTALLATION, name: "Installation" },
-  { href: ROUTES.DOCS_COMPONENTS, name: "Components" },
-  { href: ROUTES.DOCS_MCP, name: "MCP" },
-  { href: ROUTES.DOCS_REGISTRY, name: "Registry" },
-  { href: ROUTES.LLMS, name: "llms.txt" },
-  { href: ROUTES.DOCS_CHANGELOG, name: "Changelog" },
-];
