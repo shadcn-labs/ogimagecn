@@ -14,7 +14,6 @@ export const LABS_LATEST = {
 
 export const LABS_REGISTRIES = [
   { href: "https://termcn.dev", name: "termcn" },
-  { href: "https://emailcn.run", name: "emailcn" },
   { href: "https://framecn.dev", name: "framecn" },
   { href: "https://ogimagecn.com", name: "ogimagecn" },
   { href: "https://agentcn.run", name: "agentcn" },
