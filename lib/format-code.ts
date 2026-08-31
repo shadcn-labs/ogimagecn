@@ -44,6 +44,8 @@ type DisplayTransformer = (opts: {
 export const formatCode = async (code: string) => {
   let formattedCode = code;
 
+  formattedCode = formattedCode.replaceAll("@/registry/lib/", "@/lib/");
+
   formattedCode = formattedCode.replaceAll(
     "@/registry/components/",
     "@/components/"

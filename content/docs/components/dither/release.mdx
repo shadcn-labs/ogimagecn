@@ -1,0 +1,112 @@
+---
+title: Dither Release
+description: A product release Open Graph image with a Dither Kit gradient wash and textured CTA button.
+---
+
+<ComponentPreview name="dither-release" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/dither-release
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install fast-png
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="dither-release"
+  title="components/og/dither-release.tsx"
+/>
+
+<ComponentSource
+  src="registry/lib/dither-bitmap.ts"
+  title="lib/dither-bitmap.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { DitherRelease } from "@/components/og/dither-release";
+
+const geistPixel = fetch(
+  "https://raw.githubusercontent.com/vercel/geist-font/main/fonts/GeistPixel/ttf/GeistPixel-Square.ttf"
+).then((response) => response.arrayBuffer());
+
+export async function GET() {
+  return new ImageResponse(
+    <DitherRelease
+      brand="Acme"
+      eyebrow="Product update"
+      title="A faster way to ship."
+      description="Faster workflows, clearer feedback, and a calmer path from idea to production."
+      buttonLabel="Read the changelog →"
+      variant="gradient"
+      accent="#9f7aea"
+      accentTo="#ec8fbd"
+    />,
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Geist Pixel",
+          data: await geistPixel,
+          style: "normal",
+          weight: 400,
+        },
+      ],
+    }
+  );
+}
+```
+
+## How the bitmap works
+
+The shared bitmap helper paints the supporting gradient and CTA texture. The
+button can use the gradient, dotted, hatched, or solid variant without turning
+the rest of the product-release OG into a component showcase.
+
+## API Reference
+
+### DitherRelease
+
+| Prop          | Type                                             |
+| ------------- | ------------------------------------------------ |
+| `brand`       | `string`                                         |
+| `eyebrow`     | `string`                                         |
+| `title`       | `string`                                         |
+| `description` | `string`                                         |
+| `buttonLabel` | `string`                                         |
+| `accent`      | `string`                                         |
+| `accentTo`    | `string`                                         |
+| `variant`     | `"gradient" \| "dotted" \| "hatched" \| "solid"` |

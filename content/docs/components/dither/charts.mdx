@@ -1,0 +1,106 @@
+---
+title: Dither Charts
+description: A Dither Kit showcase card with five raw-pixel chart previews and Geist Pixel typography.
+---
+
+<ComponentPreview name="dither-charts" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/dither-charts
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the following dependencies:</Step>
+
+```bash
+npm install fast-png
+```
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="dither-charts" title="components/og/dither-charts.tsx" />
+
+<ComponentSource
+  src="registry/lib/dither-bitmap.ts"
+  title="lib/dither-bitmap.ts"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { DitherCharts } from "@/components/og/dither-charts";
+
+const geistPixel = fetch(
+  "https://raw.githubusercontent.com/vercel/geist-font/main/fonts/GeistPixel/ttf/GeistPixel-Square.ttf"
+).then((response) => response.arrayBuffer());
+
+export async function GET() {
+  return new ImageResponse(
+    <DitherCharts
+      name="dither-kit"
+      tagline="five chart types · one tiny canvas engine"
+      command="npx @dither-kit/cli add dither-kit"
+      primary="#358ff3"
+      secondary="#966eff"
+    />,
+    {
+      width: 1200,
+      height: 630,
+      fonts: [
+        {
+          name: "Geist Pixel",
+          data: await geistPixel,
+          style: "normal",
+          weight: 400,
+        },
+      ],
+    }
+  );
+}
+```
+
+## How the bitmap works
+
+The component paints area, bar, line, pie, and radar charts into premultiplied
+RGBA buffers using an ordered 4×4 Bayer matrix. The shared helper encodes each
+chart once as PNG, then Satori reuses those cached images for the crisp and
+blurred layers. The primary and secondary controls are included in the cache key,
+so each color pairing produces the correct chart images. No JSX node is created
+for each dither cell.
+
+## API Reference
+
+### DitherCharts
+
+| Prop        | Type     |
+| ----------- | -------- |
+| `name`      | `string` |
+| `tagline`   | `string` |
+| `command`   | `string` |
+| `primary`   | `string` |
+| `secondary` | `string` |
