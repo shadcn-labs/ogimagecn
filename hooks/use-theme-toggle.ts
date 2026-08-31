@@ -33,8 +33,6 @@ export const useThemeToggle = () => {
     "d",
     () => toggleTheme(),
     {
-      enableOnContentEditable: true,
-      enableOnFormTags: true,
       preventDefault: true,
     },
     [toggleTheme]
