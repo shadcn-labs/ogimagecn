@@ -39,8 +39,6 @@ export const useHapticsToggle = () => {
     "h",
     () => toggleHaptics(),
     {
-      enableOnContentEditable: true,
-      enableOnFormTags: true,
       preventDefault: true,
     },
     [toggleHaptics]
