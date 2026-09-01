@@ -110,7 +110,7 @@ export const MobileNav = ({
             className
           )}
         >
-          <div className="relative flex size-8 items-center justify-center">
+          <div className="relative flex h-8 w-4 items-center justify-center">
             <div className="relative size-4">
               <span
                 className={cn(
