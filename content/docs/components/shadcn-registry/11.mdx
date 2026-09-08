@@ -1,0 +1,77 @@
+---
+title: Shadcn Registry 11
+description: A dark warm-toned Open Graph image with brand logo, large description text, tech stack icons, and a radial gradient glow.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-11" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-11
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-11"
+  title="components/og/shadcn-registry-11.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry11 } from "@/components/og/shadcn-registry-11";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry11
+      title="Landing page components built with React, Shadcn/ui and Tailwind that you can copy/paste into your project."
+      brand="Launch UI"
+      techIcons={["React", "Shadcn", "Tailwind", "Figma", "TypeScript"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry11
+
+| Prop           | Type       |
+| -------------- | ---------- |
+| `title`        | `string`   |
+| `description`  | `string`   |
+| `brand`        | `string`   |
+| `techIcons`    | `string[]` |
+| `logo`         | `string`   |
+| `gradientFrom` | `string`   |
+| `gradientTo`   | `string`   |

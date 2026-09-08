@@ -1,0 +1,77 @@
+---
+title: Shadcn Registry 12
+description: A clean light Open Graph image with centered logo, bold headline, description, tech icons, and a component preview grid.
+---
+
+<ComponentPreview hideCode name="shadcn-registry-12" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/shadcn-registry-12
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="shadcn-registry-12"
+  title="components/og/shadcn-registry-12.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { ShadcnRegistry12 } from "@/components/og/shadcn-registry-12";
+
+export function GET() {
+  return new ImageResponse(
+    <ShadcnRegistry12
+      title="Extraordinary Shadcn UI blocks, components, and templates"
+      description="Speed up your build process with production-ready, fully customizable Shadcn UI components."
+      brand="shadcnspace."
+      techIcons={["S", "N", "T", "R", "P", "B"]}
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### ShadcnRegistry12
+
+| Prop          | Type       |
+| ------------- | ---------- |
+| `title`       | `string`   |
+| `description` | `string`   |
+| `brand`       | `string`   |
+| `techIcons`   | `string[]` |
+| `logo`        | `string`   |
+| `logoColor`   | `string`   |
