@@ -10,8 +10,8 @@ import { cn } from "@/lib/utils";
 let fontsPromise: Promise<Font[]> | undefined;
 
 const loadFonts = () => {
-  fontsPromise ??= Promise.all(
-    ([400, 500, 600, 700, 800] as const).map(async (weight) => {
+  fontsPromise ??= Promise.all([
+    ...([400, 500, 600, 700, 800] as const).map(async (weight) => {
       const res = await fetch(
         `https://cdn.jsdelivr.net/fontsource/fonts/inter@latest/latin-${weight}-normal.woff`
       );
@@ -22,8 +22,17 @@ const loadFonts = () => {
         style: "normal" as const,
         weight,
       };
-    })
-  );
+    }),
+    (async () => {
+      const res = await fetch("/fonts/GeistPixel-Square.ttf");
+      return {
+        data: await res.arrayBuffer(),
+        name: "Geist Pixel" as const,
+        style: "normal" as const,
+        weight: 400 as const,
+      };
+    })(),
+  ]);
 
   return fontsPromise;
 };

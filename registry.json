@@ -30,6 +30,60 @@
       ]
     },
     {
+      "name": "dither-charts",
+      "type": "registry:component",
+      "title": "Dither Charts",
+      "description": "A Dither Kit chart showcase Open Graph image with five raw-pixel previews and Geist Pixel typography.",
+      "dependencies": ["fast-png@^8.0.0"],
+      "files": [
+        {
+          "path": "registry/components/dither-charts/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/dither-charts.tsx"
+        },
+        {
+          "path": "registry/lib/dither-bitmap.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "dither-profile",
+      "type": "registry:component",
+      "title": "Dither Profile",
+      "description": "An author profile Open Graph image with a deterministic Dither Kit avatar and gradient accent.",
+      "dependencies": ["fast-png@^8.0.0"],
+      "files": [
+        {
+          "path": "registry/components/dither-profile/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/dither-profile.tsx"
+        },
+        {
+          "path": "registry/lib/dither-bitmap.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
+      "name": "dither-release",
+      "type": "registry:component",
+      "title": "Dither Release",
+      "description": "A product release Open Graph image with a Dither Kit gradient wash and textured CTA button.",
+      "dependencies": ["fast-png@^8.0.0"],
+      "files": [
+        {
+          "path": "registry/components/dither-release/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/dither-release.tsx"
+        },
+        {
+          "path": "registry/lib/dither-bitmap.ts",
+          "type": "registry:lib"
+        }
+      ]
+    },
+    {
       "name": "blog",
       "type": "registry:component",
       "title": "Blog",
