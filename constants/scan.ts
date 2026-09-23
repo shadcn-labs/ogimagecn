@@ -15,6 +15,7 @@ export const SCAN_PLATFORM_PAGES: ScanPlatformPage[] = [
   { href: ROUTES.SCAN_INSTAGRAM, id: "instagram", name: "Instagram" },
   { href: ROUTES.SCAN_LINE, id: "line", name: "LINE" },
   { href: ROUTES.SCAN_MASTODON, id: "mastodon", name: "Mastodon" },
+  { href: ROUTES.SCAN_NEXTDOOR, id: "nextdoor", name: "Nextdoor" },
   { href: ROUTES.SCAN_NOTION, id: "notion", name: "Notion" },
   { href: ROUTES.SCAN_REDDIT, id: "reddit", name: "Reddit" },
   { href: ROUTES.SCAN_SIGNAL, id: "signal", name: "Signal" },

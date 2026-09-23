@@ -91,6 +91,13 @@ const CRAWLERS = [
     label: "Notion",
     ua: "Notionbot/1.0 (+https://www.notion.so)",
   },
+  /* Nextdoor publishes no preview-crawler UA, so fetch with a standard
+     browser UA that will not be blocked outright. */
+  {
+    id: "nextdoor",
+    label: "Nextdoor",
+    ua: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+  },
   {
     id: "tumblr",
     label: "Tumblr",

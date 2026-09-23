@@ -27,6 +27,7 @@ export const ROUTES = {
   SCAN_INSTAGRAM: "/scan/instagram",
   SCAN_LINE: "/scan/line",
   SCAN_MASTODON: "/scan/mastodon",
+  SCAN_NEXTDOOR: "/scan/nextdoor",
   SCAN_NOTION: "/scan/notion",
   SCAN_REDDIT: "/scan/reddit",
   SCAN_SIGNAL: "/scan/signal",

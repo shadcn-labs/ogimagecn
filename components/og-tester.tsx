@@ -31,6 +31,7 @@ import {
   TikTokIcon,
   TumblrIcon,
   WeChatIcon,
+  NextdoorIcon,
   WhatsAppIcon,
   XIcon,
 } from "@/components/icons";
@@ -44,6 +45,7 @@ import { InstagramPreview } from "@/components/scan/instagram-preview";
 import { LINEPreview } from "@/components/scan/line-preview";
 import { LinkedInPreview } from "@/components/scan/linkedin-preview";
 import { MastodonPreview } from "@/components/scan/mastodon-preview";
+import { NextdoorPreview } from "@/components/scan/nextdoor-preview";
 import { NotionPreview } from "@/components/scan/notion-preview";
 import { PinterestPreview } from "@/components/scan/pinterest-preview";
 import { RedditPreview } from "@/components/scan/reddit-preview";
@@ -415,6 +417,19 @@ const PLATFORMS = [
     name: "Tumblr",
     render: (m: Meta, src: string) => (
       <TumblrPreview
+        description={m.description}
+        image={src}
+        title={m.title}
+        url={m.url}
+      />
+    ),
+  },
+  {
+    icon: <NextdoorIcon />,
+    id: "nextdoor",
+    name: "Nextdoor",
+    render: (m: Meta, src: string) => (
+      <NextdoorPreview
         description={m.description}
         image={src}
         title={m.title}
