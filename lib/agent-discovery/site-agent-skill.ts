@@ -8,12 +8,16 @@ export const SITE_AGENT_SKILL_MD = `# ${SITE.NAME}
 
 ## Summary
 
-Help users discover, inspect, and install Open Graph image components from this public shadcn registry and its documentation site.
+Help users discover, inspect, and install Open Graph image blocks and components from this public shadcn registry and its documentation site.
 
 ## Registry
 
 - Registry JSON: \`${ROUTES.REGISTRY}\`
 - Docs: ${ROUTES.DOCS}
+- Blocks (\`registry:block\`, ready-made OG images): ${ROUTES.DOCS_BLOCKS}
+- Components (\`registry:ui\`, Satori-safe primitives blocks are built from): ${ROUTES.DOCS_COMPONENTS}
+
+Installing a block installs the components it uses automatically.
 
 ## MCP
 

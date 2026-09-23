@@ -15,7 +15,8 @@ export const getPagesFromFolder = (folder: PageTreeFolder): PageTreePage[] =>
     (child): child is PageTreePage => child.type === "page"
   );
 
-const getFolderPages = (folder: PageTreeFolder) => {
+/** Splits a folder's pages into its index page and the rest. */
+export const getFolderPages = (folder: PageTreeFolder) => {
   const pages = getPagesFromFolder(folder);
   const indexPage = folder.$id
     ? pages.find((page) => page.url.endsWith(`/${folder.$id}`))

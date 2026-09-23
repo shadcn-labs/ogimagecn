@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "title": "Avatar",
+  "description": "A circular avatar image with an initials fallback.",
+  "files": [
+    {
+      "path": "registry/og/ui/avatar.tsx",
+      "content": "import type { CSSProperties } from \"react\";\n\nexport interface AvatarProps {\n  /** Person's name. Its initials fill the circle when `src` is empty. */\n  name: string;\n  /** Image URL or data URI. Satori decodes PNG, JPEG, and GIF only. */\n  src?: string;\n  size?: number;\n  background?: string;\n  color?: string;\n  style?: CSSProperties;\n}\n\nexport const Avatar = ({\n  name,\n  src,\n  size = 72,\n  background = \"#7c3aed\",\n  color = \"#ffffff\",\n  style,\n}: AvatarProps) =>\n  src ? (\n    // Satori can paint `alt` text onto the image, so it stays empty.\n    <img\n      alt=\"\"\n      height={size}\n      src={src}\n      width={size}\n      style={{\n        borderRadius: \"999px\",\n        flexShrink: 0,\n        objectFit: \"cover\",\n        ...style,\n      }}\n    />\n  ) : (\n    <div\n      style={{\n        alignItems: \"center\",\n        backgroundColor: background,\n        borderRadius: \"999px\",\n        color,\n        display: \"flex\",\n        flexShrink: 0,\n        fontSize: Math.round(size * 0.42),\n        fontWeight: 700,\n        height: size,\n        justifyContent: \"center\",\n        width: size,\n        ...style,\n      }}\n    >\n      {name\n        .split(/\\s+/)\n        .filter(Boolean)\n        .slice(0, 2)\n        .map((part) => part.charAt(0))\n        .join(\"\")\n        .toUpperCase()}\n    </div>\n  );\n",
+      "type": "registry:ui",
+      "target": "components/og/ui/avatar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

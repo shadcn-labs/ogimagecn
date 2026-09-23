@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "brand-mark",
+  "title": "Brand Mark",
+  "description": "A logo image with a placeholder tile fallback for monograms or icons.",
+  "files": [
+    {
+      "path": "registry/og/ui/brand-mark.tsx",
+      "content": "import type { CSSProperties, ReactNode } from \"react\";\n\nexport interface BrandMarkProps {\n  /** Logo URL or data URI. Satori decodes PNG, JPEG, and GIF only. */\n  src?: string;\n  size?: number;\n  radius?: number | string;\n  /** Placeholder tile background when `src` is empty. Accepts colors and gradients. */\n  background?: string;\n  fit?: \"contain\" | \"cover\";\n  /** Placeholder tile content when `src` is empty, such as a monogram or icon. */\n  children?: ReactNode;\n  style?: CSSProperties;\n}\n\nexport const BrandMark = ({\n  src,\n  size = 40,\n  radius = 8,\n  background,\n  fit = \"contain\",\n  children,\n  style,\n}: BrandMarkProps) =>\n  src ? (\n    // Satori can paint `alt` text onto the image, so it stays empty.\n    <img\n      alt=\"\"\n      height={size}\n      src={src}\n      width={size}\n      style={{ borderRadius: radius, flexShrink: 0, objectFit: fit, ...style }}\n    />\n  ) : (\n    <div\n      style={{\n        alignItems: \"center\",\n        // Satori throws on `undefined` style values.\n        ...(background && { background }),\n        borderRadius: radius,\n        display: \"flex\",\n        flexShrink: 0,\n        height: size,\n        justifyContent: \"center\",\n        width: size,\n        ...style,\n      }}\n    >\n      {children}\n    </div>\n  );\n",
+      "type": "registry:ui",
+      "target": "components/og/ui/brand-mark.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

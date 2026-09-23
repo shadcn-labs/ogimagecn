@@ -12,24 +12,7 @@ export const readOptionalFromRoot = async (
   }
 };
 
-export const getRegistryUiSourceCandidates = ({ name }: { name: string }) => [
-  path.join("registry", "components", name, "index.tsx"),
-];
-
-export const getDemoSource = (name: string): Promise<string | null> =>
-  readOptionalFromRoot(path.join("examples", `${name}.tsx`));
-
-export const getRegistrySource = async (
-  name: string
-): Promise<string | null> => {
-  const candidates = getRegistryUiSourceCandidates({ name });
-
-  for (const candidate of candidates) {
-    const code = await readOptionalFromRoot(candidate);
-    if (code) {
-      return code;
-    }
-  }
-
-  return null;
-};
+// Blocks live at registry/og/<name>.tsx, components at registry/og/ui/<name>.tsx.
+export const getRegistrySource = async (name: string): Promise<string | null> =>
+  (await readOptionalFromRoot(path.join("registry", "og", `${name}.tsx`))) ??
+  readOptionalFromRoot(path.join("registry", "og", "ui", `${name}.tsx`));

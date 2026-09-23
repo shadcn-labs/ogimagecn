@@ -1,0 +1,66 @@
+---
+title: Grid Lines
+description: Four edge-to-edge guide lines that frame the canvas.
+---
+
+<ComponentPreview name="grid-lines" hideCode />
+
+Draws two vertical and two horizontal 1px lines, each `inset` pixels from its edge, for a technical, blueprint-style frame.
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/grid-lines
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="grid-lines" title="components/og/ui/grid-lines.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { GridLines } from "@/components/og/ui/grid-lines";
+
+<div
+  style={{
+    display: "flex",
+    height: "100%",
+    position: "relative",
+    width: "100%",
+  }}
+>
+  <GridLines inset={64} color="#44403c" variant="dashed" />
+  {/* content */}
+</div>;
+```
+
+Satori has no `z-index`: place `GridLines` first inside a `position: "relative"` parent so later siblings paint above it.
+
+## API Reference
+
+| Prop      | Type                  | Default     |
+| --------- | --------------------- | ----------- |
+| `inset`   | `number`              | `64`        |
+| `color`   | `string`              | `"#44403c"` |
+| `variant` | `"solid" \| "dashed"` | `"dashed"`  |

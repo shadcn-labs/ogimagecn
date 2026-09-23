@@ -6,10 +6,10 @@ export const DOCS_DIR = `content${ROUTES.DOCS}`;
 
 export const EXCLUDED_SECTIONS = new Set(["installation", "(root)"]);
 
-export const isComponentsFolder = (folder: PageTreeFolder) =>
-  folder.$id === "components";
+export const isBlocksFolder = (folder: PageTreeFolder) =>
+  folder.$id === "blocks";
 
-export const getComponentNameFromUrl = (url: string) => {
+export const getRegistryItemNameFromUrl = (url: string) => {
   const parts = url.split("/").filter(Boolean);
   const name = parts.at(-1) ?? "";
 
@@ -29,10 +29,14 @@ export const docsContentRoute = `${ROUTES.LLMS_MD}${ROUTES.DOCS}`;
 
 export const PAGES_NEW: string[] = [
   ROUTES.DOCS_CHANGELOG,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/1`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/2`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/3`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/4`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/5`,
-  `${ROUTES.DOCS_COMPONENTS}/shadcn-registry/6`,
+  `${ROUTES.DOCS_COMPONENTS}/avatar`,
+  `${ROUTES.DOCS_COMPONENTS}/badge`,
+  `${ROUTES.DOCS_COMPONENTS}/brand-mark`,
+  `${ROUTES.DOCS_COMPONENTS}/grid-lines`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/1`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/2`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/3`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/4`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/5`,
+  `${ROUTES.DOCS_BLOCKS}/shadcn-registry/6`,
 ];

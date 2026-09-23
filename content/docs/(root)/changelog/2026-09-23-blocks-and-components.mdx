@@ -1,0 +1,25 @@
+---
+title: September 23, 2026 - Blocks and Components
+description: The OG images are now blocks, built from new Satori-safe components.
+date: 2026-09-23
+---
+
+The Open Graph images you know are now **[blocks](/docs/blocks)** —
+`registry:block` items — and they are built from four new
+**[components](/docs/components)**: Avatar, Badge, Brand Mark, and Grid Lines.
+
+<ComponentPreviewGrid
+  className="mt-6"
+  names={["avatar", "badge", "brand-mark", "grid-lines"]}
+/>
+
+- Installing a block now also installs the components it uses into
+  `components/og/ui/`. Install names and the `components/og/<name>.tsx` path
+  are unchanged.
+- The block docs moved from `/docs/components/<category>/<name>` to
+  `/docs/blocks/<category>/<name>`. Old links, including `.md` and `.mdx`
+  mirrors, redirect permanently.
+- Avatar and logo images no longer carry `alt` text, which Satori could draw
+  onto the image.
+- Logos uploaded to Simple, Stat, and Shadcn Registry 2, 4, 5, and 6 now get
+  the same rounded corners as their placeholder tile.

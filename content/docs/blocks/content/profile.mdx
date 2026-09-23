@@ -1,0 +1,76 @@
+---
+title: Profile
+description: A personal / portfolio Open Graph image with a circular avatar beside a name, role, bio, and website pill.
+---
+
+<ComponentPreview hideCode name="profile" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/profile
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy the [Avatar](/docs/components/avatar) and [Badge](/docs/components/badge)
+  components into `components/og/ui/`.
+</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="profile" title="components/og/profile.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Profile } from "@/components/og/profile";
+
+export function GET() {
+  return new ImageResponse(
+    <Profile
+      name="Ada Lovelace"
+      role="Founder & Engineer"
+      bio="Building tools for the open web."
+      website="ada.dev"
+      avatar="https://example.com/avatar.png"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Profile
+
+| Prop      | Type     |
+| --------- | -------- |
+| `name`    | `string` |
+| `role`    | `string` |
+| `bio`     | `string` |
+| `avatar`  | `string` |
+| `website` | `string` |

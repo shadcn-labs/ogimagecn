@@ -8,6 +8,7 @@ import { CodeTabs } from "@/components/code-tabs";
 import { ComponentPreview } from "@/components/component-preview";
 import { ComponentSource } from "@/components/component-source";
 import {
+  BlocksList,
   ComponentPreviewGrid,
   ComponentsList,
 } from "@/components/components-list";
@@ -37,6 +38,7 @@ export const mdxComponents = {
   AlertDescription,
   AlertTitle,
   AspectRatio,
+  BlocksList,
   Button,
   Callout,
   CodeTabs,

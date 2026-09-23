@@ -1,12 +1,13 @@
 ---
 title: Installation
-description: Install an ogimagecn component and render it as an Open Graph image.
+description: Install an ogimagecn block and render it as an Open Graph image.
 ---
 
-## Install a component
+## Install a block
 
-Pick a component from the [gallery](/docs/components) and add it with the shadcn
-CLI. The component is copied into your project at `components/og/<name>.tsx`.
+Pick a block from the [gallery](/docs/blocks) and add it with the shadcn CLI.
+The block is copied into your project at `components/og/<name>.tsx`, and the
+[components](/docs/components) it uses land in `components/og/ui/`.
 
 ```bash
 npx shadcn@latest add @ogimagecn/simple
@@ -83,10 +84,12 @@ export async function GET() {
 
 ogimagecn is a normal shadcn registry, so you can extend it:
 
-### 1. Add a component
+### 1. Add a block
 
-Create `registry/components/yours.tsx`. Use **flexbox + inline styles only** so
-it renders in both Satori and the browser.
+Create `registry/og/yours.tsx`. Use **flexbox + inline styles only** so it
+renders in both Satori and the browser. Import components with relative paths
+such as `./ui/badge` — blocks install to `components/og/` and components to
+`components/og/ui/`, so the import keeps resolving after installation.
 
 ### 2. Register it
 
@@ -97,12 +100,13 @@ it renders in both Satori and the browser.
   "items": [
     {
       "name": "yours",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Yours",
-      "description": "Your custom OG component.",
+      "description": "Your custom OG image.",
+      "registryDependencies": ["https://ogimagecn.com/r/badge.json"],
       "files": [
         {
-          "path": "registry/components/yours.tsx",
+          "path": "registry/og/yours.tsx",
           "type": "registry:component",
           "target": "components/og/yours.tsx"
         }

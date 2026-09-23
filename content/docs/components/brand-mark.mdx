@@ -1,0 +1,62 @@
+---
+title: Brand Mark
+description: A logo image with a placeholder tile fallback for monograms or icons.
+---
+
+<ComponentPreview name="brand-mark" hideCode />
+
+Renders the logo when `src` is set. Otherwise it renders a tile you can fill with a monogram or an icon, so a card still looks finished before a logo is uploaded.
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/brand-mark
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="brand-mark" title="components/og/ui/brand-mark.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { BrandMark } from "@/components/og/ui/brand-mark";
+
+<BrandMark src={logoUrl} size={40} radius={8} background="#7c3aed">
+  A
+</BrandMark>;
+```
+
+Satori decodes PNG, JPEG, and GIF only. Convert WebP and AVIF logos before passing them in.
+
+## API Reference
+
+| Prop         | Type                   | Default     |
+| ------------ | ---------------------- | ----------- | --- |
+| `src`        | `string`               | —           |
+| `size`       | `number`               | `40`        |
+| `radius`     | `number                | string`     | `8` |
+| `background` | `string`               | —           |
+| `fit`        | `"contain" \| "cover"` | `"contain"` |
+| `children`   | `ReactNode`            | —           |
+| `style`      | `CSSProperties`        | —           |

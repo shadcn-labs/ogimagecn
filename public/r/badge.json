@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "badge",
+  "title": "Badge",
+  "description": "A pill label with color, background, border, and uppercase options.",
+  "files": [
+    {
+      "path": "registry/og/ui/badge.tsx",
+      "content": "import type { CSSProperties, ReactNode } from \"react\";\n\nexport interface BadgeProps {\n  children: ReactNode;\n  color?: string;\n  background?: string;\n  /** Draws a 1px solid border in this color. */\n  borderColor?: string;\n  uppercase?: boolean;\n  style?: CSSProperties;\n}\n\n/**\n * Pill label. Column parents stretch it to full width; pass\n * `style={{ alignSelf: \"flex-start\" }}` to keep it hugging its content.\n */\nexport const Badge = ({\n  children,\n  color,\n  background,\n  borderColor,\n  uppercase = false,\n  style,\n}: BadgeProps) => (\n  <div\n    style={{\n      alignItems: \"center\",\n      borderRadius: \"999px\",\n      display: \"flex\",\n      fontSize: \"26px\",\n      fontWeight: 600,\n      gap: \"12px\",\n      padding: \"10px 22px\",\n      // Satori throws on `undefined` style values, so optional ones are spread in.\n      ...(background && { backgroundColor: background }),\n      ...(borderColor && { border: `1px solid ${borderColor}` }),\n      ...(color && { color }),\n      ...(uppercase && { letterSpacing: \"0.04em\", textTransform: \"uppercase\" }),\n      ...style,\n    }}\n  >\n    {children}\n  </div>\n);\n",
+      "type": "registry:ui",
+      "target": "components/og/ui/badge.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

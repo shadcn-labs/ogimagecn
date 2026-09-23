@@ -1,0 +1,78 @@
+---
+title: Simple
+description: A minimal, centered Open Graph image with an eyebrow label, title, description, and brand mark.
+---
+
+<ComponentPreview hideCode name="simple" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/simple
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy the [Badge](/docs/components/badge) and [Brand
+  Mark](/docs/components/brand-mark) components into `components/og/ui/`.
+</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="simple" title="components/og/simple.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Simple } from "@/components/og/simple";
+
+export function GET() {
+  return new ImageResponse(
+    <Simple
+      label="Open Graph"
+      title="Hello world"
+      description="A shadcn registry of social card components."
+      brand="ogimagecn"
+    />,
+    {
+      width: 1200,
+      height: 630,
+    }
+  );
+}
+```
+
+## API Reference
+
+### Simple
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `label`       | `string` |
+| `title`       | `string` |
+| `description` | `string` |
+| `brand`       | `string` |
+| `logo`        | `string` |

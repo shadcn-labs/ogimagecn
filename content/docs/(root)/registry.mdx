@@ -3,7 +3,7 @@ title: Registry
 description: Learn how to use the ogimagecn registry with the shadcn CLI.
 ---
 
-The **ogimagecn** registry ships Open Graph image components in the [shadcn registry format](https://ui.shadcn.com/docs/registry). Register the namespace once in `components.json`, then pull items by name with the CLI.
+The **ogimagecn** registry ships Open Graph image blocks and the components they are built from in the [shadcn registry format](https://ui.shadcn.com/docs/registry). Register the namespace once in `components.json`, then pull items by name with the CLI.
 
 ## Setup
 
@@ -21,7 +21,7 @@ You can replace `@ogimagecn` with another namespace; it only needs to match what
 
 ## Usage
 
-Install a UI component using the namespace and the item `name` (same as the JSON file under `/r/` without `.json`):
+Install a block or component using the namespace and the item `name` (same as the JSON file under `/r/` without `.json`). Blocks list the components they use as `registryDependencies`, so the CLI installs those too:
 
 ```bash
 npx shadcn@latest add @ogimagecn/blog

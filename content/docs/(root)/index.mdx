@@ -8,8 +8,11 @@ description: ogimagecn is a shadcn registry of beautiful Open Graph image compon
 renders to a real PNG through Satori and the [`next/og`](https://nextjs.org/docs/app/api-reference/functions/image-response)
 runtime.
 
-Install a component with the shadcn CLI, drop it into an `ImageResponse`, and you
-have a polished social card in minutes — fully owned, fully editable code.
+Install a **block** — a ready-made Open Graph image — with the shadcn CLI, drop
+it into an `ImageResponse`, and you have a polished social card in minutes —
+fully owned, fully editable code. Blocks are composed from a small set of
+Satori-safe **components** (avatar, badge, brand mark, grid lines) that you can
+also use to build your own.
 
 ```bash
 npx shadcn@latest add @ogimagecn/simple
@@ -25,7 +28,8 @@ Satori produces.
 
 ## What You Get
 
-- 🖼️ **7 OG components** - Minimal, grid, gradient, blog, changelog, quote, and photo
+- 🖼️ **22 OG image blocks** - Blog, changelog, event, product, quote, shadcn registry cards, and more
+- 🧩 **Satori-safe components** - Avatar, badge, brand mark, and grid lines primitives
 - ⚡ **Built on Satori** - Renders with the `next/og` runtime at the edge
 - 👀 **Live previews** - Faithful, instant DOM previews of every component
 - 🎨 **Fully customizable** - Sensible props with defaults; own the code
@@ -42,11 +46,11 @@ Satori produces.
 
 ## How It Works
 
-1. Each component lives at `registry/components/<name>.tsx`
-2. It is listed in `registry.json`
+1. Each block lives at `registry/og/<name>.tsx`, and each component at `registry/og/ui/<name>.tsx`
+2. Both are listed in `registry.json` — blocks as `registry:block` items that depend on the components they use
 3. `pnpm registry:build` emits installable JSON to `public/r`
 
-Users then install any component:
+Users then install any block, and the CLI pulls in its components:
 
 ```bash
 npx shadcn@latest add @ogimagecn/blog
@@ -104,8 +108,9 @@ Can I add my own components?
 </AccordionTrigger>
 <AccordionContent>
 
-Absolutely. Add a file to `registry/components/`, list it in `registry.json`,
-write an MDX doc, and run `pnpm registry:build`.
+Absolutely. Add a file to `registry/og/`, list it in `registry.json`, write an
+MDX doc, and run `pnpm registry:build`. Import components from `./ui/<name>` so
+the file keeps working after installation.
 
 </AccordionContent>
 </AccordionItem>

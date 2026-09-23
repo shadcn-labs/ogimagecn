@@ -1,0 +1,75 @@
+---
+title: Photo
+description: A full-bleed photo Open Graph image with a dark gradient scrim and a bottom-aligned title block.
+---
+
+<ComponentPreview hideCode name="photo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/photo
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy the [Badge](/docs/components/badge) and [Brand
+  Mark](/docs/components/brand-mark) components into `components/og/ui/`.
+</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="photo" title="components/og/photo.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Photo } from "@/components/og/photo";
+
+export function GET() {
+  return new ImageResponse(
+    <Photo
+      image="https://images.unsplash.com/photo-1469474968028-56623f02e42e"
+      label="Travel"
+      title="Chasing light across the northern coast"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Photo
+
+| Prop    | Type     |
+| ------- | -------- |
+| `image` | `string` |
+| `label` | `string` |
+| `title` | `string` |
+| `brand` | `string` |
+| `logo`  | `string` |

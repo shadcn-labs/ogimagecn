@@ -1,0 +1,61 @@
+---
+title: Badge
+description: A pill label with color, background, border, and uppercase options.
+---
+
+<ComponentPreview name="badge" hideCode />
+
+A pill for categories, versions, prices, and status labels. Children can mix text with a dot or an inline SVG icon; they are spaced by a `12px` gap.
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/badge
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/ui/badge.tsx" />
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Badge } from "@/components/og/ui/badge";
+
+<Badge background="rgba(124,58,237,0.15)" color="#7c3aed" uppercase>
+  Engineering
+</Badge>;
+```
+
+Satori is flexbox-only, so a badge inside a `flexDirection: "column"` parent stretches to the full width. Pass `style={{ alignSelf: "flex-start" }}` to keep it hugging its content.
+
+## API Reference
+
+| Prop          | Type            | Default |
+| ------------- | --------------- | ------- |
+| `children`    | `ReactNode`     | —       |
+| `color`       | `string`        | —       |
+| `background`  | `string`        | —       |
+| `borderColor` | `string`        | —       |
+| `uppercase`   | `boolean`       | `false` |
+| `style`       | `CSSProperties` | —       |

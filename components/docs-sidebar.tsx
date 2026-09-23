@@ -15,8 +15,8 @@ import {
 } from "@/components/ui/sidebar";
 import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
-import { EXCLUDED_SECTIONS, isComponentsFolder, PAGES_NEW } from "@/lib/docs";
-import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
+import { EXCLUDED_SECTIONS, isBlocksFolder, PAGES_NEW } from "@/lib/docs";
+import { getFolderGroups, getFolderPages } from "@/lib/page-tree";
 import type { source } from "@/lib/source";
 
 const SidebarMenuItemLink = ({
@@ -137,7 +137,7 @@ export const DocsSidebar = ({
             return null;
           }
 
-          if (isComponentsFolder(item)) {
+          if (isBlocksFolder(item)) {
             return getFolderGroups(item).map(({ folder, indexPage, pages }) => (
               <SidebarPageGroup
                 href={indexPage?.url}
@@ -149,11 +149,14 @@ export const DocsSidebar = ({
             ));
           }
 
+          const { indexPage, pages } = getFolderPages(item);
+
           return (
             <SidebarPageGroup
+              href={indexPage?.url}
               key={item.$id}
               label={item.name}
-              pages={getPagesFromFolder(item)}
+              pages={pages}
               pathname={pathname}
             />
           );
