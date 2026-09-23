@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { ComponentPreview } from "@/components/component-preview";
-import { getComponentNameFromUrl, isComponentsFolder } from "@/lib/docs";
+import { getRegistryItemNameFromUrl, isBlocksFolder } from "@/lib/docs";
 import {
   getFoldersFromFolder,
   getPagesFromFolderWithoutIndex,
@@ -10,36 +10,44 @@ import type { PageTreeFolder } from "@/lib/page-tree";
 import { source } from "@/lib/source";
 import { cn } from "@/lib/utils";
 
-const componentsFolder = source.pageTree.children.find(
-  (node): node is PageTreeFolder =>
-    node.type === "folder" && isComponentsFolder(node)
+const topFolders = source.pageTree.children.filter(
+  (node): node is PageTreeFolder => node.type === "folder"
 );
-const componentPages = componentsFolder
-  ? getFoldersFromFolder(componentsFolder).flatMap(
-      getPagesFromFolderWithoutIndex
-    )
-  : [];
-const componentPagesByName = new Map(
-  componentPages.map((page) => [getComponentNameFromUrl(page.url), page])
+const blocksFolder = topFolders.find(isBlocksFolder);
+const componentsFolder = topFolders.find(
+  (folder) => folder.$id === "components"
 );
 
-const ComponentCardGrid = ({
-  components,
+const componentPages = componentsFolder
+  ? getPagesFromFolderWithoutIndex(componentsFolder)
+  : [];
+const blockPages = blocksFolder
+  ? getFoldersFromFolder(blocksFolder).flatMap(getPagesFromFolderWithoutIndex)
+  : [];
+const pagesByName = new Map(
+  [...componentPages, ...blockPages].map((page) => [
+    getRegistryItemNameFromUrl(page.url),
+    page,
+  ])
+);
+
+const PreviewCardGrid = ({
+  pages,
   className,
 }: {
-  components: typeof componentPages;
+  pages: typeof blockPages;
   className?: string;
 }) => (
   <div className={cn("grid gap-4 sm:grid-cols-2", className)}>
-    {components.map((component) => {
-      const name = getComponentNameFromUrl(component.url);
-      const title = String(component.name);
+    {pages.map((page) => {
+      const name = getRegistryItemNameFromUrl(page.url);
+      const title = String(page.name);
 
       return (
         <Link
           className="group rounded-lg bg-code p-1 transition-colors hover:bg-muted/80"
-          href={component.url}
-          key={component.$id ?? component.url}
+          href={page.url}
+          key={page.$id ?? page.url}
           transitionTypes={["nav-forward"]}
         >
           <ComponentPreview
@@ -58,15 +66,19 @@ const ComponentCardGrid = ({
   </div>
 );
 
-export const ComponentsList = ({
+export const ComponentsList = ({ className }: { className?: string }) => (
+  <PreviewCardGrid className={className} pages={componentPages} />
+);
+
+export const BlocksList = ({
   category,
   className,
 }: {
   category: string;
   className?: string;
 }) => {
-  const categoryFolder = componentsFolder
-    ? getFoldersFromFolder(componentsFolder).find(
+  const categoryFolder = blocksFolder
+    ? getFoldersFromFolder(blocksFolder).find(
         (folder) => folder.$id?.split("/").at(-1) === category
       )
     : undefined;
@@ -75,9 +87,12 @@ export const ComponentsList = ({
     return null;
   }
 
-  const components = getPagesFromFolderWithoutIndex(categoryFolder);
-
-  return <ComponentCardGrid components={components} className={className} />;
+  return (
+    <PreviewCardGrid
+      className={className}
+      pages={getPagesFromFolderWithoutIndex(categoryFolder)}
+    />
+  );
 };
 
 export const ComponentPreviewGrid = ({
@@ -87,10 +102,10 @@ export const ComponentPreviewGrid = ({
   names: string[];
   className?: string;
 }) => (
-  <ComponentCardGrid
+  <PreviewCardGrid
     className={className}
-    components={names.flatMap((name) => {
-      const page = componentPagesByName.get(name);
+    pages={names.flatMap((name) => {
+      const page = pagesByName.get(name);
       return page ? [page] : [];
     })}
   />

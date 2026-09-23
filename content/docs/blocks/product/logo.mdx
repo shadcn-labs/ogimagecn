@@ -1,0 +1,74 @@
+---
+title: Logo
+description: A centered brand Open Graph image with a logo tile, a large wordmark, and an optional tagline on a soft gradient field.
+---
+
+<ComponentPreview hideCode name="logo" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/logo
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy the [Brand Mark](/docs/components/brand-mark) component into
+  `components/og/ui/`.
+</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="logo" title="components/og/logo.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Logo } from "@/components/og/logo";
+
+export function GET() {
+  return new ImageResponse(
+    <Logo
+      brand="acme"
+      tagline="The all-in-one platform"
+      background="#09090b"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Logo
+
+| Prop         | Type     |
+| ------------ | -------- |
+| `brand`      | `string` |
+| `tagline`    | `string` |
+| `monogram`   | `string` |
+| `background` | `string` |
+| `logo`       | `string` |

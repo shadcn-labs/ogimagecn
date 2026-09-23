@@ -15,8 +15,8 @@ import {
 import { TOP_LEVEL_SECTIONS } from "@/constants/nav";
 import { ROUTES } from "@/constants/routes";
 import { useFeedback } from "@/hooks/use-feedback";
-import { EXCLUDED_SECTIONS, isComponentsFolder } from "@/lib/docs";
-import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
+import { EXCLUDED_SECTIONS, isBlocksFolder } from "@/lib/docs";
+import { getFolderGroups, getFolderPages } from "@/lib/page-tree";
 import { cn } from "@/lib/utils";
 
 const MobileLink = ({
@@ -176,7 +176,7 @@ export const MobileNav = ({
               return null;
             }
 
-            if (isComponentsFolder(item)) {
+            if (isBlocksFolder(item)) {
               return getFolderGroups(item).map(
                 ({ folder, indexPage, pages }) => (
                   <MobileNavGroup
@@ -190,11 +190,14 @@ export const MobileNav = ({
               );
             }
 
+            const { indexPage, pages } = getFolderPages(item);
+
             return (
               <MobileNavGroup
+                href={indexPage?.url}
                 key={item.$id}
                 label={item.name}
-                pages={getPagesFromFolder(item)}
+                pages={pages}
                 setOpen={setOpen}
               />
             );

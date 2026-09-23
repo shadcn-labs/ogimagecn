@@ -31,7 +31,7 @@ const GetStartedButton = () => {
   );
 };
 
-const BrowseComponentsButton = () => {
+const BrowseBlocksButton = () => {
   const { iconRef, onMouseEnter, onMouseLeave } =
     useIconAnimation<ComponentIconHandle>();
 
@@ -44,9 +44,9 @@ const BrowseComponentsButton = () => {
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <Link href={ROUTES.DOCS_COMPONENTS} transitionTypes={["nav-forward"]}>
+      <Link href={ROUTES.DOCS_BLOCKS} transitionTypes={["nav-forward"]}>
         <ComponentIcon className="hidden sm:inline" ref={iconRef} size={22} />
-        Browse Components
+        Browse Blocks
       </Link>
     </Button>
   );
@@ -60,6 +60,6 @@ export const HomeCtas = ({ className }: { className?: string }) => (
     )}
   >
     <GetStartedButton />
-    <BrowseComponentsButton />
+    <BrowseBlocksButton />
   </div>
 );

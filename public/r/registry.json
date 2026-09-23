@@ -4,13 +4,70 @@
   "homepage": "https://ogimagecn.vercel.app",
   "items": [
     {
-      "name": "simple",
-      "type": "registry:component",
-      "title": "Simple",
-      "description": "A minimal, centered Open Graph image with an eyebrow label, title, description, and brand mark.",
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "A circular avatar image with an initials fallback.",
       "files": [
         {
-          "path": "registry/components/simple/index.tsx",
+          "path": "registry/og/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "components/og/ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A pill label with color, background, border, and uppercase options.",
+      "files": [
+        {
+          "path": "registry/og/ui/badge.tsx",
+          "type": "registry:ui",
+          "target": "components/og/ui/badge.tsx"
+        }
+      ]
+    },
+    {
+      "name": "brand-mark",
+      "type": "registry:ui",
+      "title": "Brand Mark",
+      "description": "A logo image with a placeholder tile fallback for monograms or icons.",
+      "files": [
+        {
+          "path": "registry/og/ui/brand-mark.tsx",
+          "type": "registry:ui",
+          "target": "components/og/ui/brand-mark.tsx"
+        }
+      ]
+    },
+    {
+      "name": "grid-lines",
+      "type": "registry:ui",
+      "title": "Grid Lines",
+      "description": "Four edge-to-edge guide lines that frame the canvas.",
+      "files": [
+        {
+          "path": "registry/og/ui/grid-lines.tsx",
+          "type": "registry:ui",
+          "target": "components/og/ui/grid-lines.tsx"
+        }
+      ]
+    },
+    {
+      "name": "simple",
+      "type": "registry:block",
+      "title": "Simple",
+      "description": "A minimal, centered Open Graph image with an eyebrow label, title, description, and brand mark.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/og/simple.tsx",
           "type": "registry:component",
           "target": "components/og/simple.tsx"
         }
@@ -18,12 +75,17 @@
     },
     {
       "name": "grid",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Grid",
       "description": "A framed, technical Open Graph image with a dashed border grid and a corner brand mark.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/brand-mark.json",
+        "https://ogimagecn.com/r/grid-lines.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/grid/index.tsx",
+          "path": "registry/og/grid.tsx",
           "type": "registry:component",
           "target": "components/og/grid.tsx"
         }
@@ -31,12 +93,18 @@
     },
     {
       "name": "blog",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Blog",
       "description": "An article Open Graph image with a category badge, headline, excerpt, and author row.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/avatar.json",
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/blog/index.tsx",
+          "path": "registry/og/blog.tsx",
           "type": "registry:component",
           "target": "components/og/blog.tsx"
         }
@@ -44,12 +112,17 @@
     },
     {
       "name": "changelog",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Changelog",
       "description": "A release Open Graph image with a version pill, date, title, and a checklist of highlights.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
       "files": [
         {
-          "path": "registry/components/changelog/index.tsx",
+          "path": "registry/og/changelog.tsx",
           "type": "registry:component",
           "target": "components/og/changelog.tsx"
         }
@@ -57,12 +130,14 @@
     },
     {
       "name": "quote",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Quote",
       "description": "A testimonial / tweet-style Open Graph image with a large quote and an author row.",
+      "registryDependencies": ["https://ogimagecn.com/r/avatar.json"],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/quote/index.tsx",
+          "path": "registry/og/quote.tsx",
           "type": "registry:component",
           "target": "components/og/quote.tsx"
         }
@@ -70,12 +145,17 @@
     },
     {
       "name": "shadcn-registry-1",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 1",
       "description": "A showcase Open Graph image for shadcn registries with logo, name, URL, description, and tag badges.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-1/index.tsx",
+          "path": "registry/og/shadcn-registry-1.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-1.tsx"
         }
@@ -83,12 +163,14 @@
     },
     {
       "name": "shadcn-registry-2",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 2",
       "description": "A clean Open Graph image with a light background, logo, name, category, title, and dot-separated tags.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-2/index.tsx",
+          "path": "registry/og/shadcn-registry-2.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-2.tsx"
         }
@@ -96,12 +178,14 @@
     },
     {
       "name": "shadcn-registry-3",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 3",
       "description": "A bold dark Open Graph image with large title, circular badge, ghost watermark, and credit text.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-3/index.tsx",
+          "path": "registry/og/shadcn-registry-3.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-3.tsx"
         }
@@ -109,12 +193,14 @@
     },
     {
       "name": "shadcn-registry-4",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 4",
       "description": "A centered dark Open Graph image with logo, name, title, and URL on a subtle dot pattern background.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-4/index.tsx",
+          "path": "registry/og/shadcn-registry-4.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-4.tsx"
         }
@@ -122,12 +208,17 @@
     },
     {
       "name": "shadcn-registry-5",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 5",
       "description": "A clean light Open Graph image with centered logo, name, title, and description inside a bordered frame.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/brand-mark.json",
+        "https://ogimagecn.com/r/grid-lines.json"
+      ],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-5/index.tsx",
+          "path": "registry/og/shadcn-registry-5.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-5.tsx"
         }
@@ -135,12 +226,17 @@
     },
     {
       "name": "shadcn-registry-6",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shadcn Registry 6",
       "description": "A minimal Open Graph image with solid border lines, a logo in the top-left, and title/description at the bottom.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/brand-mark.json",
+        "https://ogimagecn.com/r/grid-lines.json"
+      ],
+      "categories": ["shadcn-registry"],
       "files": [
         {
-          "path": "registry/components/shadcn-registry-6/index.tsx",
+          "path": "registry/og/shadcn-registry-6.tsx",
           "type": "registry:component",
           "target": "components/og/shadcn-registry-6.tsx"
         }
@@ -148,12 +244,17 @@
     },
     {
       "name": "photo",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Photo",
       "description": "A full-bleed photo Open Graph image with a dark gradient scrim and a bottom-aligned title block.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/photo/index.tsx",
+          "path": "registry/og/photo.tsx",
           "type": "registry:component",
           "target": "components/og/photo.tsx"
         }
@@ -161,12 +262,17 @@
     },
     {
       "name": "product",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Product",
       "description": "A two-column product Open Graph image with brand and copy on the left, a product shot on the right, and a price pill.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
       "files": [
         {
-          "path": "registry/components/product/index.tsx",
+          "path": "registry/og/product.tsx",
           "type": "registry:component",
           "target": "components/og/product.tsx"
         }
@@ -174,12 +280,17 @@
     },
     {
       "name": "profile",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Profile",
       "description": "A personal / portfolio Open Graph image with a circular avatar beside a name, role, bio, and website pill.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/avatar.json",
+        "https://ogimagecn.com/r/badge.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/profile/index.tsx",
+          "path": "registry/og/profile.tsx",
           "type": "registry:component",
           "target": "components/og/profile.tsx"
         }
@@ -187,12 +298,17 @@
     },
     {
       "name": "event",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Event",
-      "description": "An event / launch Open Graph image with an eyebrow label, large title, and a date · location footer row.",
+      "description": "An event / launch Open Graph image with an eyebrow label, large title, and a date \u00b7 location footer row.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
       "files": [
         {
-          "path": "registry/components/event/index.tsx",
+          "path": "registry/og/event.tsx",
           "type": "registry:component",
           "target": "components/og/event.tsx"
         }
@@ -200,12 +316,17 @@
     },
     {
       "name": "stat",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Stat",
       "description": "A metric / dashboard Open Graph image with an eyebrow label, an oversized number, a trend pill, and a caption.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/stat/index.tsx",
+          "path": "registry/og/stat.tsx",
           "type": "registry:component",
           "target": "components/og/stat.tsx"
         }
@@ -213,12 +334,14 @@
     },
     {
       "name": "logo",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Logo",
       "description": "A centered brand Open Graph image with a logo tile, a large wordmark, and an optional tagline on a soft gradient field.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["product"],
       "files": [
         {
-          "path": "registry/components/logo/index.tsx",
+          "path": "registry/og/logo.tsx",
           "type": "registry:component",
           "target": "components/og/logo.tsx"
         }
@@ -226,12 +349,17 @@
     },
     {
       "name": "terminal",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Terminal",
       "description": "A minimal, technical Open Graph image with a wordmark and accent side-bar above a large wide-tracked uppercase headline.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/terminal/index.tsx",
+          "path": "registry/og/terminal.tsx",
           "type": "registry:component",
           "target": "components/og/terminal.tsx"
         }
@@ -239,12 +367,17 @@
     },
     {
       "name": "editorial",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Editorial",
       "description": "A poster-style Open Graph image with oversized display type and a large faint ghost word set behind the content.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
       "files": [
         {
-          "path": "registry/components/editorial/index.tsx",
+          "path": "registry/og/editorial.tsx",
           "type": "registry:component",
           "target": "components/og/editorial.tsx"
         }
@@ -252,12 +385,13 @@
     },
     {
       "name": "showcase",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Showcase",
       "description": "A product-showcase Open Graph image with a centered headline above a faux browser window and a minimal dashboard UI.",
+      "categories": ["product"],
       "files": [
         {
-          "path": "registry/components/showcase/index.tsx",
+          "path": "registry/og/showcase.tsx",
           "type": "registry:component",
           "target": "components/og/showcase.tsx"
         }
@@ -265,12 +399,14 @@
     },
     {
       "name": "shiori",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Shiori",
       "description": "A clean, minimal Open Graph image with a light cream background, an orange gradient circle logo, and a bold title beside a muted description.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["brand"],
       "files": [
         {
-          "path": "registry/components/shiori/index.tsx",
+          "path": "registry/og/shiori.tsx",
           "type": "registry:component",
           "target": "components/og/shiori.tsx"
         }
@@ -278,12 +414,14 @@
     },
     {
       "name": "owner",
-      "type": "registry:component",
+      "type": "registry:block",
       "title": "Owner",
       "description": "A clean Open Graph image with a light background, eyebrow text, bold headline, and three rounded photos at the bottom.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["brand"],
       "files": [
         {
-          "path": "registry/components/owner/index.tsx",
+          "path": "registry/og/owner.tsx",
           "type": "registry:component",
           "target": "components/og/owner.tsx"
         }

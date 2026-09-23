@@ -1,0 +1,81 @@
+---
+title: Blog
+description: An article Open Graph image with a category badge, headline, excerpt, and author row.
+---
+
+<ComponentPreview hideCode name="blog" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/blog
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>
+  Copy the [Avatar](/docs/components/avatar), [Badge](/docs/components/badge),
+  and [Brand Mark](/docs/components/brand-mark) components into
+  `components/og/ui/`.
+</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="blog" title="components/og/blog.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Blog } from "@/components/og/blog";
+
+export function GET() {
+  return new ImageResponse(
+    <Blog
+      author="Ada Lovelace"
+      category="Engineering"
+      excerpt="A deep dive into Satori, the next/og runtime, and shipping fast cards."
+      meta="Jun 5, 2026 · 6 min read"
+      title="How we generate social images at the edge"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Blog
+
+| Prop       | Type     |
+| ---------- | -------- |
+| `category` | `string` |
+| `title`    | `string` |
+| `excerpt`  | `string` |
+| `author`   | `string` |
+| `meta`     | `string` |
+| `avatar`   | `string` |
+| `brand`    | `string` |
+| `logo`     | `string` |

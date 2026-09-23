@@ -19,6 +19,7 @@
 <p align="center">
   <a href="https://ogimagecn.vercel.app/docs">Get Started</a> ·
   <a href="https://ogimagecn.vercel.app/docs/installation">Installation</a> ·
+  <a href="https://ogimagecn.vercel.app/docs/blocks">Blocks</a> ·
   <a href="https://ogimagecn.vercel.app/docs/components">Components</a>
 </p>
 
@@ -29,8 +30,8 @@
 - 👀 **Live previews** — The same component renders as a faithful, scaled DOM preview
 - 🎨 **Fully customizable** — Sensible props with defaults; you own the code
 - 📦 **shadcn/ui compatible** — Uses the same registry format and CLI
-- 🧩 **Composable** — Plain React components styled with the Satori-compatible CSS subset
-- 🖼️ **OG image components** — Minimal, grid, gradient, blog, changelog, quote, and photo
+- 🧩 **Composable** — Blocks are built from Satori-safe components (avatar, badge, brand mark, grid lines) you can reuse
+- 🖼️ **OG image blocks** — Blog, changelog, event, product, quote, photo, shadcn registry cards, and more
 
 ## Community
 

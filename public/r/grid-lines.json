@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "grid-lines",
+  "title": "Grid Lines",
+  "description": "Four edge-to-edge guide lines that frame the canvas.",
+  "files": [
+    {
+      "path": "registry/og/ui/grid-lines.tsx",
+      "content": "export interface GridLinesProps {\n  /** Distance of each line from its edge of the canvas, in px. */\n  inset?: number;\n  color?: string;\n  variant?: \"solid\" | \"dashed\";\n}\n\n/**\n * Four edge-to-edge guide lines framing the canvas. Place it first inside a\n * `position: \"relative\"` parent so later siblings paint above it.\n */\nexport const GridLines = ({\n  inset = 64,\n  color = \"#44403c\",\n  variant = \"dashed\",\n}: GridLinesProps) => {\n  const border = `1px ${variant} ${color}`;\n\n  return (\n    // Satori lays out fragments as a zero-size box, so the lines need a real\n    // wrapper that covers the parent.\n    <div\n      style={{\n        bottom: 0,\n        display: \"flex\",\n        left: 0,\n        position: \"absolute\",\n        right: 0,\n        top: 0,\n      }}\n    >\n      <div\n        style={{\n          borderLeft: border,\n          bottom: 0,\n          left: inset,\n          position: \"absolute\",\n          top: 0,\n          width: \"1px\",\n        }}\n      />\n      <div\n        style={{\n          borderLeft: border,\n          bottom: 0,\n          position: \"absolute\",\n          right: inset,\n          top: 0,\n          width: \"1px\",\n        }}\n      />\n      <div\n        style={{\n          borderTop: border,\n          height: \"1px\",\n          left: 0,\n          position: \"absolute\",\n          right: 0,\n          top: inset,\n        }}\n      />\n      <div\n        style={{\n          borderTop: border,\n          bottom: inset,\n          height: \"1px\",\n          left: 0,\n          position: \"absolute\",\n          right: 0,\n        }}\n      />\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/ui/grid-lines.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

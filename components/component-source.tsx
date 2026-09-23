@@ -3,11 +3,7 @@ import { CopyButton } from "@/components/copy-button";
 import { getIconForLanguageExtension } from "@/components/icons";
 import { formatCode } from "@/lib/format-code";
 import { highlightCode } from "@/lib/highlight-code";
-import {
-  getDemoSource,
-  getRegistrySource,
-  readOptionalFromRoot,
-} from "@/lib/registry";
+import { getRegistrySource, readOptionalFromRoot } from "@/lib/registry";
 import { cn } from "@/lib/utils";
 
 const ComponentCode = ({
@@ -55,7 +51,7 @@ export const ComponentSource = async ({
   let code: string | null = null;
 
   if (name) {
-    code = (await getDemoSource(name)) ?? (await getRegistrySource(name));
+    code = await getRegistrySource(name);
   }
 
   if (src) {

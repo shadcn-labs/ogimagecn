@@ -42,14 +42,7 @@ type DisplayTransformer = (opts: {
 }) => Promise<unknown>;
 
 export const formatCode = async (code: string) => {
-  let formattedCode = code;
-
-  formattedCode = formattedCode.replaceAll(
-    "@/registry/components/",
-    "@/components/"
-  );
-
-  formattedCode = formattedCode.replaceAll("export default", "export");
+  const formattedCode = code.replaceAll("export default", "export");
 
   try {
     const config = buildDisplayConfig();

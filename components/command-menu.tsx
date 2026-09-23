@@ -37,8 +37,8 @@ import { useMutationObserver } from "@/hooks/use-mutation-observer";
 import { usePackageManager } from "@/hooks/use-package-manager";
 import {
   EXCLUDED_SECTIONS,
-  getComponentNameFromUrl,
-  isComponentsFolder,
+  getRegistryItemNameFromUrl,
+  isBlocksFolder,
 } from "@/lib/docs";
 import { trackEvent } from "@/lib/events";
 import { getFolderGroups, getPagesFromFolder } from "@/lib/page-tree";
@@ -48,7 +48,7 @@ import { cn } from "@/lib/utils";
 type DocUrlKind =
   | { kind: "theme"; slug: string }
   | { kind: "component"; slug: string }
-  | { kind: "template"; slug: string }
+  | { kind: "block"; slug: string }
   | { kind: "page" };
 
 const GROUP_HEADING_CLS =
@@ -83,13 +83,13 @@ const parseDocPageUrl = (url: string): DocUrlKind => {
   if (themesIdx !== -1 && parts[themesIdx + 1]) {
     return { kind: "theme", slug: parts[themesIdx + 1] };
   }
-  const componentsIdx = parts.indexOf("components");
-  if (componentsIdx !== -1 && parts[componentsIdx + 2]) {
-    return { kind: "component", slug: getComponentNameFromUrl(url) };
+  const blocksIdx = parts.indexOf("blocks");
+  if (blocksIdx !== -1 && parts[blocksIdx + 2]) {
+    return { kind: "block", slug: getRegistryItemNameFromUrl(url) };
   }
-  const templatesIdx = parts.indexOf("templates");
-  if (templatesIdx !== -1 && parts[templatesIdx + 1]) {
-    return { kind: "template", slug: parts.at(-1) ?? "" };
+  const componentsIdx = parts.indexOf("components");
+  if (componentsIdx !== -1 && parts[componentsIdx + 1]) {
+    return { kind: "component", slug: parts[componentsIdx + 1] };
   }
   return { kind: "page" };
 };
@@ -115,7 +115,7 @@ const DocPageLeadingIcon = ({ parsed }: { parsed: DocUrlKind }) => {
   if (parsed.kind === "component") {
     return <CircleDashedIcon />;
   }
-  if (parsed.kind === "template") {
+  if (parsed.kind === "block") {
     return <SquareDashedIcon />;
   }
   return <ArrowRightIcon />;
@@ -160,12 +160,10 @@ const CommandMenuItem = ({
 };
 
 export const CommandMenu = ({
-  blocks,
   navItems,
   tree,
   ...props
 }: React.ComponentProps<typeof Dialog> & {
-  blocks?: { name: string; description: string; categories: string[] }[];
   navItems: { href: string; label: string }[];
   tree: PageTreeRoot;
 }) => {
@@ -199,7 +197,7 @@ export const CommandMenu = ({
         continue;
       }
 
-      if (isComponentsFolder(item)) {
+      if (isBlocksFolder(item)) {
         for (const { folder, pages } of getFolderGroups(item)) {
           addTreeGroup(groups, folder, pages);
         }
@@ -222,21 +220,13 @@ export const CommandMenu = ({
         );
         return;
       }
-      if (parsed.kind === "component" || parsed.kind === "template") {
+      if (parsed.kind === "component" || parsed.kind === "block") {
         setCopyPayload(
           `${packageManager} dlx shadcn@latest add ${SITE.REGISTRY}/${parsed.slug}`
         );
         return;
       }
       setCopyPayload("");
-    },
-    [packageManager]
-  );
-
-  const handleBlockHighlight = useCallback(
-    (block: { name: string; description: string; categories: string[] }) => {
-      setShowGoToPage(true);
-      setCopyPayload(`${packageManager} dlx shadcn@latest add ${block.name}`);
     },
     [packageManager]
   );
@@ -389,39 +379,6 @@ export const CommandMenu = ({
                 )}
               </CommandGroup>
             ))}
-            {blocks?.length ? (
-              <CommandGroup
-                heading="Blocks"
-                className="p-0! **:[[cmdk-group-heading]]:p-3!"
-              >
-                {blocks.map((block) => (
-                  <CommandMenuItem
-                    key={block.name}
-                    value={block.name}
-                    onHighlight={() => handleBlockHighlight(block)}
-                    keywords={[
-                      "block",
-                      block.name,
-                      block.description,
-                      ...block.categories,
-                    ]}
-                    onSelect={() =>
-                      runCommand(() =>
-                        router.push(
-                          `/blocks/${block.categories[0]}#${block.name}`
-                        )
-                      )
-                    }
-                  >
-                    <SquareDashedIcon />
-                    {block.description}
-                    <span className="text-muted-foreground ml-auto font-mono text-xs font-normal tabular-nums">
-                      {block.name}
-                    </span>
-                  </CommandMenuItem>
-                ))}
-              </CommandGroup>
-            ) : null}
           </CommandList>
         </Command>
         <div className="text-muted-foreground absolute inset-x-0 bottom-0 z-20 flex h-10 items-center gap-2 overflow-hidden rounded-b-xl border-t border-t-neutral-100 bg-neutral-50 px-4 text-xs font-medium dark:border-t-neutral-700 dark:bg-neutral-800">
