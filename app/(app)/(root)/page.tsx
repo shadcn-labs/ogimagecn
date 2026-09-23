@@ -1,3 +1,4 @@
+import { AgentPrompt } from "@/components/agent-prompt";
 import { CommandBox } from "@/components/command-box";
 import { ComponentPreview } from "@/components/component-preview";
 import { HomeCtas } from "@/components/home-ctas";
@@ -33,6 +34,8 @@ export default function IndexPage() {
             <CommandBox className="mt-4 w-full max-w-xl" />
 
             <HomeCtas className="mt-4" />
+
+            <AgentPrompt />
           </div>
         </section>
 
