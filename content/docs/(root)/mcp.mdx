@@ -3,7 +3,7 @@ title: MCP
 description: Learn how to use the shadcn MCP (Model Context Protocol) server with ogimagecn.
 ---
 
-[MCP](https://modelcontextprotocol.io/) is an open protocol that standardizes how applications provide context to LLMs. The shadcn CLI can register an MCP server so your editor can discover registry components—including **ogimagecn** Open Graph image components.
+[MCP](https://modelcontextprotocol.io/) is an open protocol that standardizes how applications provide context to LLMs. The shadcn CLI can register an MCP server so your editor can discover registry components—including items you install from **ogimagecn** via the same CLI.
 
 ## Configure MCP
 
@@ -17,12 +17,12 @@ Choose your MCP client when prompted, then enable the MCP server in that client 
 
 ## Usage
 
-With MCP enabled, you can ask your IDE to work with ogimagecn Open Graph image components. Example prompts:
+With MCP enabled, you can ask your IDE to work with **Satori** patterns and ogimagecn registry components. Example prompts:
 
-- Generate a **Blog** OG image with author, category, and title.
-- Create a **Stat** card for social sharing with a large number and label.
-- Build a **Product** OG image with image, title, and price.
-- Design a **Quote** card with attribution and styling.
-- Lay out a **Grid** of multiple OG components for a gallery preview.
+- Generate a **Blog** OG image with category, author, and excerpt for every post.
+- Create a **Changelog** card listing the highlights of a release.
+- Build a **Product** OG image with a product shot and price.
+- Turn a testimonial into a **Quote** card with the author row.
+- Make a **Stat** card with a large number, trend pill, and caption.
 
-Install components from this registry with `npx shadcn@latest add` and the JSON URL from each docs page, then use them in your Next.js `ImageResponse` endpoint as shown in each component's documentation.
+Install components from this registry with `npx shadcn@latest add` and the JSON URL from each docs page. Components work with sensible defaults.

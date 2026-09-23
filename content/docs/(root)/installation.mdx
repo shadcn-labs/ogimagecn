@@ -1,22 +1,25 @@
 ---
 title: Installation
-description: Install an ogimagecn component and render it as an Open Graph image.
+description: Install an Open Graph image component from the registry and render it with next/og.
 ---
 
-## Install a component
+## Prerequisites
 
-Pick a component from the [gallery](/docs/components) and add it with the shadcn
-CLI. The component is copied into your project at `components/og/<name>.tsx`.
+A [Next.js](https://nextjs.org) App Router project. Components render through [`next/og`](https://nextjs.org/docs/app/api-reference/functions/image-response), which ships with Next.js.
+
+## Installation
+
+Run the following command to add a component:
 
 ```bash
 npx shadcn@latest add @ogimagecn/simple
 ```
 
-## Render it as an OG image
+The component is copied into `components/og/simple.tsx`. It has no dependencies, so there is nothing else to install.
 
-Create a route handler and return an `ImageResponse` from `next/og`. Satori
-renders the component to a PNG at request time (or build time, if you make the
-route static).
+## Usage
+
+Import the installed component and return it from a route handler as an `ImageResponse`:
 
 ```tsx title="app/og/route.tsx"
 import { ImageResponse } from "next/og";
@@ -28,17 +31,21 @@ export function GET(request: Request) {
 
   return new ImageResponse(
     <Simple
-      title={searchParams.get("title") ?? undefined}
-      description={searchParams.get("description") ?? undefined}
+      brand="Acme"
+      description="Everything new this week."
+      label="Blog"
+      title={searchParams.get("title") ?? "Hello world"}
     />,
-    { width: 1200, height: 630 }
+    { height: 630, width: 1200 }
   );
 }
 ```
 
-## Wire it into your metadata
+Every component documents its props on its own page; the [customizer](/docs/components) shows each one live.
 
-Point your page's Open Graph metadata at the route:
+## Add to Metadata
+
+Point your page's Open Graph and Twitter metadata at the route:
 
 ```tsx title="app/page.tsx"
 import type { Metadata } from "next";
@@ -54,10 +61,11 @@ export const metadata: Metadata = {
 };
 ```
 
-## Custom fonts (optional)
+Then run the deployed URL through [Scan](/scan) to see the card each platform will build from it.
 
-Satori uses the first font you provide as the default. To ship a custom
-typeface, fetch the font and pass it to `ImageResponse`:
+## Custom Fonts
+
+Satori uses the first font you pass as the default. Load the font file and hand it to `ImageResponse`:
 
 ```tsx title="app/og/route.tsx"
 import { ImageResponse } from "next/og";
@@ -69,52 +77,18 @@ export async function GET() {
     new URL("./Inter-SemiBold.ttf", import.meta.url)
   ).then((res) => res.arrayBuffer());
 
-  return new ImageResponse(<Simple />, {
-    width: 1200,
-    height: 630,
-    fonts: [{ name: "Inter", data: font, weight: 600, style: "normal" }],
-  });
-}
-```
-
----
-
-## Building your own registry
-
-ogimagecn is a normal shadcn registry, so you can extend it:
-
-### 1. Add a component
-
-Create `registry/components/yours.tsx`. Use **flexbox + inline styles only** so
-it renders in both Satori and the browser.
-
-### 2. Register it
-
-```json title="registry.json"
-{
-  "name": "ogimagecn",
-  "homepage": "https://ogimagecn.vercel.app",
-  "items": [
+  return new ImageResponse(
+    <Simple
+      brand="Acme"
+      description="Everything new this week."
+      label="Blog"
+      title="Hello world"
+    />,
     {
-      "name": "yours",
-      "type": "registry:component",
-      "title": "Yours",
-      "description": "Your custom OG component.",
-      "files": [
-        {
-          "path": "registry/components/yours.tsx",
-          "type": "registry:component",
-          "target": "components/og/yours.tsx"
-        }
-      ]
+      fonts: [{ data: font, name: "Inter", style: "normal", weight: 600 }],
+      height: 630,
+      width: 1200,
     }
-  ]
+  );
 }
-```
-
-### 3. Build & deploy
-
-```bash
-pnpm registry:build
-pnpm build
 ```

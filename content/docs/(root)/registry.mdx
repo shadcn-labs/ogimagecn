@@ -21,7 +21,15 @@ You can replace `@ogimagecn` with another namespace; it only needs to match what
 
 ## Usage
 
-Install a UI component using the namespace and the item `name` (same as the JSON file under `/r/` without `.json`):
+Items are addressed by the component `name`, the same as the JSON file under `/r/` without `.json`.
+
+Registry files follow this destination:
+
+- Components install into `components/og/`.
+
+Components have no dependencies, so installing a component does not require additional setup.
+
+Install a component:
 
 ```bash
 npx shadcn@latest add @ogimagecn/blog

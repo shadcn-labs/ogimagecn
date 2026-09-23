@@ -1,113 +1,64 @@
 ---
-title: Introduction
-description: ogimagecn is a shadcn registry of beautiful Open Graph image components built on Satori.
+title: "Introduction"
+description: "Copy-paste Open Graph image components for React. Built on Satori, works with the shadcn CLI."
 ---
 
-**ogimagecn** is a [shadcn registry](https://ui.shadcn.com/docs/registry) of beautiful
-**Open Graph image components**. Every component is a plain React component that
-renders to a real PNG through Satori and the [`next/og`](https://nextjs.org/docs/app/api-reference/functions/image-response)
-runtime.
+**ogimagecn** provides beautifully designed, customizable Open Graph image components. Built on [Satori](https://github.com/vercel/satori), and designed to work seamlessly with the [shadcn CLI](https://ui.shadcn.com).
 
-Install a component with the shadcn CLI, drop it into an `ImageResponse`, and you
-have a polished social card in minutes — fully owned, fully editable code.
+## Philosophy
 
-```bash
-npx shadcn@latest add @ogimagecn/simple
-```
+ogimagecn follows the shadcn model for social images: copy-paste components you can own, with zero lock-in and sensible defaults that work immediately.
 
-## Why these components are different
+Open Graph images are often treated as an afterthought — a one-off template hand-tuned until Satori stops complaining, then never touched again. ogimagecn takes a different approach. Every component is written in the Satori-compatible subset of CSS, flexbox and inline styles only, so the same code renders as a PNG on the server and as a live DOM preview in the browser. What you see in the gallery is what Satori produces.
 
-The components are authored with the **Satori-compatible CSS subset** — flexbox
-layouts and inline styles only. That single constraint unlocks something nice:
-the exact same component renders both as a server-generated PNG **and** as a
-live, scaled DOM preview in these docs. What you see in the gallery is what
-Satori produces.
+The goal is simple: make social cards feel like the rest of your stack — composable, typed, and easy to customize.
 
-## What You Get
+## Why ogimagecn?
 
-- 🖼️ **7 OG components** - Minimal, grid, gradient, blog, changelog, quote, and photo
-- ⚡ **Built on Satori** - Renders with the `next/og` runtime at the edge
-- 👀 **Live previews** - Faithful, instant DOM previews of every component
-- 🎨 **Fully customizable** - Sensible props with defaults; own the code
-- 📦 **shadcn compatible** - Installs with `npx shadcn add`
-- 📚 **Documentation site** - Powered by Fumadocs
+Most OG image setups are either a single hard-coded template or a hosted service you do not control. ogimagecn is built for teams that want polished cards without giving up the code:
 
-## Tech Stack
+- **Own Your Code:** Copy the components into your project and customize everything.
+- **Start Fast:** Run one command, return an `ImageResponse`, and ship your first card.
+- **Check Before You Share:** Use [Scan](/scan) to see how your card lands on each platform before you post the link.
 
-- `Next.js 16` + App Router (`next/og` / Satori)
-- `React 19`
-- `Tailwind CSS 4`
-- `Fumadocs`
-- `shadcn` registry
+## Features
 
-## How It Works
+<div className="not-prose grid gap-4 sm:grid-cols-2 mt-4">
+  <FeatureCard
+    icon={ZapIcon}
+    title="Zero Dependencies"
+    description="Each component is a single self-contained file. Nothing to install beyond Next.js."
+  />
+  <FeatureCard
+    icon={EyeIcon}
+    title="Live Previews"
+    description="The Satori-safe CSS subset is valid DOM too, so every card previews instantly in the browser."
+  />
+  <FeatureCard
+    icon={SlidersHorizontalIcon}
+    title="Customizable"
+    description="Tweak every prop in the customizer, then copy the code or download the PNG."
+  />
+  <FeatureCard
+    icon={Code2Icon}
+    title="TypeScript"
+    description="Every component ships a typed props interface."
+  />
+  <FeatureCard
+    icon={ClipboardCopyIcon}
+    title="Copy & Paste"
+    description="Own your OG image code. Install it into your project and customize every detail."
+  />
+  <FeatureCard
+    icon={BlocksIcon}
+    title="shadcn Compatible"
+    description="Uses the shadcn registry format — add components with one command."
+  />
+</div>
 
-1. Each component lives at `registry/components/<name>.tsx`
-2. It is listed in `registry.json`
-3. `pnpm registry:build` emits installable JSON to `public/r`
-
-Users then install any component:
-
-```bash
-npx shadcn@latest add @ogimagecn/blog
-```
-
-…and render it on the server:
-
-```tsx title="app/og/route.tsx"
-import { ImageResponse } from "next/og";
-
-import { Blog } from "@/components/og/blog";
-
-export function GET() {
-  return new ImageResponse(<Blog title="Hello world" />, {
-    width: 1200,
-    height: 630,
-  });
-}
-```
-
-## FAQ
-
-<Accordion type="multiple">
-
-<AccordionItem value="faq-1">
-<AccordionTrigger>
-What is Satori?
-</AccordionTrigger>
-<AccordionContent>
-
-[Satori](https://github.com/vercel/satori) is Vercel's library that converts
-HTML and CSS into SVG. It powers `next/og`'s `ImageResponse`. It supports a
-subset of CSS — primarily flexbox — which is why every component here uses
-inline flex styles.
-
-</AccordionContent>
-</AccordionItem>
-
-<AccordionItem value="faq-2">
-<AccordionTrigger>
-Can I preview these in the browser without a server?
-</AccordionTrigger>
-<AccordionContent>
-
-Yes. Because the components only use the Satori-compatible CSS subset, they are
-valid DOM too. The docs render each one as a scaled `div`, so previews are
-instant and need no image generation.
-
-</AccordionContent>
-</AccordionItem>
-
-<AccordionItem value="faq-3">
-<AccordionTrigger>
-Can I add my own components?
-</AccordionTrigger>
-<AccordionContent>
-
-Absolutely. Add a file to `registry/components/`, list it in `registry.json`,
-write an MDX doc, and run `pnpm registry:build`.
-
-</AccordionContent>
-</AccordionItem>
-
-</Accordion>
+import { ZapIcon } from "lucide-react";
+import { EyeIcon } from "lucide-react";
+import { SlidersHorizontalIcon } from "lucide-react";
+import { Code2Icon } from "lucide-react";
+import { ClipboardCopyIcon } from "lucide-react";
+import { BlocksIcon } from "lucide-react";
