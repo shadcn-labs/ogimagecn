@@ -5,11 +5,11 @@ export const SECTIONS: ScanSection[] = [
     body: (
       <>
         <p>
-          TikTok draws a shared link as a compact dark card in DMs and comments:
-          a small thumbnail cropped from <code>og:image</code>, a bold{" "}
+          TikTok draws a shared link as a compact card in DMs and comments: a
+          small thumbnail cropped from <code>og:image</code>, a bold{" "}
           <code>og:title</code>, and the bare domain underneath. The card is
-          mobile-sized and dark-themed, so it reads as a message attachment
-          rather than a post.
+          mobile-sized and follows the app&apos;s light or dark setting, so it
+          reads as a message attachment rather than a post.
         </p>
         <p>
           TikTokSpider reads the standard tags — <code>og:title</code>,{" "}

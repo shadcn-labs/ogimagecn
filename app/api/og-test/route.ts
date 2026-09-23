@@ -61,7 +61,11 @@ const CRAWLERS = [
   { id: "x", label: "X", ua: "Twitterbot/1.0" },
   { id: "linkedin", label: "LinkedIn", ua: "LinkedInBot/1.0" },
   { id: "slack", label: "Slack", ua: "Slackbot-LinkExpanding 1.0" },
-  { id: "snapchat", label: "Snapchat", ua: "SnapchatBot/1.0" },
+  {
+    id: "snapchat",
+    label: "Snapchat",
+    ua: "Snap URL Preview Service; bot; snapchat; https://developers.snap.com/robots",
+  },
   { id: "discord", label: "Discord", ua: "Discordbot/2.0" },
   {
     id: "teams",
@@ -81,11 +85,7 @@ const CRAWLERS = [
     label: "Mastodon",
     ua: "Mastodon/4.8.0-alpha.3 (http.rb/5.3.1; +https://mastodon.social/) Bot",
   },
-  {
-    id: "threads",
-    label: "Threads",
-    ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Threads/1.0",
-  },
+  { id: "threads", label: "Threads", ua: "facebookexternalhit/1.1" },
   {
     id: "notion",
     label: "Notion",
@@ -113,11 +113,7 @@ const CRAWLERS = [
     label: "TikTok",
     ua: "Mozilla/5.0 (compatible; TikTokSpider; ttspider-feedback@tiktok.com)",
   },
-  {
-    id: "line",
-    label: "LINE",
-    ua: "Mozilla/5.0 (compatible; Linespider/1.1; +https://lin.ee/4dwXkTH)",
-  },
+  { id: "line", label: "LINE", ua: "facebookexternalhit/1.1;line-poker/1.0" },
   {
     id: "wechat",
     label: "WeChat",
@@ -230,8 +226,10 @@ const readMeta = (html: string) => {
     let fallback = "";
     for (const tag of tags) {
       const rel =
-        tag.match(/rel=["']([^"']*)["']/i)?.[1]?.toLowerCase().split(/\s+/) ??
-        [];
+        tag
+          .match(/rel=["']([^"']*)["']/i)?.[1]
+          ?.toLowerCase()
+          .split(/\s+/) ?? [];
       if (!rel.includes("icon") && !rel.includes("apple-touch-icon")) {
         continue;
       }
@@ -246,17 +244,30 @@ const readMeta = (html: string) => {
     }
     return fallback;
   };
+  const htmlTitle = (html.match(/<title[^>]*>([^<]*)</i)?.[1] ?? "").trim();
+  const metaDescription = pick("description");
+  const ogTitle = pick("og:title");
+  const ogDescription = pick("og:description");
+  const ogImage = pick("og:image");
+  const twitterImage = pick("twitter:image") || pick("twitter:image:src");
   return {
     card: pick("twitter:card"),
-    description: pick("og:description") || pick("description"),
+    description: ogDescription || metaDescription,
     height: pick("og:image:height"),
+    htmlTitle,
     icon: pickIcon(),
-    image: pick("og:image") || pick("twitter:image"),
+    image: ogImage || twitterImage,
+    metaDescription,
+    ogDescription,
+    ogImage,
+    ogTitle,
     siteName: pick("og:site_name"),
-    title:
-      pick("og:title") ||
-      (html.match(/<title[^>]*>([^<]*)</i)?.[1] ?? "").trim(),
+    title: ogTitle || htmlTitle,
+    twitterDescription: pick("twitter:description"),
+    twitterImage,
+    twitterTitle: pick("twitter:title"),
     url: pick("og:url"),
+    wechatSdk: /res\d*\.wx\.qq\.com\/open\/js\/jweixin/i.test(html),
     width: pick("og:image:width"),
   };
 };
@@ -266,10 +277,7 @@ interface Hop {
   url: string;
 }
 
-/* Resolve the declared favicon against the page that declared it, so the
-   Google preview can show the site's real icon. Garbage hrefs resolve to
-   nothing rather than breaking the response. */
-const resolveIcon = (href: string, base: string) => {
+const resolveUrl = (href: string, base: string) => {
   if (!href) {
     return "";
   }
@@ -474,10 +482,15 @@ export const POST = async (request: Request) => {
   const read = pages.filter((p) => p.meta);
   const foundPage = read.find((p) => p.meta?.image) ?? read[0];
   const found = foundPage?.meta ?? null;
-  const imageUrl = found?.image ? new URL(found.image, target).toString() : "";
-  /* Same base as og:image above: the declared favicon for the Google preview. */
-  const iconUrl = resolveIcon(found?.icon ?? "", target);
-  const meta = found ? { ...found, icon: iconUrl } : null;
+  const imageUrl = resolveUrl(found?.image ?? "", target);
+  const meta = found
+    ? {
+        ...found,
+        icon: resolveUrl(found.icon, target),
+        ogImage: resolveUrl(found.ogImage, target),
+        twitterImage: resolveUrl(found.twitterImage, target),
+      }
+    : null;
 
   // 2. the card itself, as each crawler. A page that unfurls everywhere and an
   //    image that 403s to one of them is the failure people actually hit.

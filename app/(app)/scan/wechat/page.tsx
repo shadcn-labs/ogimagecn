@@ -19,7 +19,7 @@ import { createPageMetadata } from "@/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   description:
-    "Preview how your Open Graph image, title, and description appear in a WeChat chat bubble. Scan a URL and check its metadata before you share it.",
+    "See the card WeChat will send for your link: link form from the title tag, or a custom card when the page uses WeChat's JS-SDK. Scan a URL before you share it.",
   path: ROUTES.SCAN_WECHAT,
   title: "WeChat Open Graph Preview",
 });

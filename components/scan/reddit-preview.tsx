@@ -11,30 +11,25 @@ const host = (value: string) => {
 
 export interface RedditPreviewProps {
   className?: string;
-  description?: string;
   image: string;
   title?: string;
   url?: string;
 }
 
-/* Reddit renders a shared link as a post tile: image on top, a single hard-
-   truncated title line, then the domain as a small muted label. */
 export const RedditPreview = ({
   className,
-  description,
   image,
   title,
   url,
 }: RedditPreviewProps) => (
-  <div className={cn("bg-card overflow-hidden rounded-lg border", className)}>
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img alt="" src={image} className="aspect-1200/630 w-full object-cover" />
-    <div className="flex flex-col gap-0.5 px-3 py-2.5">
-      <span className="line-clamp-1 text-sm font-semibold">{title}</span>
-      <span className="text-muted-foreground line-clamp-1 text-xs">
-        {description}
-      </span>
-      <span className="text-muted-foreground text-[11px]">
+  <div className={cn("flex flex-col gap-2", className)}>
+    {title ? (
+      <span className="line-clamp-2 text-base font-semibold">{title}</span>
+    ) : null}
+    <div className="relative overflow-hidden rounded-2xl border">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img alt="" src={image} className="aspect-1200/630 w-full object-cover" />
+      <span className="absolute bottom-2 left-2 max-w-[calc(100%-1rem)] truncate rounded-full bg-black/70 px-2 py-0.5 text-[11px] text-white">
         {host(url || image)}
       </span>
     </div>

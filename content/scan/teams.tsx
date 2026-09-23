@@ -15,6 +15,12 @@ export const SECTIONS: ScanSection[] = [
           The description is trimmed hard, so the first sentence has to say what
           the page is. Everything after it is decoration in this context.
         </p>
+        <p>
+          Teams also reverses the usual precedence: when a page sets both,{" "}
+          <code>twitter:title</code>, <code>twitter:description</code> and{" "}
+          <code>twitter:image</code> win over their Open Graph equivalents. The
+          preview above follows the same order, so mismatched tags show up here.
+        </p>
       </>
     ),
     heading: "How Teams renders a link",
@@ -43,7 +49,7 @@ export const SECTIONS: ScanSection[] = [
 export const FAQS: ScanFaq[] = [
   {
     answer:
-      "Teams reads Open Graph: og:title, og:description, og:image and og:site_name. The site name is displayed above the title, which most other platforms drop.",
+      "Teams reads og:title, og:description, og:image and og:site_name, but twitter:title, twitter:description and twitter:image override the Open Graph values when both are set. The site name is displayed above the title, which most other platforms drop.",
     question: "Which meta tags does Microsoft Teams read?",
   },
   {

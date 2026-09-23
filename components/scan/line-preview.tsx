@@ -12,7 +12,7 @@ const host = (value: string) => {
 export interface LINEPreviewProps {
   className?: string;
   description?: string;
-  image: string;
+  image?: string;
   title?: string;
   url?: string;
 }
@@ -26,15 +26,17 @@ export const LINEPreview = ({
   url,
 }: LINEPreviewProps) => (
   <div className={cn("overflow-hidden rounded-2xl border", className)}>
-    {/* eslint-disable-next-line @next/next/no-img-element */}
-    <img alt="" src={image} className="aspect-1200/630 w-full object-cover" />
+    {image ? (
+      /* eslint-disable-next-line @next/next/no-img-element */
+      <img alt="" src={image} className="aspect-1200/630 w-full object-cover" />
+    ) : null}
     <div className="flex flex-col gap-0.5 px-3 py-2.5">
       <span className="line-clamp-1 text-sm font-semibold">{title}</span>
       <span className="text-muted-foreground line-clamp-1 text-xs">
         {description}
       </span>
       <span className="text-muted-foreground text-[11px]">
-        {host(url || image)}
+        {host(url || image || "")}
       </span>
     </div>
   </div>

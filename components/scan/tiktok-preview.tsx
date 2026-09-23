@@ -16,7 +16,6 @@ export interface TikTokPreviewProps {
   url?: string;
 }
 
-/* TikTok renders a compact dark in-app card: small thumbnail with title and bare domain, no description. */
 export const TikTokPreview = ({
   className,
   image,
@@ -25,7 +24,7 @@ export const TikTokPreview = ({
 }: TikTokPreviewProps) => (
   <div
     className={cn(
-      "flex items-center gap-3 rounded-xl bg-zinc-900 p-2.5 text-zinc-50",
+      "bg-card flex items-center gap-3 rounded-xl border p-2.5",
       className
     )}
   >
@@ -37,7 +36,7 @@ export const TikTokPreview = ({
     />
     <div className="flex min-w-0 flex-col gap-0.5">
       <span className="line-clamp-1 text-sm font-semibold">{title}</span>
-      <span className="line-clamp-1 text-xs text-zinc-400">
+      <span className="text-muted-foreground line-clamp-1 text-xs">
         {host(url || image)}
       </span>
     </div>

@@ -5,17 +5,19 @@ export const SECTIONS: ScanSection[] = [
     body: (
       <>
         <p>
-          WeChat draws a shared link as a chat-bubble card: a bold{" "}
-          <code>og:title</code> truncated to one line, a muted{" "}
-          <code>og:description</code> of one or two lines, and a small square
-          thumbnail cropped from <code>og:image</code> on the right. Moments
-          uses a similar row with the thumbnail right-aligned, so the same tags
-          cover both surfaces.
+          WeChat draws a shared link as a chat-bubble card: the title across the
+          top, a muted description on the left, and a small square thumbnail on
+          the right. What fills those slots depends on the page, not on its Open
+          Graph tags.
         </p>
         <p>
-          The card is compact and text-led. Because the title gets a single line
-          and the description at most two, front-load the distinguishing words —
-          everything after the cut is lost in the chat list.
+          Since 2017, a link shared from inside WeChat uses custom content only
+          when the page calls WeChat&apos;s JS-SDK (
+          <code>wx.updateAppMessageShareData</code>) from a domain registered to
+          a verified Official Account. Every other page is sent in{" "}
+          <em>link form</em>: the <code>&lt;title&gt;</code> as the title, the
+          URL itself as the description, and a generic link icon instead of a
+          picture.
         </p>
       </>
     ),
@@ -25,36 +27,36 @@ export const SECTIONS: ScanSection[] = [
     body: (
       <>
         <p>
-          When a chat shows a bare URL instead of a card, the fetch failed
-          rather than a tag being absent. WeChat&apos;s crawler reads only the
-          initial HTML without executing JavaScript, so client-rendered tags are
-          invisible to it. A login wall, an internal host, or an{" "}
-          <code>og:image</code> it cannot reach also leaves just the link text —
-          without an accessible image there is no thumbnail to show.
+          <code>og:title</code>, <code>og:description</code> and{" "}
+          <code>og:image</code> are only used when another browser or app shares
+          the page to WeChat and builds the card itself. Inside WeChat they are
+          ignored, so a page can unfurl everywhere else and still arrive as a
+          bare title and URL.
         </p>
         <p>
-          The scan above requests the page the way WeChat&apos;s in-app browser
-          does, so a check that passes here is a fetch that works in a WeChat
-          chat.
+          The scan above looks for the JS-SDK script in the page. Without it,
+          the preview shows the link-form card WeChat will actually send. With
+          it, the preview uses your Open Graph values as a stand-in, because the
+          real ones are set by JavaScript at share time and cannot be read from
+          the HTML.
         </p>
       </>
     ),
-    heading: "Why WeChat sometimes shows no preview",
+    heading: "Why WeChat ignores your Open Graph tags",
   },
   {
     body: (
       <>
         <p>
-          Set <code>og:title</code>, <code>og:description</code>, and{" "}
-          <code>og:image</code> in the page head, server-rendered. Use an HTTPS
-          image at <code>1200×630</code> when possible, keep it under 5 MB, and
-          serve it without an avoidable redirect. Keep the title to one line and
-          the description to a sentence — that is all the bubble shows.
+          Always write a <code>&lt;title&gt;</code> that makes sense on its own:
+          it is the one thing every WeChat share shows. For a full card, load
+          the JS-SDK, sign the config on your server, and call{" "}
+          <code>wx.updateAppMessageShareData</code> inside <code>wx.ready</code>{" "}
+          with a title, a description, and an HTTPS thumbnail.
         </p>
         <p>
-          The scanner fetches both the page and its image with WeChat&apos;s
-          user agent, so it can show whether the tags are reachable before you
-          share the link.
+          Keep the Open Graph tags as well: they cover shares from other
+          browsers into WeChat and every other platform on this page.
         </p>
       </>
     ),
@@ -65,22 +67,22 @@ export const SECTIONS: ScanSection[] = [
 export const FAQS: ScanFaq[] = [
   {
     answer:
-      "WeChat reads the standard Open Graph tags — og:title, og:description, and og:image — from the initial HTML response. The page and image must be reachable over HTTPS without a login.",
+      "When a link is shared from inside WeChat, none of them unless the page configures the JS-SDK. Without it, WeChat uses the title tag and shows the URL as the description. Open Graph tags only apply when another app shares the page into WeChat.",
     question: "Which meta tags does a WeChat preview use?",
   },
   {
     answer:
-      "WeChat's crawler does not execute JavaScript, so tags rendered on the client are invisible to it. Make sure the Open Graph tags are present in the server-rendered HTML, and confirm the page returns 200 OK without auth.",
-    question: "Why does WeChat show only the URL?",
+      "That is WeChat's link form, used for every page that does not call wx.updateAppMessageShareData. A thumbnail and a custom description require the JS-SDK on a domain registered to a verified Official Account.",
+    question: "Why does WeChat show only the title and URL?",
   },
   {
     answer:
-      "Use a 1200×630 image when possible and keep it under 5 MB. Serve it from an HTTPS URL with an image content type and no avoidable redirect — WeChat crops it into a small square thumbnail, and without an accessible image there is no card.",
-    question: "What image size works best for WeChat?",
+      "The thumbnail comes from the imgUrl you pass to wx.updateAppMessageShareData, not from og:image. Use an HTTPS image that WeChat can reach without a login; it is cropped into a small square.",
+    question: "How do I set the WeChat thumbnail?",
   },
   {
     answer:
-      "WeChat caches the card once it has been unfurled. Fix the tags, then share the URL with a fresh query string to trigger a new fetch — the cached bubble keeps showing until it expires.",
-    question: "How do I refresh a cached WeChat preview?",
+      "Call wx.updateAppMessageShareData again with the new values; the next share uses them. Cards already sent in a chat keep what they were sent with.",
+    question: "How do I update a WeChat share card?",
   },
 ];

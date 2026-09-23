@@ -74,11 +74,20 @@ interface Meta {
   card: string;
   description: string;
   height: string;
+  htmlTitle: string;
   icon: string;
   image: string;
+  metaDescription: string;
+  ogDescription: string;
+  ogImage: string;
+  ogTitle: string;
   siteName: string;
   title: string;
+  twitterDescription: string;
+  twitterImage: string;
+  twitterTitle: string;
   url: string;
+  wechatSdk: boolean;
   width: string;
 }
 
@@ -158,7 +167,7 @@ const Findings = ({ findings }: { findings: Finding[] }) =>
           <li key={f.title}>
             <Alert variant="warning">
               <TriangleAlertIcon />
-              <AlertTitle>{f.title}</AlertTitle>
+              <AlertTitle className="line-clamp-none">{f.title}</AlertTitle>
               <AlertDescription>{f.detail}</AlertDescription>
             </Alert>
           </li>
@@ -176,9 +185,9 @@ const PLATFORMS = [
     render: (m: Meta, src: string) => (
       <XPreview
         card={m.card}
-        description={m.description}
-        image={src}
-        title={m.title}
+        description={m.twitterDescription || m.description}
+        image={m.twitterImage || src}
+        title={m.twitterTitle || m.title}
         url={m.url}
       />
     ),
@@ -238,10 +247,10 @@ const PLATFORMS = [
     name: "Microsoft Teams",
     render: (m: Meta, src: string) => (
       <TeamsPreview
-        description={m.description}
-        image={src}
+        description={m.twitterDescription || m.description}
+        image={m.twitterImage || src}
         siteName={m.siteName}
-        title={m.title}
+        title={m.twitterTitle || m.title}
         url={m.url}
       />
     ),
@@ -262,14 +271,22 @@ const PLATFORMS = [
     icon: <SignalIcon />,
     id: "signal",
     name: "Signal",
-    render: (m: Meta, src: string) => (
-      <SignalPreview
-        description={m.description}
-        image={src}
-        title={m.title}
-        url={m.url}
-      />
-    ),
+    render: (m: Meta) => {
+      const w = Number(m.width);
+      const h = Number(m.height);
+      const small =
+        !m.ogImage ||
+        (w > 0 && h > 0 && (w < 200 || h < 200 || Math.abs(1 - w / h) < 0.05));
+      return (
+        <SignalPreview
+          description={m.description}
+          image={m.ogImage || m.icon}
+          small={small}
+          title={m.title}
+          url={m.url}
+        />
+      );
+    },
   },
   {
     icon: <InstagramIcon />,
@@ -314,12 +331,7 @@ const PLATFORMS = [
     id: "reddit",
     name: "Reddit",
     render: (m: Meta, src: string) => (
-      <RedditPreview
-        description={m.description}
-        image={src}
-        title={m.title}
-        url={m.url}
-      />
+      <RedditPreview image={src} title={m.title} url={m.url} />
     ),
   },
   {
@@ -328,9 +340,11 @@ const PLATFORMS = [
     name: "Bluesky",
     render: (m: Meta, src: string) => (
       <BlueskyPreview
-        description={m.description}
+        description={
+          m.ogDescription || m.twitterDescription || m.metaDescription
+        }
         image={src}
-        title={m.title}
+        title={m.ogTitle || m.twitterTitle || m.htmlTitle}
         url={m.url}
       />
     ),
@@ -339,10 +353,10 @@ const PLATFORMS = [
     icon: <MastodonIcon />,
     id: "mastodon",
     name: "Mastodon",
-    render: (m: Meta, src: string) => (
+    render: (m: Meta) => (
       <MastodonPreview
         description={m.description}
-        image={src}
+        image={m.ogImage}
         siteName={m.siteName}
         title={m.title}
         url={m.url}
@@ -355,14 +369,6 @@ const PLATFORMS = [
     name: "Threads",
     render: (m: Meta, src: string) => (
       <ThreadsPreview image={src} title={m.title} url={m.url} />
-    ),
-  },
-  {
-    icon: <SnapchatIcon />,
-    id: "snapchat",
-    name: "Snapchat",
-    render: (m: Meta, src: string) => (
-      <SnapchatPreview image={src} title={m.title} url={m.url} />
     ),
   },
   {
@@ -382,10 +388,10 @@ const PLATFORMS = [
     icon: <LINEIcon />,
     id: "line",
     name: "LINE",
-    render: (m: Meta, src: string) => (
+    render: (m: Meta) => (
       <LINEPreview
         description={m.description}
-        image={src}
+        image={m.ogImage}
         title={m.title}
         url={m.url}
       />
@@ -424,6 +430,7 @@ const PLATFORMS = [
     render: (m: Meta, src: string) => (
       <NotionPreview
         description={m.description}
+        icon={m.icon}
         image={src}
         title={m.title}
         url={m.url}
@@ -436,10 +443,22 @@ const PLATFORMS = [
     name: "Google",
     render: (m: Meta) => (
       <GooglePreview
-        description={m.description}
+        description={m.metaDescription || m.description}
         icon={m.icon}
         siteName={m.siteName}
-        title={m.title}
+        title={m.htmlTitle || m.title}
+        url={m.url}
+      />
+    ),
+  },
+  {
+    icon: <SnapchatIcon />,
+    id: "snapchat",
+    name: "Snapchat",
+    render: (m: Meta, src: string) => (
+      <SnapchatPreview
+        image={src}
+        title={m.ogTitle || m.twitterTitle || m.htmlTitle}
         url={m.url}
       />
     ),
@@ -461,14 +480,16 @@ const PLATFORMS = [
     icon: <WeChatIcon />,
     id: "wechat",
     name: "WeChat",
-    render: (m: Meta, src: string) => (
-      <WeChatPreview
-        description={m.description}
-        image={src}
-        title={m.title}
-        url={m.url}
-      />
-    ),
+    render: (m: Meta, src: string) =>
+      m.wechatSdk ? (
+        <WeChatPreview
+          description={m.description}
+          image={src}
+          title={m.title}
+        />
+      ) : (
+        <WeChatPreview description={m.url} title={m.htmlTitle || m.title} />
+      ),
   },
   {
     icon: <TikTokIcon />,
@@ -552,9 +573,10 @@ const Checks = ({
   );
 };
 
-/* Google draws a text result, so it is the one preview that still says
-   something about a page with no og:image. */
-const IMAGE_FREE: Partial<Record<ScanPlatformId, true>> = { google: true };
+const IMAGE_FREE: Partial<Record<ScanPlatformId, true>> = {
+  google: true,
+  wechat: true,
+};
 
 const Report = ({
   platform,
@@ -597,7 +619,7 @@ const Report = ({
   }
 
   return (
-    <div className="grid gap-10 md:grid-cols-6">
+    <div className="grid grid-cols-1 gap-10 md:grid-cols-6">
       <div className="flex flex-col gap-6 self-start md:sticky md:top-[calc(var(--header-height)+1rem)] md:col-span-2">
         {src ? (
           <div className="flex flex-col gap-2">
@@ -620,7 +642,7 @@ const Report = ({
       </div>
       <div className="flex flex-col gap-6 md:col-span-4">
         <h2 className="text-sm font-medium">Preview</h2>
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {shown.map((entry) => (
             <Shell icon={entry.icon} key={entry.id} name={entry.name}>
               {entry.render(meta, src)}

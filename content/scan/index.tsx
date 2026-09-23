@@ -61,10 +61,10 @@ export const SECTIONS: ScanSection[] = [
     body: (
       <>
         <p>
-          Each preview above comes from a real request. The page is fetched
-          fourteen times, once per crawler user agent, and then the image it
-          points at is fetched the same way, so a host that serves a different
-          response to Twitterbot or blocks{" "}
+          Each preview above comes from a real request. The page is fetched once
+          per crawler user agent, and then the image it points at is fetched the
+          same way, so a host that serves a different response to Twitterbot or
+          blocks{" "}
           <Link
             className="underline underline-offset-4"
             href={ROUTES.SCAN_BLUESKY}

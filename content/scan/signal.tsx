@@ -12,8 +12,11 @@ export const SECTIONS: ScanSection[] = [
         </p>
         <p>
           Signal reads the Open Graph title, description, and image from the
-          initial HTML response. The preview is a compact chat card, so a clear
-          title and an image that still reads when cropped do the most work.
+          initial HTML response and ignores <code>twitter:*</code> tags. Without{" "}
+          <code>og:image</code> it falls back to the page&apos;s
+          apple-touch-icon or favicon, shown as a small thumbnail beside the
+          text; so is any image under 200px or roughly square. A clear title and
+          a wide image that still reads when cropped do the most work.
         </p>
       </>
     ),

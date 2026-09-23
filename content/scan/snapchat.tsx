@@ -5,16 +5,17 @@ export const SECTIONS: ScanSection[] = [
     body: (
       <>
         <p>
-          Snapchat draws a link as a compact chat card: the Open Graph image
-          full-width on top, with the title and the domain underneath in a
-          rounded bubble. The description is dropped, so a card whose meaning
-          lives in <code>og:description</code> reads as a picture plus a
-          headline here.
+          Snapchat draws a link as a compact chat card: a rounded square
+          thumbnail cropped from the Open Graph image on the left, with the
+          title and the domain beside it. The description is dropped, so a card
+          whose meaning lives in <code>og:description</code> reads as a small
+          picture plus a headline here.
         </p>
         <p>
-          The tags it reads are the ordinary ones — <code>og:image</code>,{" "}
-          <code>og:title</code> and <code>og:url</code>. There is no
-          Snapchat-specific namespace to set.
+          The tags it reads are the ordinary ones — <code>og:title</code> and{" "}
+          <code>og:image</code>, with <code>twitter:title</code> and{" "}
+          <code>twitter:image</code> as fallbacks. There is no Snapchat-specific
+          namespace to set.
         </p>
       </>
     ),
@@ -45,7 +46,7 @@ export const SECTIONS: ScanSection[] = [
 export const FAQS: ScanFaq[] = [
   {
     answer:
-      "Snapchat uses the standard Open Graph tags — og:image, og:title and og:url. There is no Snapchat-specific meta tag, so a card that works elsewhere works here.",
+      "Snapchat reads og:title and og:image, and falls back to twitter:title and twitter:image when they are missing. There is no Snapchat-specific meta tag, so a card that works elsewhere works here.",
     question: "Which meta tags does Snapchat read?",
   },
   {
@@ -55,12 +56,12 @@ export const FAQS: ScanFaq[] = [
   },
   {
     answer:
-      "1200×630 is the safe choice. Snapchat shows the image full-width in the bubble, so a square or portrait image gets cropped at the top and bottom, often through the text you wanted read.",
+      "1200×630 is the safe choice for the file, but Snapchat crops it to a small square thumbnail, so keep the subject centred and do not rely on text near the edges being read.",
     question: "What image size should I use for Snapchat previews?",
   },
   {
     answer:
-      "Snapchat caches a card once it has been unfurled. Fix the tags, then share the URL with a query string to get a fresh fetch — the cached version keeps showing until it expires.",
+      "Snapchat's URL Preview Service caches each URL for about 30 minutes. Fix the tags and wait it out, or share the URL with a query string to force a fresh fetch.",
     question: "How do I refresh a cached Snapchat preview?",
   },
 ];

@@ -19,7 +19,7 @@ import { createPageMetadata } from "@/seo/metadata";
 
 export const metadata: Metadata = createPageMetadata({
   description:
-    "Paste a URL and see the card Facebook, X, LinkedIn, Slack, Discord, Teams, WhatsApp, Instagram, Telegram, Pinterest, Reddit, Bluesky, Notion and Google will each build from it.",
+    "Paste a URL and see the card X, Facebook, LinkedIn, Slack, Discord, WhatsApp, iMessage, Instagram, Reddit, Bluesky, Notion, Google and every other major platform will build from it.",
   path: ROUTES.SCAN,
   title: "Open Graph Preview Checker",
 });
@@ -29,7 +29,7 @@ const ScanPage = () => (
     <section className="container-wrapper relative">
       <div className="container flex flex-col gap-12 py-16 md:py-20 lg:py-24">
         <PageHero
-          description="Paste a URL and see the card all fourteen platforms will build from it."
+          description="Paste a URL and see the card every platform will build from it."
           title="Open Graph Preview Checker"
         />
 

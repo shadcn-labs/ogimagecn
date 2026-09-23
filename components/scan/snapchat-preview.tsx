@@ -16,23 +16,31 @@ export interface SnapchatPreviewProps {
   url?: string;
 }
 
-/* Snapchat renders a compact chat card: full-width image with title + domain in rounded bubble. */
 export const SnapchatPreview = ({
   className,
   image,
   title,
   url,
 }: SnapchatPreviewProps) => (
-  <div className={cn("flex flex-col gap-2", className)}>
-    <div className="overflow-hidden rounded-2xl border">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img alt="" src={image} className="aspect-1200/630 w-full object-cover" />
-      <div className="bg-muted/40 flex flex-col gap-0.5 px-3 py-2">
-        <span className="text-muted-foreground text-xs">
-          {host(url || image)}
-        </span>
-        {title && <span className="line-clamp-1 text-sm">{title}</span>}
-      </div>
+  <div
+    className={cn(
+      "bg-card flex items-center gap-3 rounded-2xl border p-2.5",
+      className
+    )}
+  >
+    {/* eslint-disable-next-line @next/next/no-img-element */}
+    <img
+      alt=""
+      src={image}
+      className="size-16 shrink-0 rounded-lg object-cover"
+    />
+    <div className="flex min-w-0 flex-col gap-0.5">
+      {title ? (
+        <span className="line-clamp-2 text-sm font-semibold">{title}</span>
+      ) : null}
+      <span className="text-muted-foreground truncate text-xs">
+        {host(url || image)}
+      </span>
     </div>
   </div>
 );

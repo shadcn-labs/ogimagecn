@@ -12,38 +12,45 @@ const host = (value: string) => {
 export interface SignalPreviewProps {
   className?: string;
   description?: string;
-  image: string;
+  image?: string;
+  small?: boolean;
   title?: string;
   url?: string;
 }
 
-/* Signal puts the preview in a blue chat bubble with the image above the copy. */
 export const SignalPreview = ({
   className,
   description,
   image,
+  small,
   title,
   url,
 }: SignalPreviewProps) => (
   <div
     className={cn(
-      "rounded-lg border bg-blue-50 p-3 dark:bg-blue-950/30",
+      "flex gap-3 rounded-lg border bg-blue-50 p-3 dark:bg-blue-950/30",
+      small ? "items-start" : "flex-col",
       className
     )}
   >
-    <div className="flex flex-col gap-1">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
+    {image ? (
+      /* eslint-disable-next-line @next/next/no-img-element */
       <img
         alt=""
         src={image}
-        className="aspect-1200/630 w-full rounded object-cover"
+        className={cn(
+          "rounded object-cover",
+          small ? "size-14 shrink-0" : "aspect-1200/630 w-full"
+        )}
       />
-      <span className="mt-1 text-sm font-semibold">{title}</span>
+    ) : null}
+    <div className="flex min-w-0 flex-col gap-1">
+      <span className="text-sm font-semibold">{title}</span>
       <span className="text-muted-foreground line-clamp-2 text-xs">
         {description}
       </span>
       <span className="text-muted-foreground text-[11px]">
-        {host(url || image)}
+        {host(url || image || "")}
       </span>
     </div>
   </div>

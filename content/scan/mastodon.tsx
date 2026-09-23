@@ -8,7 +8,10 @@ export const SECTIONS: ScanSection[] = [
           Mastodon expands a wide preview image above the text. Under it, the
           card shows the provider or hostname, a bold title, and one clipped
           description line. Images wider than they are tall use the expanded
-          layout; small or square images move into a compact thumbnail row.
+          layout; small or square images, or a page with no{" "}
+          <code>og:image</code>, get a compact row instead. Mastodon never falls
+          back to <code>twitter:image</code>, and without{" "}
+          <code>og:site_name</code> it prints the full hostname, www included.
         </p>
         <p>
           Use a 1.91:1 image such as 1200×630 and keep essential text away from
