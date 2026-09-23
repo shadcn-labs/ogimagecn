@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { cn } from "@/lib/utils";
 
 /* The site name falls back to the bare domain, www stripped. */
@@ -23,6 +25,7 @@ const crumbs = (value: string) => {
 export interface GooglePreviewProps {
   className?: string;
   description?: string;
+  icon?: string;
   siteName?: string;
   title?: string;
   url?: string;
@@ -35,19 +38,33 @@ export interface GooglePreviewProps {
 export const GooglePreview = ({
   className,
   description,
+  icon,
   siteName,
   title,
   url,
 }: GooglePreviewProps) => {
   const domain = host(url || "");
   const name = siteName || domain;
+  /* The declared favicon may 404 or be blocked (mixed content, hotlink
+     protection); fall back to the initial avatar when it fails to load. */
+  const [iconFailed, setIconFailed] = useState(false);
 
   return (
     <div className={cn("flex flex-col gap-1", className)}>
       <div className="flex items-center gap-3">
-        <span className="flex size-7 shrink-0 items-center justify-center rounded-full border text-xs font-medium uppercase">
-          {name.charAt(0)}
-        </span>
+        {icon && !iconFailed ? (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            alt=""
+            src={icon}
+            onError={() => setIconFailed(true)}
+            className="size-7 shrink-0 rounded-full border object-cover"
+          />
+        ) : (
+          <span className="flex size-7 shrink-0 items-center justify-center rounded-full border text-xs font-medium uppercase">
+            {name.charAt(0)}
+          </span>
+        )}
         <div className="flex min-w-0 flex-col">
           <span className="truncate text-sm leading-tight">{name}</span>
           <span className="text-muted-foreground truncate text-xs leading-tight">

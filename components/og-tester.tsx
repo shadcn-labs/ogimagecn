@@ -74,6 +74,7 @@ interface Meta {
   card: string;
   description: string;
   height: string;
+  icon: string;
   image: string;
   siteName: string;
   title: string;
@@ -378,32 +379,11 @@ const PLATFORMS = [
     ),
   },
   {
-    icon: <TikTokIcon />,
-    id: "tiktok",
-    name: "TikTok",
-    render: (m: Meta, src: string) => (
-      <TikTokPreview image={src} title={m.title} url={m.url} />
-    ),
-  },
-  {
     icon: <LINEIcon />,
     id: "line",
     name: "LINE",
     render: (m: Meta, src: string) => (
       <LINEPreview
-        description={m.description}
-        image={src}
-        title={m.title}
-        url={m.url}
-      />
-    ),
-  },
-  {
-    icon: <WeChatIcon />,
-    id: "wechat",
-    name: "WeChat",
-    render: (m: Meta, src: string) => (
-      <WeChatPreview
         description={m.description}
         image={src}
         title={m.title}
@@ -457,6 +437,7 @@ const PLATFORMS = [
     render: (m: Meta) => (
       <GooglePreview
         description={m.description}
+        icon={m.icon}
         siteName={m.siteName}
         title={m.title}
         url={m.url}
@@ -474,6 +455,27 @@ const PLATFORMS = [
         title={m.title}
         url={m.url}
       />
+    ),
+  },
+  {
+    icon: <WeChatIcon />,
+    id: "wechat",
+    name: "WeChat",
+    render: (m: Meta, src: string) => (
+      <WeChatPreview
+        description={m.description}
+        image={src}
+        title={m.title}
+        url={m.url}
+      />
+    ),
+  },
+  {
+    icon: <TikTokIcon />,
+    id: "tiktok",
+    name: "TikTok",
+    render: (m: Meta, src: string) => (
+      <TikTokPreview image={src} title={m.title} url={m.url} />
     ),
   },
 ] as const;
@@ -577,12 +579,16 @@ const Report = ({
     );
   }
 
+  /* og:url is often missing; fall back to the scanned address so the
+     favicon letter, breadcrumbs, and bare-domain footers still render. */
+  const meta = { ...m, url: m.url || result.url };
+
   if (single) {
     const [entry] = shown;
     return (
       <div className="mx-auto flex w-full max-w-2xl flex-col gap-6">
         <Shell icon={entry.icon} name={entry.name}>
-          {entry.render(m, src)}
+          {entry.render(meta, src)}
         </Shell>
         <Findings findings={result.findings} />
         <Checks platform={entry.id} result={result} />
@@ -617,7 +623,7 @@ const Report = ({
         <div className="grid gap-6 sm:grid-cols-2">
           {shown.map((entry) => (
             <Shell icon={entry.icon} key={entry.id} name={entry.name}>
-              {entry.render(m, src)}
+              {entry.render(meta, src)}
             </Shell>
           ))}
         </div>

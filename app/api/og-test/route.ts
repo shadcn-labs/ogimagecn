@@ -222,10 +222,35 @@ const readMeta = (html: string) => {
     const m = html.match(re);
     return m ? (m[1] ?? m[2] ?? "").trim() : "";
   };
+  /* The declared favicon, if any. <link rel="icon" ...> wins and the
+     apple-touch-icon is the fallback. data: URIs are skipped: they can be
+     huge and are useless to a preview. Resolved against the page URL later. */
+  const pickIcon = () => {
+    const tags = html.match(/<link[^>]*>/gi) ?? [];
+    let fallback = "";
+    for (const tag of tags) {
+      const rel =
+        tag.match(/rel=["']([^"']*)["']/i)?.[1]?.toLowerCase().split(/\s+/) ??
+        [];
+      if (!rel.includes("icon") && !rel.includes("apple-touch-icon")) {
+        continue;
+      }
+      const href = tag.match(/href=["']([^"']*)["']/i)?.[1]?.trim() ?? "";
+      if (!href || href.startsWith("data:")) {
+        continue;
+      }
+      if (rel.includes("icon")) {
+        return href;
+      }
+      fallback ||= href;
+    }
+    return fallback;
+  };
   return {
     card: pick("twitter:card"),
     description: pick("og:description") || pick("description"),
     height: pick("og:image:height"),
+    icon: pickIcon(),
     image: pick("og:image") || pick("twitter:image"),
     siteName: pick("og:site_name"),
     title:
@@ -240,6 +265,20 @@ interface Hop {
   status: number;
   url: string;
 }
+
+/* Resolve the declared favicon against the page that declared it, so the
+   Google preview can show the site's real icon. Garbage hrefs resolve to
+   nothing rather than breaking the response. */
+const resolveIcon = (href: string, base: string) => {
+  if (!href) {
+    return "";
+  }
+  try {
+    return new URL(href, base).toString();
+  } catch {
+    return "";
+  }
+};
 
 /** Follow redirects by hand so each hop can be reported and re-validated. */
 const trace = async (target: string, ua: string, accept: string) => {
@@ -433,8 +472,12 @@ export const POST = async (request: Request) => {
   /* Prefer a crawler that saw an image, but keep the tags either way: the
      Google result is built from title and description alone. */
   const read = pages.filter((p) => p.meta);
-  const found = read.find((p) => p.meta?.image)?.meta ?? read[0]?.meta ?? null;
+  const foundPage = read.find((p) => p.meta?.image) ?? read[0];
+  const found = foundPage?.meta ?? null;
   const imageUrl = found?.image ? new URL(found.image, target).toString() : "";
+  /* Same base as og:image above: the declared favicon for the Google preview. */
+  const iconUrl = resolveIcon(found?.icon ?? "", target);
+  const meta = found ? { ...found, icon: iconUrl } : null;
 
   // 2. the card itself, as each crawler. A page that unfurls everywhere and an
   //    image that 403s to one of them is the failure people actually hit.
@@ -484,7 +527,7 @@ export const POST = async (request: Request) => {
   const findings = buildFindings(found, images, imageUrl);
 
   return Response.json(
-    { findings, imageUrl, images, meta: found, pages, url: target },
+    { findings, imageUrl, images, meta, pages, url: target },
     { headers: { "Cache-Control": "no-store" } }
   );
 };
