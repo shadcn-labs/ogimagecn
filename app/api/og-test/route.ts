@@ -1,6 +1,8 @@
 import { lookup } from "node:dns/promises";
 import { isIP } from "node:net";
 
+import { resolvePreviewAssets } from "@/lib/og-test-urls";
+
 /**
  * Fetch a page as each social crawler sees it, then fetch the card it points
  * at the same way.
@@ -277,17 +279,6 @@ interface Hop {
   url: string;
 }
 
-const resolveUrl = (href: string, base: string) => {
-  if (!href) {
-    return "";
-  }
-  try {
-    return new URL(href, base).toString();
-  } catch {
-    return "";
-  }
-};
-
 /** Follow redirects by hand so each hop can be reported and re-validated. */
 const trace = async (target: string, ua: string, accept: string) => {
   const hops: Hop[] = [];
@@ -482,15 +473,11 @@ export const POST = async (request: Request) => {
   const read = pages.filter((p) => p.meta);
   const foundPage = read.find((p) => p.meta?.image) ?? read[0];
   const found = foundPage?.meta ?? null;
-  const imageUrl = resolveUrl(found?.image ?? "", target);
-  const meta = found
-    ? {
-        ...found,
-        icon: resolveUrl(found.icon, target),
-        ogImage: resolveUrl(found.ogImage, target),
-        twitterImage: resolveUrl(found.twitterImage, target),
-      }
-    : null;
+  const { imageUrl, meta } = resolvePreviewAssets(
+    foundPage && found
+      ? { finalUrl: foundPage.finalUrl, meta: found }
+      : undefined
+  );
 
   // 2. the card itself, as each crawler. A page that unfurls everywhere and an
   //    image that 403s to one of them is the failure people actually hit.
