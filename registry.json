@@ -129,6 +129,24 @@
       ]
     },
     {
+      "name": "coming-soon",
+      "type": "registry:block",
+      "title": "Coming Soon",
+      "description": "A dark, centered teaser Open Graph image with a brand mark, headline, and launch date chip.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/coming-soon/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/coming-soon.tsx"
+        }
+      ]
+    },
+    {
       "name": "quote",
       "type": "registry:block",
       "title": "Quote",

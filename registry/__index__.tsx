@@ -2,6 +2,8 @@ import { Blog } from "@/registry/blocks/blog";
 import { blogConfig } from "@/registry/blocks/blog/config";
 import { Changelog } from "@/registry/blocks/changelog";
 import { changelogConfig } from "@/registry/blocks/changelog/config";
+import { ComingSoon } from "@/registry/blocks/coming-soon";
+import { comingSoonConfig } from "@/registry/blocks/coming-soon/config";
 import { Editorial } from "@/registry/blocks/editorial";
 import { editorialConfig } from "@/registry/blocks/editorial/config";
 import { Event } from "@/registry/blocks/event";
@@ -69,6 +71,7 @@ const registry: Record<string, RegistryEntry> = {
   blog: { Component: Blog, config: blogConfig },
   "brand-mark": { Component: BrandMarkDemo, config: brandMarkDemoConfig },
   changelog: { Component: Changelog, config: changelogConfig },
+  "coming-soon": { Component: ComingSoon, config: comingSoonConfig },
   editorial: { Component: Editorial, config: editorialConfig },
   event: { Component: Event, config: eventConfig },
   grid: { Component: Grid, config: gridConfig },

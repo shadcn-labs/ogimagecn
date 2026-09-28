@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "coming-soon",
+  "title": "Coming Soon",
+  "description": "A dark, centered teaser Open Graph image with a brand mark, headline, and launch date chip.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/badge.json",
+    "https://ogimagecn.com/r/brand-mark.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/coming-soon/index.tsx",
+      "content": "import { Badge } from \"@/components/og/badge\";\nimport { BrandMark } from \"@/components/og/brand-mark\";\n\nexport interface ComingSoonProps {\n  brand: string;\n  title: string;\n  date: string;\n  logo?: string;\n}\n\nexport const ComingSoon = ({ brand, title, date, logo }: ComingSoonProps) => (\n  <div\n    style={{\n      alignItems: \"center\",\n      backgroundColor: \"#09090b\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"center\",\n      padding: \"72px 96px\",\n      width: \"100%\",\n    }}\n  >\n    <BrandMark\n      background=\"#7c3aed\"\n      radius={24}\n      size={96}\n      src={logo}\n      style={{ color: \"#fafafa\", fontSize: \"48px\", fontWeight: 700 }}\n    >\n      {brand.slice(0, 1).toUpperCase()}\n    </BrandMark>\n\n    <div\n      style={{\n        color: \"#a1a1aa\",\n        display: \"flex\",\n        fontSize: \"28px\",\n        fontWeight: 600,\n        marginTop: \"24px\",\n        maxWidth: \"960px\",\n        textAlign: \"center\",\n      }}\n    >\n      {brand}\n    </div>\n\n    <div\n      style={{\n        display: \"flex\",\n        fontSize: title.length > 48 ? 64 : 80,\n        fontWeight: 700,\n        letterSpacing: \"-0.03em\",\n        lineHeight: 1.1,\n        marginTop: \"32px\",\n        maxWidth: \"960px\",\n        textAlign: \"center\",\n      }}\n    >\n      {title}\n    </div>\n\n    <Badge\n      background=\"#18181b\"\n      borderColor=\"#3f3f46\"\n      color=\"#d4d4d8\"\n      style={{ fontSize: \"24px\", marginTop: \"32px\", padding: \"12px 24px\" }}\n    >\n      {date}\n    </Badge>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/coming-soon.tsx"
+    }
+  ],
+  "categories": [
+    "product"
+  ],
+  "type": "registry:block"
+}
