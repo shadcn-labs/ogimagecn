@@ -53,6 +53,7 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -110,6 +111,7 @@ const registry: Record<string, RegistryEntry> = {
   simple: { Component: Simple, config: simpleConfig },
   stat: { Component: Stat, config: statConfig },
   terminal: { Component: Terminal, config: terminalConfig },
+  waveform: { Component: WaveformDemo, config: waveformDemoConfig },
 };
 
 export default registry;

@@ -1,4 +1,12 @@
 {
   "title": "Components",
-  "pages": ["index", "avatar", "badge", "brand-mark", "divider", "grid-lines"]
+  "pages": [
+    "index",
+    "avatar",
+    "badge",
+    "brand-mark",
+    "divider",
+    "grid-lines",
+    "waveform"
+  ]
 }

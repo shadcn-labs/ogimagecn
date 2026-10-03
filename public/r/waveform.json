@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "waveform",
+  "title": "Waveform",
+  "description": "A vertically centered audio waveform with configurable color, height, and bar spacing.",
+  "files": [
+    {
+      "path": "registry/components/waveform.tsx",
+      "content": "export interface WaveformProps {\n  /** Normalized bar amplitudes. Values are clamped to the 0–1 range. */\n  amplitudes: number[];\n  /** Color of every bar. */\n  color?: string;\n  /** Total waveform height in pixels. */\n  height?: number;\n  /** Space between bars in pixels. */\n  gap?: number;\n}\n\n/** A deterministic, vertically centered waveform for Satori OG images. */\nexport const Waveform = ({\n  amplitudes,\n  color = \"#a78bfa\",\n  height = 96,\n  gap = 4,\n}: WaveformProps) => (\n  <div\n    style={{\n      alignItems: \"center\",\n      display: \"flex\",\n      gap: Math.max(0, gap),\n      height,\n      width: \"100%\",\n    }}\n  >\n    {amplitudes.map((amplitude, index) => {\n      const level = Number.isFinite(amplitude)\n        ? Math.min(1, Math.max(0, Math.abs(amplitude)))\n        : 0;\n\n      return (\n        <div\n          key={index}\n          style={{\n            backgroundColor: color,\n            borderRadius: \"999px\",\n            flexBasis: 0,\n            flexGrow: 1,\n            height: Math.max(2, level * height),\n          }}\n        />\n      );\n    })}\n  </div>\n);\n",
+      "type": "registry:ui",
+      "target": "components/og/waveform.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

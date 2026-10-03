@@ -1,0 +1,64 @@
+---
+title: Waveform
+description: A vertically centered audio waveform for Open Graph images.
+---
+
+<ComponentPreview name="waveform" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/waveform
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="waveform" title="components/og/waveform.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Waveform } from "@/components/og/waveform";
+```
+
+```tsx
+<Waveform
+  amplitudes={[0.15, 0.4, 0.8, 0.55, 1, 0.7, 0.25]}
+  color="#a78bfa"
+  height={120}
+  gap={6}
+/>
+```
+
+Pass normalized amplitudes in the order they should appear. Values outside 0–1 are clamped, negative values use their magnitude, and invalid numbers render as minimum-height bars. The waveform fills its parent's width, so give the parent an explicit width when rendering with Satori. An empty array renders an empty row.
+
+## API Reference
+
+| Prop         | Type       | Default   |
+| ------------ | ---------- | --------- |
+| `amplitudes` | `number[]` | —         |
+| `color`      | `string`   | `#a78bfa` |
+| `height`     | `number`   | `96`      |
+| `gap`        | `number`   | `4`       |

@@ -69,6 +69,19 @@
       ]
     },
     {
+      "name": "waveform",
+      "type": "registry:ui",
+      "title": "Waveform",
+      "description": "A vertically centered audio waveform with configurable color, height, and bar spacing.",
+      "files": [
+        {
+          "path": "registry/components/waveform.tsx",
+          "type": "registry:ui",
+          "target": "components/og/waveform.tsx"
+        }
+      ]
+    },
+    {
       "name": "simple",
       "type": "registry:block",
       "title": "Simple",
