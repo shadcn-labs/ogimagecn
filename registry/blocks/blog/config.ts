@@ -22,4 +22,10 @@ export const blogConfig: ControlConfig = {
     label: "Title",
     type: "text",
   },
+  variant: {
+    default: "light",
+    label: "Variant",
+    options: ["light", "dark"],
+    type: "select",
+  },
 };

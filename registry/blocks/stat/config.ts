@@ -11,4 +11,10 @@ export const statConfig: ControlConfig = {
   logo: { default: "", label: "Logo", type: "image" },
   trend: { default: "+24%", label: "Trend", type: "text" },
   value: { default: "10M+", label: "Value", type: "text" },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };

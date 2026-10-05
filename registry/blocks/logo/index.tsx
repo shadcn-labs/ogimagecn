@@ -1,12 +1,33 @@
 import { BrandMark } from "@/components/og/brand-mark";
 
+export type Variant = "light" | "dark";
+
 export interface LogoProps {
   brand: string;
   tagline?: string;
   monogram?: string;
-  background: string;
+  /** Overrides the `variant` surface. A `#`-prefixed value is a solid colour
+   *  with a glow behind it; anything else is treated as a gradient. */
+  background?: string;
   logo?: string;
+  /** Card theme. Defaults to `dark` to match the original design. */
+  variant?: Variant;
 }
+
+const themes = {
+  dark: {
+    foreground: "#fafafa",
+    glow: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.2), transparent 60%)",
+    muted: "#a1a1aa",
+    surface: "#09090b",
+  },
+  light: {
+    foreground: "#0a0a0a",
+    glow: "radial-gradient(circle at 50% 50%, rgba(124,58,237,0.12), transparent 60%)",
+    muted: "#52525b",
+    surface: "#fafafa",
+  },
+} as const satisfies Record<Variant, Record<string, string>>;
 
 export const Logo = ({
   brand,
@@ -14,18 +35,19 @@ export const Logo = ({
   monogram,
   background,
   logo = "",
+  variant = "dark",
 }: LogoProps) => {
-  const isColor = background.startsWith("#");
+  const theme = themes[variant];
+  const surface = background ?? theme.surface;
+  const isColor = surface.startsWith("#");
 
   return (
     <div
       style={{
         alignItems: "center",
-        backgroundColor: isColor ? background : "#09090b",
-        backgroundImage: isColor
-          ? `radial-gradient(circle at 50% 50%, rgba(124,58,237,0.2), transparent 60%)`
-          : background,
-        color: "#fafafa",
+        backgroundColor: isColor ? surface : theme.surface,
+        backgroundImage: isColor ? theme.glow : surface,
+        color: theme.foreground,
         display: "flex",
         flexDirection: "column",
         height: "100%",
@@ -67,7 +89,7 @@ export const Logo = ({
       {tagline ? (
         <div
           style={{
-            color: "#a1a1aa",
+            color: theme.muted,
             display: "flex",
             fontSize: "32px",
             marginTop: "16px",

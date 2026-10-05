@@ -9,4 +9,10 @@ export const quoteConfig: ControlConfig = {
     label: "Quote",
     type: "textarea",
   },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };

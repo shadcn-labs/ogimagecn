@@ -14,5 +14,11 @@ export const profileConfig: ControlConfig = {
     label: "Role",
     type: "text",
   },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
   website: { default: "ada.dev", label: "Website", type: "text" },
 };
