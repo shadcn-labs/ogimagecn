@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "livestream",
+  "title": "Livestream",
+  "description": "A dark livestream Open Graph image with a LIVE badge, title, brand mark, and platform chips.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/badge.json",
+    "https://ogimagecn.com/r/brand-mark.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/livestream/index.tsx",
+      "content": "import { Badge } from \"@/components/og/badge\";\nimport { BrandMark } from \"@/components/og/brand-mark\";\n\nexport interface LivestreamProps {\n  brand: string;\n  title: string;\n  tagline: string;\n  platforms: string[];\n  logo?: string;\n}\n\nexport const Livestream = ({\n  brand,\n  title,\n  tagline,\n  platforms,\n  logo,\n}: LivestreamProps) => (\n  <div\n    style={{\n      backgroundColor: \"#09090b\",\n      backgroundImage:\n        \"radial-gradient(circle at 88% 52%, rgba(244,63,94,0.22), transparent 42%)\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"space-between\",\n      padding: \"72px\",\n      width: \"100%\",\n    }}\n  >\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        justifyContent: \"space-between\",\n      }}\n    >\n      <Badge\n        background=\"#e11d48\"\n        color=\"#ffffff\"\n        style={{ fontSize: \"25px\", fontWeight: 800, letterSpacing: \"0.08em\" }}\n        uppercase\n      >\n        <div\n          style={{\n            backgroundColor: \"#ffffff\",\n            borderRadius: \"999px\",\n            height: \"11px\",\n            width: \"11px\",\n          }}\n        />\n        Live\n      </Badge>\n\n      <div style={{ alignItems: \"center\", display: \"flex\", gap: \"14px\" }}>\n        <BrandMark background=\"#e11d48\" size={36} src={logo} />\n        <div style={{ display: \"flex\", fontSize: \"27px\", fontWeight: 700 }}>\n          {brand}\n        </div>\n      </div>\n    </div>\n\n    <div style={{ alignItems: \"center\", display: \"flex\", gap: \"48px\" }}>\n      <div style={{ display: \"flex\", flex: 1, flexDirection: \"column\" }}>\n        <div\n          style={{\n            display: \"flex\",\n            fontSize: title.length > 36 ? 64 : 76,\n            fontWeight: 800,\n            letterSpacing: \"-0.035em\",\n            lineHeight: 1.04,\n          }}\n        >\n          {title}\n        </div>\n        <div\n          style={{\n            color: \"#a1a1aa\",\n            display: \"flex\",\n            fontSize: \"29px\",\n            lineHeight: 1.35,\n            marginTop: \"25px\",\n          }}\n        >\n          {tagline}\n        </div>\n      </div>\n\n      <div\n        style={{\n          alignItems: \"center\",\n          backgroundColor: \"#18181b\",\n          border: \"2px solid #f43f5e\",\n          borderRadius: \"36px\",\n          display: \"flex\",\n          flexShrink: 0,\n          height: \"230px\",\n          justifyContent: \"center\",\n          width: \"230px\",\n        }}\n      >\n        <svg fill=\"none\" height=\"100\" viewBox=\"0 0 100 100\" width=\"100\">\n          <path d=\"M27 15L82 50L27 85V15Z\" fill=\"#fb7185\" />\n        </svg>\n      </div>\n    </div>\n\n    <div style={{ alignItems: \"center\", display: \"flex\", gap: \"14px\" }}>\n      <div\n        style={{\n          color: \"#71717a\",\n          display: \"flex\",\n          fontSize: \"23px\",\n          fontWeight: 600,\n          marginRight: \"8px\",\n        }}\n      >\n        Watch on\n      </div>\n      {platforms.map((platform) => (\n        <Badge\n          background=\"#27272a\"\n          color=\"#fafafa\"\n          key={platform}\n          style={{ fontSize: \"23px\", padding: \"10px 20px\" }}\n        >\n          {platform}\n        </Badge>\n      ))}\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/livestream.tsx"
+    }
+  ],
+  "categories": [
+    "product"
+  ],
+  "type": "registry:block"
+}
