@@ -69,6 +69,19 @@
       ]
     },
     {
+      "name": "stat-row",
+      "type": "registry:ui",
+      "title": "Stat Row",
+      "description": "A row of label and value stats with optional vertical dividers between columns.",
+      "files": [
+        {
+          "path": "registry/components/stat-row.tsx",
+          "type": "registry:ui",
+          "target": "components/og/stat-row.tsx"
+        }
+      ]
+    },
+    {
       "name": "waveform",
       "type": "registry:ui",
       "title": "Waveform",

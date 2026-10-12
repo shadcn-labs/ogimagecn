@@ -53,6 +53,7 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import { StatRowDemo, statRowDemoConfig } from "@/registry/examples/stat-row";
 import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
@@ -110,6 +111,7 @@ const registry: Record<string, RegistryEntry> = {
   showcase: { Component: Showcase, config: showcaseConfig },
   simple: { Component: Simple, config: simpleConfig },
   stat: { Component: Stat, config: statConfig },
+  "stat-row": { Component: StatRowDemo, config: statRowDemoConfig },
   terminal: { Component: Terminal, config: terminalConfig },
   waveform: { Component: WaveformDemo, config: waveformDemoConfig },
 };
