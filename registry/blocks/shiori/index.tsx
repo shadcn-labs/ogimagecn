@@ -1,13 +1,33 @@
 import { BrandMark } from "@/components/og/brand-mark";
 
+export type Variant = "light" | "dark";
+
 export interface ShioriProps {
-  background: string;
+  /** Defaults to the `variant` surface. */
+  background?: string;
   brand: string;
-  brandColor: string;
+  /** Defaults to the `variant` foreground. */
+  brandColor?: string;
   logo: string;
   title: string;
-  titleColor: string;
+  /** Defaults to the `variant` muted tone. */
+  titleColor?: string;
+  /** Card theme. Defaults to `light` to match the original design. */
+  variant?: Variant;
 }
+
+const themes = {
+  dark: {
+    background: "#12100e",
+    foreground: "#faf7f2",
+    muted: "#a8a29e",
+  },
+  light: {
+    background: "#faf6f1",
+    foreground: "#1a1a1a",
+    muted: "#8b7e74",
+  },
+} as const satisfies Record<Variant, Record<string, string>>;
 
 export const Shiori = ({
   title,
@@ -16,57 +36,62 @@ export const Shiori = ({
   logo,
   brand,
   brandColor,
-}: ShioriProps) => (
-  <div
-    style={{
-      backgroundColor: background,
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-      padding: "60px",
-      position: "relative",
-      width: "100%",
-    }}
-  >
-    <BrandMark radius="50%" size={96} src={logo} />
+  variant = "light",
+}: ShioriProps) => {
+  const theme = themes[variant];
 
+  return (
     <div
       style={{
-        bottom: "60px",
+        backgroundColor: background ?? theme.background,
         display: "flex",
-        justifyContent: "space-between",
-        left: "60px",
-        position: "absolute",
-        right: "60px",
+        flexDirection: "column",
+        height: "100%",
+        padding: "60px",
+        position: "relative",
+        width: "100%",
       }}
     >
-      <div
-        style={{
-          color: brandColor,
-          flex: 0.25,
-          fontSize: "64px",
-          fontWeight: 600,
-          letterSpacing: "-0.03em",
-          lineHeight: 1.3,
-        }}
-      >
-        {brand}
-      </div>
+      <BrandMark radius="50%" size={96} src={logo} />
 
       <div
         style={{
-          color: titleColor,
-          flex: 0.6,
-          fontSize: "64px",
-          fontWeight: 600,
-          letterSpacing: "-0.03em",
-          lineHeight: 1.3,
+          bottom: "60px",
+          display: "flex",
+          justifyContent: "space-between",
+          left: "60px",
+          position: "absolute",
+          right: "60px",
         }}
       >
-        {title}
-      </div>
+        <div
+          style={{
+            color: brandColor ?? theme.foreground,
+            flex: 0.25,
+            fontSize: "64px",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.3,
+          }}
+        >
+          {brand}
+        </div>
 
-      <div style={{ flex: 0.25 }} />
+        <div
+          style={{
+            color: titleColor ?? theme.muted,
+            flex: 0.6,
+            fontSize: "64px",
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
+            lineHeight: 1.3,
+          }}
+        >
+          {title}
+        </div>
+
+        <div style={{ flex: 0.25 }} />
+      </div>
     </div>
-  </div>
-);
+  );
+};

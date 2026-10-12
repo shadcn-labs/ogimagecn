@@ -13,4 +13,10 @@ export const showcaseConfig: ControlConfig = {
     type: "text",
   },
   url: { default: "app.ogimagecn.com", label: "URL", type: "text" },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };

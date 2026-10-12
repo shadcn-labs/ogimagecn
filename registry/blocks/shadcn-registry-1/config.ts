@@ -15,4 +15,10 @@ export const shadcnRegistry1Config: ControlConfig = {
   logo: { default: "", label: "Logo", type: "image" },
   name: { default: "ogimagecn", label: "Name", type: "text" },
   url: { default: "ui.shadcn.com", label: "URL", type: "text" },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };

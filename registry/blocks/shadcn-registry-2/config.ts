@@ -15,4 +15,10 @@ export const shadcnRegistry2Config: ControlConfig = {
     label: "Title",
     type: "text",
   },
+  variant: {
+    default: "light",
+    label: "Variant",
+    options: ["light", "dark"],
+    type: "select",
+  },
 };

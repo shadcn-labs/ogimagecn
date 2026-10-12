@@ -1,7 +1,6 @@
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
 export const logoConfig: ControlConfig = {
-  background: { default: "#09090b", label: "Background", type: "color" },
   brand: { default: "ogimagecn", label: "Brand", type: "text" },
   logo: { default: "", label: "Logo", type: "image" },
   monogram: { default: "", label: "Monogram", type: "text" },
@@ -9,5 +8,11 @@ export const logoConfig: ControlConfig = {
     default: "Open Graph images, built on Satori",
     label: "Tagline",
     type: "textarea",
+  },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
   },
 };

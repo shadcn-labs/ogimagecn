@@ -11,4 +11,10 @@ export const editorialConfig: ControlConfig = {
     label: "Title",
     type: "text",
   },
+  variant: {
+    default: "light",
+    label: "Variant",
+    options: ["light", "dark"],
+    type: "select",
+  },
 };
