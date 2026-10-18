@@ -1,0 +1,76 @@
+---
+title: Launch Day
+description: A launch day Open Graph image with an upvote tile, a LIVE chip, a large title, and a tagline.
+---
+
+<ComponentPreview hideCode name="launch-day" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/launch-day
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="launch-day" title="components/og/launch-day.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { LaunchDay } from "@/components/og/launch-day";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <LaunchDay
+      title="Introducing our new product"
+      tagline="The fastest way to ship beautiful, on-brand Open Graph images."
+      upvotes="1,204"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### LaunchDay
+
+| Prop      | Type     |
+| --------- | -------- |
+| `title`   | `string` |
+| `tagline` | `string` |
+| `upvotes` | `string` |
+| `brand`   | `string` |
+| `logo`    | `string` |
