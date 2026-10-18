@@ -392,6 +392,24 @@
       ]
     },
     {
+      "name": "video-series",
+      "type": "registry:block",
+      "title": "Video Series",
+      "description": "A video series Open Graph image with three episode tiles, a title, and an episode count chip.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
+      "files": [
+        {
+          "path": "registry/blocks/video-series/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/video-series.tsx"
+        }
+      ]
+    },
+    {
       "name": "editorial",
       "type": "registry:block",
       "title": "Editorial",

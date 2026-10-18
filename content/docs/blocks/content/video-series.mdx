@@ -1,0 +1,80 @@
+---
+title: Video Series
+description: A video series Open Graph image with three episode tiles, a title, and an episode count chip.
+---
+
+<ComponentPreview hideCode name="video-series" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/video-series
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="video-series" title="components/og/video-series.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { VideoSeries } from "@/components/og/video-series";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <VideoSeries
+      title="Building Open Graph images"
+      episodes={[
+        "Getting started with Satori",
+        "Composing a card from registry components",
+        "Shipping to the edge",
+      ]}
+      episodeCount="12 episodes"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### VideoSeries
+
+| Prop           | Type       |
+| -------------- | ---------- |
+| `title`        | `string`   |
+| `episodes`     | `string[]` |
+| `episodeCount` | `string`   |
+| `brand`        | `string`   |
+| `logo`         | `string`   |
