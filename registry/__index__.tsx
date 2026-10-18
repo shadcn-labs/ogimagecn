@@ -8,6 +8,8 @@ import { Event } from "@/registry/blocks/event";
 import { eventConfig } from "@/registry/blocks/event/config";
 import { Grid } from "@/registry/blocks/grid";
 import { gridConfig } from "@/registry/blocks/grid/config";
+import { LimitedOffer } from "@/registry/blocks/limited-offer";
+import { limitedOfferConfig } from "@/registry/blocks/limited-offer/config";
 import { Logo } from "@/registry/blocks/logo";
 import { logoConfig } from "@/registry/blocks/logo/config";
 import { MinimalBrand } from "@/registry/blocks/minimal-brand";
@@ -80,6 +82,7 @@ const registry: Record<string, RegistryEntry> = {
   event: { Component: Event, config: eventConfig },
   grid: { Component: Grid, config: gridConfig },
   "grid-lines": { Component: GridLinesDemo, config: gridLinesDemoConfig },
+  "limited-offer": { Component: LimitedOffer, config: limitedOfferConfig },
   logo: { Component: Logo, config: logoConfig },
   "minimal-brand": { Component: MinimalBrand, config: minimalBrandConfig },
   owner: { Component: Owner, config: ownerConfig },

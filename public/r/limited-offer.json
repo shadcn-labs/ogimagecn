@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "limited-offer",
+  "title": "Limited Offer",
+  "description": "A promotional Open Graph image with a discount stat, ends-in countdown chip, coupon code, and brand mark.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/badge.json",
+    "https://ogimagecn.com/r/brand-mark.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/limited-offer/index.tsx",
+      "content": "import { Badge } from \"@/components/og/badge\";\nimport { BrandMark } from \"@/components/og/brand-mark\";\n\nexport interface LimitedOfferProps {\n  brand: string;\n  title: string;\n  description: string;\n  discount: string;\n  endsIn: string;\n  code?: string;\n  logo?: string;\n}\n\nexport const LimitedOffer = ({\n  brand,\n  title,\n  description,\n  discount,\n  endsIn,\n  code,\n  logo = \"\",\n}: LimitedOfferProps) => (\n  <div\n    style={{\n      backgroundColor: \"#09090b\",\n      backgroundImage:\n        \"radial-gradient(circle at 100% 0%, rgba(244,63,94,0.18), transparent 50%), radial-gradient(circle at 0% 100%, rgba(234,88,12,0.14), transparent 50%)\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"space-between\",\n      padding: \"80px\",\n      width: \"100%\",\n    }}\n  >\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        justifyContent: \"space-between\",\n      }}\n    >\n      <div style={{ alignItems: \"center\", display: \"flex\", gap: \"14px\" }}>\n        <BrandMark background=\"#f43f5e\" radius={10} size={36} src={logo} />\n        <div style={{ display: \"flex\", fontSize: \"28px\", fontWeight: 600 }}>\n          {brand}\n        </div>\n      </div>\n\n      <Badge\n        background=\"rgba(244,63,94,0.15)\"\n        borderColor=\"rgba(244,63,94,0.4)\"\n        color=\"#fb7185\"\n        uppercase\n      >\n        <div\n          style={{\n            backgroundColor: \"#f43f5e\",\n            borderRadius: \"999px\",\n            height: \"10px\",\n            width: \"10px\",\n          }}\n        />\n        {endsIn}\n      </Badge>\n    </div>\n\n    <div\n      style={{\n        display: \"flex\",\n        flexDirection: \"column\",\n        gap: \"24px\",\n      }}\n    >\n      <Badge\n        background=\"#f43f5e\"\n        color=\"#ffffff\"\n        style={{\n          alignSelf: \"flex-start\",\n          fontSize: \"32px\",\n          fontWeight: 800,\n          letterSpacing: \"0.02em\",\n          padding: \"12px 28px\",\n        }}\n      >\n        {discount}\n      </Badge>\n\n      <div\n        style={{\n          display: \"flex\",\n          fontSize: title.length > 30 ? 68 : 80,\n          fontWeight: 800,\n          letterSpacing: \"-0.03em\",\n          lineHeight: 1.05,\n          maxWidth: \"960px\",\n        }}\n      >\n        {title}\n      </div>\n\n      <div\n        style={{\n          color: \"#a1a1aa\",\n          display: \"flex\",\n          fontSize: \"30px\",\n          lineHeight: 1.4,\n          maxWidth: \"840px\",\n        }}\n      >\n        {description}\n      </div>\n    </div>\n\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        gap: \"16px\",\n      }}\n    >\n      {code ? (\n        <Badge\n          background=\"rgba(255,255,255,0.06)\"\n          borderColor=\"rgba(255,255,255,0.15)\"\n          color=\"#e4e4e7\"\n          style={{\n            fontSize: \"26px\",\n            gap: \"10px\",\n            padding: \"10px 24px\",\n          }}\n        >\n          <div style={{ color: \"#71717a\", display: \"flex\" }}>Code:</div>\n          <div style={{ color: \"#ffffff\", display: \"flex\", fontWeight: 700 }}>\n            {code}\n          </div>\n        </Badge>\n      ) : null}\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/limited-offer.tsx"
+    }
+  ],
+  "categories": [
+    "product"
+  ],
+  "type": "registry:block"
+}

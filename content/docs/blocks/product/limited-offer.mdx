@@ -1,0 +1,80 @@
+---
+title: Limited Offer
+description: A promotional Open Graph image with a discount stat, ends-in countdown chip, coupon code, and brand mark.
+---
+
+<ComponentPreview hideCode name="limited-offer" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/limited-offer
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="limited-offer" title="components/og/limited-offer.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { LimitedOffer } from "@/components/og/limited-offer";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <LimitedOffer
+      brand="ogimagecn"
+      code="SAVE50"
+      description="Get lifetime access to all components, templates, and future updates at half the price."
+      discount="50% OFF"
+      endsIn="Ends in 48 hours"
+      title="Special Limited Offer"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### LimitedOffer
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `brand`       | `string` |
+| `title`       | `string` |
+| `description` | `string` |
+| `discount`    | `string` |
+| `endsIn`      | `string` |
+| `code`        | `string` |
+| `logo`        | `string` |
