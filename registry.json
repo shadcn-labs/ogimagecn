@@ -170,6 +170,24 @@
       ]
     },
     {
+      "name": "sale",
+      "type": "registry:block",
+      "title": "Sale",
+      "description": "A promotional Open Graph image with a giant discount, event line, dates chip, and coupon code.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/sale/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/sale.tsx"
+        }
+      ]
+    },
+    {
       "name": "shadcn-registry-1",
       "type": "registry:block",
       "title": "Shadcn Registry 1",

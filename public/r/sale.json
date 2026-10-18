@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sale",
+  "title": "Sale",
+  "description": "A promotional Open Graph image with a giant discount, event line, dates chip, and coupon code.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/badge.json",
+    "https://ogimagecn.com/r/brand-mark.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/sale/index.tsx",
+      "content": "import { Badge } from \"@/components/og/badge\";\nimport { BrandMark } from \"@/components/og/brand-mark\";\n\nexport interface SaleProps {\n  brand: string;\n  title: string;\n  discount: string;\n  event: string;\n  dates: string;\n  coupon: string;\n  logo?: string;\n}\n\nexport const Sale = ({\n  brand,\n  title,\n  discount,\n  event,\n  dates,\n  coupon,\n  logo,\n}: SaleProps) => (\n  <div\n    style={{\n      backgroundColor: \"#09090b\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"space-between\",\n      padding: \"72px\",\n      width: \"100%\",\n    }}\n  >\n    <div style={{ alignItems: \"center\", display: \"flex\", gap: \"14px\" }}>\n      <BrandMark background=\"#6366f1\" radius={10} size={32} src={logo} />\n      <div style={{ display: \"flex\", fontSize: \"28px\", fontWeight: 600 }}>\n        {brand}\n      </div>\n    </div>\n\n    <div style={{ display: \"flex\", flexDirection: \"column\" }}>\n      <div\n        style={{\n          color: \"#a5b4fc\",\n          display: \"flex\",\n          fontSize: \"180px\",\n          fontWeight: 800,\n          letterSpacing: \"-0.06em\",\n          lineHeight: 1,\n        }}\n      >\n        {discount}\n      </div>\n      <div\n        style={{\n          display: \"flex\",\n          fontSize: \"52px\",\n          fontWeight: 700,\n          letterSpacing: \"-0.03em\",\n          lineHeight: 1.1,\n          marginTop: \"12px\",\n        }}\n      >\n        {title}\n      </div>\n      <div\n        style={{\n          color: \"#a1a1aa\",\n          display: \"flex\",\n          fontSize: \"28px\",\n          lineHeight: 1.4,\n          marginTop: \"12px\",\n        }}\n      >\n        {event}\n      </div>\n    </div>\n\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        gap: \"24px\",\n        justifyContent: \"space-between\",\n      }}\n    >\n      <Badge background=\"#18181b\" borderColor=\"#3f3f46\" color=\"#fafafa\">\n        {dates}\n      </Badge>\n      <Badge\n        background=\"#6366f1\"\n        color=\"#ffffff\"\n        style={{\n          fontFamily: \"monospace\",\n          fontWeight: 700,\n          letterSpacing: \"0.08em\",\n          padding: \"12px 28px\",\n        }}\n      >\n        {coupon}\n      </Badge>\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/sale.tsx"
+    }
+  ],
+  "categories": [
+    "product"
+  ],
+  "type": "registry:block"
+}

@@ -1,0 +1,82 @@
+---
+title: Sale
+description: A promotional Open Graph image with a giant discount, event line, dates chip, and coupon code.
+---
+
+<ComponentPreview hideCode name="sale" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/sale
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="sale" title="components/og/sale.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Sale } from "@/components/og/sale";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <Sale
+      brand="ogimagecn"
+      title="The OG image toolkit"
+      discount="-40%"
+      event="Black Friday sale. Four days only."
+      dates="Nov 27–30, 2026"
+      coupon="SAVE40"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Sale
+
+All props are required except `logo`, which displays a blank indigo tile when omitted.
+
+| Prop       | Type     |
+| ---------- | -------- |
+| `brand`    | `string` |
+| `title`    | `string` |
+| `discount` | `string` |
+| `event`    | `string` |
+| `dates`    | `string` |
+| `coupon`   | `string` |
+| `logo`     | `string` |
