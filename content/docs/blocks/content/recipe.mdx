@@ -1,0 +1,78 @@
+---
+title: Recipe
+description: A recipe Open Graph image with a brand row, dish title, short description, and time and servings chips.
+---
+
+<ComponentPreview hideCode name="recipe" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/recipe
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="recipe" title="components/og/recipe.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Recipe } from "@/components/og/recipe";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <Recipe
+      title="One-pot tomato basil pasta"
+      description="Blistered tomatoes, garlic, and basil tossed with bucatini in one pan."
+      duration="25 min"
+      servings="Serves 4"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Recipe
+
+| Prop          | Type     |
+| ------------- | -------- |
+| `title`       | `string` |
+| `description` | `string` |
+| `duration`    | `string` |
+| `servings`    | `string` |
+| `brand`       | `string` |
+| `logo`        | `string` |

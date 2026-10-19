@@ -452,6 +452,24 @@
           "target": "components/og/owner.tsx"
         }
       ]
+    },
+    {
+      "name": "recipe",
+      "type": "registry:block",
+      "title": "Recipe",
+      "description": "A recipe Open Graph image with a brand row, dish title, short description, and time and servings chips.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["content"],
+      "files": [
+        {
+          "path": "registry/blocks/recipe/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/recipe.tsx"
+        }
+      ]
     }
   ]
 }
