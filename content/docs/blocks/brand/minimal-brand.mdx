@@ -1,0 +1,70 @@
+---
+title: Minimal Brand
+description: A minimal brand Open Graph image with a centered logo, the brand name, and a tagline on a light background.
+---
+
+<ComponentPreview hideCode name="minimal-brand" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/minimal-brand
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="minimal-brand" title="components/og/minimal-brand.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { MinimalBrand } from "@/components/og/minimal-brand";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <MinimalBrand
+      brand="ogimagecn"
+      tagline="Open Graph images, built on Satori"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### MinimalBrand
+
+| Prop      | Type     |
+| --------- | -------- |
+| `brand`   | `string` |
+| `tagline` | `string` |
+| `logo`    | `string` |

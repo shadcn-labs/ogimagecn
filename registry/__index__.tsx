@@ -10,6 +10,8 @@ import { Grid } from "@/registry/blocks/grid";
 import { gridConfig } from "@/registry/blocks/grid/config";
 import { Logo } from "@/registry/blocks/logo";
 import { logoConfig } from "@/registry/blocks/logo/config";
+import { MinimalBrand } from "@/registry/blocks/minimal-brand";
+import { minimalBrandConfig } from "@/registry/blocks/minimal-brand/config";
 import { Owner } from "@/registry/blocks/owner";
 import { ownerConfig } from "@/registry/blocks/owner/config";
 import { Photo } from "@/registry/blocks/photo";
@@ -77,6 +79,7 @@ const registry: Record<string, RegistryEntry> = {
   grid: { Component: Grid, config: gridConfig },
   "grid-lines": { Component: GridLinesDemo, config: gridLinesDemoConfig },
   logo: { Component: Logo, config: logoConfig },
+  "minimal-brand": { Component: MinimalBrand, config: minimalBrandConfig },
   owner: { Component: Owner, config: ownerConfig },
   photo: { Component: Photo, config: photoConfig },
   product: { Component: Product, config: productConfig },

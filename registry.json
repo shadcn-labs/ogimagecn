@@ -452,6 +452,21 @@
           "target": "components/og/owner.tsx"
         }
       ]
+    },
+    {
+      "name": "minimal-brand",
+      "type": "registry:block",
+      "title": "Minimal Brand",
+      "description": "A minimal brand Open Graph image with a centered logo, the brand name, and a tagline on a light background.",
+      "registryDependencies": ["https://ogimagecn.com/r/brand-mark.json"],
+      "categories": ["brand"],
+      "files": [
+        {
+          "path": "registry/blocks/minimal-brand/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/minimal-brand.tsx"
+        }
+      ]
     }
   ]
 }
