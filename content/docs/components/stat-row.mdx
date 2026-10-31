@@ -1,0 +1,66 @@
+---
+title: Stat Row
+description: A row of label and value stats with optional vertical dividers between columns.
+---
+
+<ComponentPreview name="stat-row" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/stat-row
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="stat-row" title="components/og/stat-row.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StatRow } from "@/components/og/stat-row";
+```
+
+```tsx
+<StatRow
+  columns={3}
+  divider
+  stats={[
+    { label: "Stars", value: "12.4k" },
+    { label: "Forks", value: "1.8k" },
+    { label: "Contributors", value: "96" },
+  ]}
+/>
+```
+
+Omit `columns` to keep every stat in one row, or drop `divider` for plain spacing between columns.
+
+## API Reference
+
+| Prop      | Type                                 | Default |
+| --------- | ------------------------------------ | ------- |
+| `stats`   | `{ label: string; value: string }[]` | —       |
+| `divider` | `boolean`                            | `false` |
+| `columns` | `number`                             | —       |
