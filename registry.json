@@ -452,6 +452,24 @@
           "target": "components/og/owner.tsx"
         }
       ]
+    },
+    {
+      "name": "limited-offer",
+      "type": "registry:block",
+      "title": "Limited Offer",
+      "description": "A promotional Open Graph image with a discount stat, ends-in countdown chip, coupon code, and brand mark.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/limited-offer/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/limited-offer.tsx"
+        }
+      ]
     }
   ]
 }
