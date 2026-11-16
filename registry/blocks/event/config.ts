@@ -15,4 +15,10 @@ export const eventConfig: ControlConfig = {
     label: "Title",
     type: "text",
   },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };

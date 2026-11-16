@@ -1,98 +1,124 @@
 import { BrandMark } from "@/components/og/brand-mark";
 
+export type Variant = "light" | "dark";
+
 export interface ShadcnRegistry4Props {
   name: string;
   title: string;
   url?: string;
   logo?: string;
+  /** Card theme. Defaults to `dark` to match the original design. */
+  variant?: Variant;
 }
+
+const themes = {
+  dark: {
+    background: "#0a0a0a",
+    dim: "#71717a",
+    foreground: "#fafafa",
+    glow: "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.1), transparent 70%)",
+    mark: "rgba(255,255,255,0.3)",
+    url: "#52525b",
+  },
+  light: {
+    background: "#fafafa",
+    dim: "#a1a1aa",
+    foreground: "#0a0a0a",
+    glow: "radial-gradient(ellipse at 50% 100%, rgba(9,9,11,0.08), transparent 70%)",
+    mark: "rgba(9,9,11,0.2)",
+    url: "#71717a",
+  },
+} as const satisfies Record<Variant, Record<string, string>>;
 
 export const ShadcnRegistry4 = ({
   name,
   title,
   url = "",
   logo = "",
-}: ShadcnRegistry4Props) => (
-  <div
-    style={{
-      alignItems: "center",
-      backgroundColor: "#0a0a0a",
-      backgroundImage:
-        "radial-gradient(ellipse at 50% 100%, rgba(255,255,255,0.1), transparent 70%)",
-      backgroundSize: "100% 100%",
-      color: "#fafafa",
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-      justifyContent: "center",
-      padding: "80px",
-      position: "relative",
-      width: "100%",
-    }}
-  >
-    {/* Logo + Name */}
+  variant = "dark",
+}: ShadcnRegistry4Props) => {
+  const theme = themes[variant];
+
+  return (
     <div
       style={{
         alignItems: "center",
+        backgroundColor: theme.background,
+        backgroundImage: theme.glow,
+        backgroundSize: "100% 100%",
+        color: theme.foreground,
         display: "flex",
-        gap: "16px",
-        marginBottom: "48px",
-      }}
-    >
-      <BrandMark
-        background="rgba(255,255,255,0.3)"
-        radius={12}
-        size={56}
-        src={logo}
-      />
-      <div
-        style={{ fontSize: "40px", fontWeight: 600, letterSpacing: "-0.02em" }}
-      >
-        {name}
-      </div>
-    </div>
-
-    {/* Title with alternating word colors */}
-    <div
-      style={{
-        display: "flex",
-        flexWrap: "wrap",
-        fontSize: title.length > 60 ? 52 : 64,
-        fontWeight: 700,
+        flexDirection: "column",
+        height: "100%",
         justifyContent: "center",
-        letterSpacing: "-0.03em",
-        lineHeight: 1.15,
-        maxWidth: "900px",
-        textAlign: "center",
-        textWrap: "balance",
+        padding: "80px",
+        position: "relative",
+        width: "100%",
       }}
     >
-      {title.split(" ").map((word, i) => (
-        <span
-          key={i}
-          style={{
-            color: i % 2 === 0 ? "#71717a" : "#fafafa",
-            marginRight: "0.3em",
-          }}
-        >
-          {word}
-        </span>
-      ))}
-    </div>
-
-    {/* URL */}
-    {url ? (
+      {/* Logo + Name */}
       <div
         style={{
-          color: "#52525b",
-          fontSize: "24px",
-          fontWeight: 500,
-          letterSpacing: "0.02em",
-          marginTop: "48px",
+          alignItems: "center",
+          display: "flex",
+          gap: "16px",
+          marginBottom: "48px",
         }}
       >
-        {url}
+        <BrandMark background={theme.mark} radius={12} size={56} src={logo} />
+        <div
+          style={{
+            fontSize: "40px",
+            fontWeight: 600,
+            letterSpacing: "-0.02em",
+          }}
+        >
+          {name}
+        </div>
       </div>
-    ) : null}
-  </div>
-);
+
+      {/* Title with alternating word colors */}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          fontSize: title.length > 60 ? 52 : 64,
+          fontWeight: 700,
+          justifyContent: "center",
+          letterSpacing: "-0.03em",
+          lineHeight: 1.15,
+          maxWidth: "900px",
+          textAlign: "center",
+          textWrap: "balance",
+        }}
+      >
+        {title.split(" ").map((word, i) => (
+          <span
+            key={i}
+            style={{
+              color: i % 2 === 0 ? theme.dim : theme.foreground,
+              marginRight: "0.3em",
+            }}
+          >
+            {word}
+          </span>
+        ))}
+      </div>
+
+      {/* URL */}
+      {url ? (
+        <div
+          style={{
+            color: theme.url,
+            fontSize: "24px",
+            fontWeight: 500,
+            letterSpacing: "0.02em",
+            marginTop: "48px",
+          }}
+        >
+          {url}
+        </div>
+      ) : null}
+    </div>
+  );
+};

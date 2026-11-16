@@ -14,5 +14,11 @@ export const changelogConfig: ControlConfig = {
   },
   logo: { default: "", label: "Logo", type: "image" },
   title: { default: "What's new", label: "Title", type: "text" },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
   version: { default: "v2.0", label: "Version", type: "text" },
 };

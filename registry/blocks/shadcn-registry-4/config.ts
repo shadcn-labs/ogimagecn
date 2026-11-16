@@ -10,4 +10,10 @@ export const shadcnRegistry4Config: ControlConfig = {
     type: "text",
   },
   url: { default: "ogimagecn.com", label: "URL", type: "text" },
+  variant: {
+    default: "dark",
+    label: "Variant",
+    options: ["dark", "light"],
+    type: "select",
+  },
 };
