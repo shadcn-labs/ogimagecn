@@ -8,6 +8,8 @@ import { Event } from "@/registry/blocks/event";
 import { eventConfig } from "@/registry/blocks/event/config";
 import { Grid } from "@/registry/blocks/grid";
 import { gridConfig } from "@/registry/blocks/grid/config";
+import { Hackathon } from "@/registry/blocks/hackathon";
+import { hackathonConfig } from "@/registry/blocks/hackathon/config";
 import { Logo } from "@/registry/blocks/logo";
 import { logoConfig } from "@/registry/blocks/logo/config";
 import { Owner } from "@/registry/blocks/owner";
@@ -78,6 +80,7 @@ const registry: Record<string, RegistryEntry> = {
   event: { Component: Event, config: eventConfig },
   grid: { Component: Grid, config: gridConfig },
   "grid-lines": { Component: GridLinesDemo, config: gridLinesDemoConfig },
+  hackathon: { Component: Hackathon, config: hackathonConfig },
   logo: { Component: Logo, config: logoConfig },
   owner: { Component: Owner, config: ownerConfig },
   photo: { Component: Photo, config: photoConfig },

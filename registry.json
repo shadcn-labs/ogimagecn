@@ -470,6 +470,24 @@
           "target": "components/og/recipe.tsx"
         }
       ]
+    },
+    {
+      "name": "hackathon",
+      "type": "registry:block",
+      "title": "Hackathon",
+      "description": "A hackathon Open Graph image with a dates chip, brand row, event title, and prize stat.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/hackathon/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/hackathon.tsx"
+        }
+      ]
     }
   ]
 }

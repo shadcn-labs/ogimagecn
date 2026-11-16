@@ -1,0 +1,78 @@
+---
+title: Hackathon
+description: A hackathon Open Graph image with a dates chip, brand row, event title, and prize stat.
+---
+
+<ComponentPreview hideCode name="hackathon" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/hackathon
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="hackathon" title="components/og/hackathon.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Hackathon } from "@/components/og/hackathon";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <Hackathon
+      dates="Mar 14 – 16, 2026"
+      title="Build the future of open source in 48 hours"
+      prize="$50,000"
+      prizeLabel="in prizes"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Hackathon
+
+| Prop         | Type     |
+| ------------ | -------- |
+| `dates`      | `string` |
+| `title`      | `string` |
+| `prize`      | `string` |
+| `prizeLabel` | `string` |
+| `brand`      | `string` |
+| `logo`       | `string` |
