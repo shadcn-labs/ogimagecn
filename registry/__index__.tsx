@@ -20,6 +20,8 @@ import { Profile } from "@/registry/blocks/profile";
 import { profileConfig } from "@/registry/blocks/profile/config";
 import { Quote } from "@/registry/blocks/quote";
 import { quoteConfig } from "@/registry/blocks/quote/config";
+import { Sale } from "@/registry/blocks/sale";
+import { saleConfig } from "@/registry/blocks/sale/config";
 import { ShadcnRegistry1 } from "@/registry/blocks/shadcn-registry-1";
 import { shadcnRegistry1Config } from "@/registry/blocks/shadcn-registry-1/config";
 import { ShadcnRegistry2 } from "@/registry/blocks/shadcn-registry-2";
@@ -82,6 +84,7 @@ const registry: Record<string, RegistryEntry> = {
   product: { Component: Product, config: productConfig },
   profile: { Component: Profile, config: profileConfig },
   quote: { Component: Quote, config: quoteConfig },
+  sale: { Component: Sale, config: saleConfig },
   "shadcn-registry-1": {
     Component: ShadcnRegistry1,
     config: shadcnRegistry1Config,
