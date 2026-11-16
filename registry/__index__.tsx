@@ -42,6 +42,8 @@ import { Stat } from "@/registry/blocks/stat";
 import { statConfig } from "@/registry/blocks/stat/config";
 import { Terminal } from "@/registry/blocks/terminal";
 import { terminalConfig } from "@/registry/blocks/terminal/config";
+import { VideoSeries } from "@/registry/blocks/video-series";
+import { videoSeriesConfig } from "@/registry/blocks/video-series/config";
 import { AvatarDemo, avatarDemoConfig } from "@/registry/examples/avatar";
 import { BadgeDemo, badgeDemoConfig } from "@/registry/examples/badge";
 import {
@@ -111,6 +113,7 @@ const registry: Record<string, RegistryEntry> = {
   simple: { Component: Simple, config: simpleConfig },
   stat: { Component: Stat, config: statConfig },
   terminal: { Component: Terminal, config: terminalConfig },
+  "video-series": { Component: VideoSeries, config: videoSeriesConfig },
   waveform: { Component: WaveformDemo, config: waveformDemoConfig },
 };
 
