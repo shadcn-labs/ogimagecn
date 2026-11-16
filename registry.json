@@ -287,6 +287,24 @@
       ]
     },
     {
+      "name": "livestream",
+      "type": "registry:block",
+      "title": "Livestream",
+      "description": "A dark livestream Open Graph image with a LIVE badge, title, brand mark, and platform chips.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json",
+        "https://ogimagecn.com/r/brand-mark.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/livestream/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/livestream.tsx"
+        }
+      ]
+    },
+    {
       "name": "product",
       "type": "registry:block",
       "title": "Product",

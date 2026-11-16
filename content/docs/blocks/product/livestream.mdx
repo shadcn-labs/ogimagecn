@@ -1,0 +1,76 @@
+---
+title: Livestream
+description: A dark livestream Open Graph image with a LIVE badge, title, brand mark, and platform chips.
+---
+
+<ComponentPreview hideCode name="livestream" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/livestream
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="brand-mark" title="components/og/brand-mark.tsx" />
+
+<ComponentSource name="livestream" title="components/og/livestream.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { Livestream } from "@/components/og/livestream";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <Livestream
+      brand="Acme Live"
+      title="Building in public, live"
+      tagline="Join us for a live session on building better social images."
+      platforms={["YouTube", "Twitch"]}
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### Livestream
+
+| Prop        | Type       |
+| ----------- | ---------- |
+| `brand`     | `string`   |
+| `title`     | `string`   |
+| `tagline`   | `string`   |
+| `platforms` | `string[]` |
+| `logo`      | `string`   |
