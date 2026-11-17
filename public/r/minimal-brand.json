@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "minimal-brand",
+  "title": "Minimal Brand",
+  "description": "A minimal brand Open Graph image with a centered logo, the brand name, and a tagline on a light background.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/brand-mark.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/minimal-brand/index.tsx",
+      "content": "import { BrandMark } from \"@/components/og/brand-mark\";\n\nexport interface MinimalBrandProps {\n  brand: string;\n  tagline: string;\n  logo?: string;\n}\n\nexport const MinimalBrand = ({ brand, tagline, logo }: MinimalBrandProps) => (\n  <div\n    style={{\n      alignItems: \"center\",\n      backgroundColor: \"#fafafa\",\n      color: \"#18181b\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"center\",\n      padding: \"80px\",\n      width: \"100%\",\n    }}\n  >\n    <BrandMark\n      background=\"#18181b\"\n      radius={20}\n      size={88}\n      src={logo}\n      style={\n        logo\n          ? undefined\n          : { color: \"#fafafa\", fontSize: \"44px\", fontWeight: 600 }\n      }\n    >\n      {([...brand][0] ?? \"\").toUpperCase()}\n    </BrandMark>\n\n    <div\n      style={{\n        display: \"flex\",\n        fontSize: \"88px\",\n        fontWeight: 600,\n        letterSpacing: \"-0.04em\",\n        marginTop: \"40px\",\n      }}\n    >\n      {brand}\n    </div>\n\n    <div\n      style={{\n        color: \"#71717a\",\n        display: \"flex\",\n        fontSize: \"32px\",\n        lineHeight: 1.4,\n        marginTop: \"16px\",\n        maxWidth: \"860px\",\n        textAlign: \"center\",\n      }}\n    >\n      {tagline}\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/minimal-brand.tsx"
+    }
+  ],
+  "categories": [
+    "brand"
+  ],
+  "type": "registry:block"
+}
