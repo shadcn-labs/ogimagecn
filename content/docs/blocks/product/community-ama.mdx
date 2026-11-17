@@ -1,0 +1,80 @@
+---
+title: Community AMA
+description: A community AMA Open Graph image with a guest avatar, title, name and role line, and a date chip.
+---
+
+<ComponentPreview hideCode name="community-ama" />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/community-ama
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="avatar" title="components/og/avatar.tsx" />
+
+<ComponentSource name="badge" title="components/og/badge.tsx" />
+
+<ComponentSource name="community-ama" title="components/og/community-ama.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ImageResponse } from "next/og";
+
+import { CommunityAma } from "@/components/og/community-ama";
+```
+
+```tsx
+export function GET() {
+  return new ImageResponse(
+    <CommunityAma
+      label="Community AMA"
+      title="Ask me anything about open source"
+      guest="Ada Lovelace"
+      role="Maintainer of ogimagecn"
+      date="Thu, Jul 9 · 5:00 PM UTC"
+      brand="ogimagecn"
+    />,
+    { width: 1200, height: 630 }
+  );
+}
+```
+
+## API Reference
+
+### CommunityAma
+
+| Prop     | Type     |
+| -------- | -------- |
+| `label`  | `string` |
+| `title`  | `string` |
+| `guest`  | `string` |
+| `role`   | `string` |
+| `date`   | `string` |
+| `brand`  | `string` |
+| `avatar` | `string` |

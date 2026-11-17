@@ -470,6 +470,24 @@
           "target": "components/og/recipe.tsx"
         }
       ]
+    },
+    {
+      "name": "community-ama",
+      "type": "registry:block",
+      "title": "Community AMA",
+      "description": "A community AMA Open Graph image with a guest avatar, title, name and role line, and a date chip.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/avatar.json",
+        "https://ogimagecn.com/r/badge.json"
+      ],
+      "categories": ["product"],
+      "files": [
+        {
+          "path": "registry/blocks/community-ama/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/community-ama.tsx"
+        }
+      ]
     }
   ]
 }

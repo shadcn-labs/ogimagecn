@@ -2,6 +2,8 @@ import { Blog } from "@/registry/blocks/blog";
 import { blogConfig } from "@/registry/blocks/blog/config";
 import { Changelog } from "@/registry/blocks/changelog";
 import { changelogConfig } from "@/registry/blocks/changelog/config";
+import { CommunityAma } from "@/registry/blocks/community-ama";
+import { communityAmaConfig } from "@/registry/blocks/community-ama/config";
 import { Editorial } from "@/registry/blocks/editorial";
 import { editorialConfig } from "@/registry/blocks/editorial/config";
 import { Event } from "@/registry/blocks/event";
@@ -73,6 +75,7 @@ const registry: Record<string, RegistryEntry> = {
   blog: { Component: Blog, config: blogConfig },
   "brand-mark": { Component: BrandMarkDemo, config: brandMarkDemoConfig },
   changelog: { Component: Changelog, config: changelogConfig },
+  "community-ama": { Component: CommunityAma, config: communityAmaConfig },
   divider: { Component: DividerDemo, config: dividerDemoConfig },
   editorial: { Component: Editorial, config: editorialConfig },
   event: { Component: Event, config: eventConfig },
