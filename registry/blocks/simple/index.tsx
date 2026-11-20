@@ -51,14 +51,16 @@ export const Simple = ({
 
     <div
       style={{
-        display: "flex",
+        display: "block",
         fontSize: title.length > 40 ? 64 : 76,
         fontWeight: 700,
         letterSpacing: "-0.03em",
+        lineClamp: 3,
         lineHeight: 1.05,
         marginTop: "40px",
         maxWidth: "900px",
         textAlign: "center",
+        wordBreak: "break-word",
       }}
     >
       {title}
@@ -67,12 +69,14 @@ export const Simple = ({
     <div
       style={{
         color: "#a1a1aa",
-        display: "flex",
+        display: "block",
         fontSize: "32px",
+        lineClamp: 2,
         lineHeight: 1.4,
         marginTop: "28px",
         maxWidth: "760px",
         textAlign: "center",
+        wordBreak: "break-word",
       }}
     >
       {description}

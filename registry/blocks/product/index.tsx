@@ -47,12 +47,14 @@ export const Product = ({
       <div style={{ display: "flex", flexDirection: "column" }}>
         <div
           style={{
-            display: "flex",
+            display: "block",
             fontSize: title.length > 28 ? 64 : 76,
             fontWeight: 700,
             letterSpacing: "-0.03em",
+            lineClamp: 3,
             lineHeight: 1.05,
             maxWidth: "560px",
+            wordBreak: "break-word",
           }}
         >
           {title}
@@ -60,11 +62,13 @@ export const Product = ({
         <div
           style={{
             color: "#a1a1aa",
-            display: "flex",
+            display: "block",
             fontSize: "30px",
+            lineClamp: 2,
             lineHeight: 1.4,
             marginTop: "24px",
             maxWidth: "520px",
+            wordBreak: "break-word",
           }}
         >
           {description}
