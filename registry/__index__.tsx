@@ -55,6 +55,10 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import {
+  TerminalFrameDemo,
+  terminalFrameDemoConfig,
+} from "@/registry/examples/terminal-frame";
 import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
@@ -114,6 +118,10 @@ const registry: Record<string, RegistryEntry> = {
   simple: { Component: Simple, config: simpleConfig },
   stat: { Component: Stat, config: statConfig },
   terminal: { Component: Terminal, config: terminalConfig },
+  "terminal-frame": {
+    Component: TerminalFrameDemo,
+    config: terminalFrameDemoConfig,
+  },
   waveform: { Component: WaveformDemo, config: waveformDemoConfig },
 };
 
