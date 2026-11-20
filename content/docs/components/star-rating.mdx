@@ -1,0 +1,61 @@
+---
+title: Star Rating
+description: A row of SVG stars filled up to a value, with half stars and an optional score pill.
+---
+
+<ComponentPreview name="star-rating" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/star-rating
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="star-rating" title="components/og/star-rating.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { StarRating } from "@/components/og/star-rating";
+```
+
+```tsx
+<StarRating score="4.5" size={64} value={4.5} />
+```
+
+Fractional values fill part of a star, so `4.5` draws four full stars and a half. The value is clamped between 0 and `max`. Pass `score` to show a pill with that text beside the stars.
+
+## API Reference
+
+| Prop         | Type               | Default                    |
+| ------------ | ------------------ | -------------------------- |
+| `value`      | `number`           | required                   |
+| `max`        | `number`           | `5`                        |
+| `size`       | `number`           | `48`                       |
+| `color`      | `string`           | `"#facc15"`                |
+| `emptyColor` | `string`           | `"rgba(250,250,250,0.18)"` |
+| `score`      | `number \| string` | none                       |
