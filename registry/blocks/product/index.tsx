@@ -54,6 +54,7 @@ export const Product = ({
             lineClamp: 3,
             lineHeight: 1.05,
             maxWidth: "560px",
+            wordBreak: "break-word",
           }}
         >
           {title}
@@ -67,6 +68,7 @@ export const Product = ({
             lineHeight: 1.4,
             marginTop: "24px",
             maxWidth: "520px",
+            wordBreak: "break-word",
           }}
         >
           {description}

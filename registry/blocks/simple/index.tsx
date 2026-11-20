@@ -60,6 +60,7 @@ export const Simple = ({
         marginTop: "40px",
         maxWidth: "900px",
         textAlign: "center",
+        wordBreak: "break-word",
       }}
     >
       {title}
@@ -75,6 +76,7 @@ export const Simple = ({
         marginTop: "28px",
         maxWidth: "760px",
         textAlign: "center",
+        wordBreak: "break-word",
       }}
     >
       {description}
