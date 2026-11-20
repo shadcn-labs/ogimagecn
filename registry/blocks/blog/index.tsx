@@ -48,10 +48,11 @@ export const Blog = ({
     <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{
-          display: "flex",
+          display: "block",
           fontSize: title.length > 48 ? 64 : 78,
           fontWeight: 700,
           letterSpacing: "-0.03em",
+          lineClamp: 3,
           lineHeight: 1.05,
           maxWidth: "1000px",
         }}
@@ -61,8 +62,9 @@ export const Blog = ({
       <div
         style={{
           color: "#52525b",
-          display: "flex",
+          display: "block",
           fontSize: "34px",
+          lineClamp: 2,
           lineHeight: 1.4,
           marginTop: "28px",
           maxWidth: "920px",
