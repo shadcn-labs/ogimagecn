@@ -55,6 +55,7 @@ export const Blog = ({
           lineClamp: 3,
           lineHeight: 1.05,
           maxWidth: "1000px",
+          wordBreak: "break-word",
         }}
       >
         {title}
@@ -68,6 +69,7 @@ export const Blog = ({
           lineHeight: 1.4,
           marginTop: "28px",
           maxWidth: "920px",
+          wordBreak: "break-word",
         }}
       >
         {excerpt}

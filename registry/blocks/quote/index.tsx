@@ -42,6 +42,7 @@ export const Quote = ({ quote, author, handle, avatar }: QuoteProps) => (
         lineHeight: 1.2,
         marginTop: "8px",
         maxWidth: "1000px",
+        wordBreak: "break-word",
       }}
     >
       {quote}

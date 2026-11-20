@@ -53,6 +53,7 @@ export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
           fontWeight: 600,
           lineClamp: 2,
           marginTop: "12px",
+          wordBreak: "break-word",
         }}
       >
         {role}
@@ -66,6 +67,7 @@ export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
           lineHeight: 1.4,
           marginTop: "24px",
           maxWidth: "560px",
+          wordBreak: "break-word",
         }}
       >
         {bio}
