@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "progress-bar",
+  "title": "Progress Bar",
+  "description": "A rounded track that fills to a value, with an optional label and percentage.",
+  "files": [
+    {
+      "path": "registry/components/progress-bar.tsx",
+      "content": "export interface ProgressBarProps {\n  /** Current value, clamped between 0 and `max`. */\n  value: number;\n  /** Value that fills the whole track. */\n  max?: number;\n  /** Text shown above the track, on the left. */\n  label?: string;\n  /** Shows the rounded percentage above the track, on the right. */\n  showPercent?: boolean;\n  /** Fill color. */\n  color?: string;\n  /** Track color behind the fill. */\n  trackColor?: string;\n  /** Track height in pixels. */\n  height?: number;\n  /** Space between the label row and the track in pixels. */\n  gap?: number;\n}\n\n/** A horizontal progress track that fills to `value / max`. */\nexport const ProgressBar = ({\n  value,\n  max = 100,\n  label,\n  showPercent = false,\n  color = \"#a78bfa\",\n  trackColor = \"rgba(250,250,250,0.12)\",\n  height = 16,\n  gap = 14,\n}: ProgressBarProps) => {\n  const ratio = max > 0 ? Math.min(Math.max(value / max, 0), 1) : 0;\n  const percent = Math.round(ratio * 100);\n\n  return (\n    <div\n      style={{ display: \"flex\", flexDirection: \"column\", gap, width: \"100%\" }}\n    >\n      {(label || showPercent) && (\n        <div\n          style={{\n            display: \"flex\",\n            fontSize: \"28px\",\n            fontWeight: 600,\n            justifyContent: \"space-between\",\n          }}\n        >\n          <div style={{ display: \"flex\" }}>{label ?? \"\"}</div>\n          {showPercent && (\n            <div style={{ color, display: \"flex\" }}>{`${percent}%`}</div>\n          )}\n        </div>\n      )}\n      <div\n        style={{\n          backgroundColor: trackColor,\n          borderRadius: \"999px\",\n          display: \"flex\",\n          height,\n          overflow: \"hidden\",\n          width: \"100%\",\n        }}\n      >\n        <div\n          style={{\n            backgroundColor: color,\n            borderRadius: \"999px\",\n            display: \"flex\",\n            height: \"100%\",\n            width: `${ratio * 100}%`,\n          }}\n        />\n      </div>\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/progress-bar.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
