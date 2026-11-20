@@ -32,13 +32,14 @@ export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
       style={{ border: "4px solid rgba(250,250,250,0.15)", fontSize: "120px" }}
     />
 
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div style={{ display: "flex", flex: 1, flexDirection: "column" }}>
       <div
         style={{
-          display: "flex",
+          display: "block",
           fontSize: "72px",
           fontWeight: 700,
           letterSpacing: "-0.03em",
+          lineClamp: 1,
           lineHeight: 1.05,
         }}
       >
@@ -47,9 +48,10 @@ export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
       <div
         style={{
           color: "#f43f5e",
-          display: "flex",
+          display: "block",
           fontSize: "34px",
           fontWeight: 600,
+          lineClamp: 2,
           marginTop: "12px",
         }}
       >
@@ -58,8 +60,9 @@ export const Profile = ({ name, role, bio, avatar, website }: ProfileProps) => (
       <div
         style={{
           color: "#a1a1aa",
-          display: "flex",
+          display: "block",
           fontSize: "28px",
+          lineClamp: 4,
           lineHeight: 1.4,
           marginTop: "24px",
           maxWidth: "560px",

@@ -34,10 +34,11 @@ export const Quote = ({ quote, author, handle, avatar }: QuoteProps) => (
 
     <div
       style={{
-        display: "flex",
+        display: "block",
         fontSize: quote.length > 90 ? 52 : 64,
         fontWeight: 600,
         letterSpacing: "-0.02em",
+        lineClamp: 3,
         lineHeight: 1.2,
         marginTop: "8px",
         maxWidth: "1000px",
