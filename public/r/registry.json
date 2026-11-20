@@ -530,6 +530,25 @@
           "target": "components/og/recipe.tsx"
         }
       ]
+    },
+    {
+      "name": "resume",
+      "type": "registry:block",
+      "title": "Resume",
+      "description": "A resume Open Graph image with a name, role line, skill chips, and a contact URL.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/badge.json"
+      ],
+      "categories": [
+        "content"
+      ],
+      "files": [
+        {
+          "path": "registry/blocks/resume/index.tsx",
+          "type": "registry:component",
+          "target": "components/og/resume.tsx"
+        }
+      ]
     }
   ]
 }
