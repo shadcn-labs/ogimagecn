@@ -55,6 +55,10 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import {
+  ProgressBarDemo,
+  progressBarDemoConfig,
+} from "@/registry/examples/progress-bar";
 import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
@@ -83,6 +87,7 @@ const registry: Record<string, RegistryEntry> = {
   photo: { Component: Photo, config: photoConfig },
   product: { Component: Product, config: productConfig },
   profile: { Component: Profile, config: profileConfig },
+  "progress-bar": { Component: ProgressBarDemo, config: progressBarDemoConfig },
   quote: { Component: Quote, config: quoteConfig },
   recipe: { Component: Recipe, config: recipeConfig },
   "shadcn-registry-1": {
