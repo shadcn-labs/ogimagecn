@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar-group",
+  "title": "Avatar Group",
+  "description": "A row of overlapping avatars with a +N tile for the people that don't fit.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/avatar.json"
+  ],
+  "files": [
+    {
+      "path": "registry/components/avatar-group.tsx",
+      "content": "import { Avatar } from \"@/components/og/avatar\";\n\nexport interface AvatarGroupProps {\n  /** Names of the people in display order. An avatar without an image shows the initials. */\n  names: string[];\n  /** Image URLs or data URIs, matched to `names` by index. Satori decodes PNG, JPEG, and GIF only. */\n  srcs?: string[];\n  /** Most avatars to show. The rest are counted in a `+N` tile. */\n  max?: 3 | 4;\n  /** Diameter of each avatar in pixels. */\n  size?: number;\n  /** How far each avatar overlaps the previous one, in pixels. */\n  overlap?: number;\n  /** Color of the ring around each avatar. Match it to the background behind the group. */\n  ringColor?: string;\n}\n\n/** A row of overlapping avatars with a `+N` tile for the people that don't fit. */\nexport const AvatarGroup = ({\n  names,\n  srcs = [],\n  max = 4,\n  size = 72,\n  overlap = Math.round(size / 6),\n  ringColor = \"#ffffff\",\n}: AvatarGroupProps) => {\n  const shown = names.slice(0, max);\n  const hidden = names.length - shown.length;\n  const ring = `${Math.max(2, Math.round(size / 18))}px solid ${ringColor}`;\n\n  return (\n    <div style={{ display: \"flex\" }}>\n      {shown.map((name, index) => (\n        <Avatar\n          key={index}\n          name={name}\n          size={size}\n          src={srcs[index]}\n          style={{ border: ring, marginLeft: index === 0 ? 0 : -overlap }}\n        />\n      ))}\n      {hidden > 0 ? (\n        <div\n          style={{\n            alignItems: \"center\",\n            backgroundColor: \"#27272a\",\n            border: ring,\n            borderRadius: \"999px\",\n            color: \"#fafafa\",\n            display: \"flex\",\n            flexShrink: 0,\n            fontSize: Math.round(size * 0.36),\n            fontWeight: 700,\n            height: size,\n            justifyContent: \"center\",\n            marginLeft: -overlap,\n            width: size,\n          }}\n        >\n          {`+${hidden}`}\n        </div>\n      ) : null}\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/avatar-group.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
