@@ -55,6 +55,10 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import {
+  StarRatingDemo,
+  starRatingDemoConfig,
+} from "@/registry/examples/star-rating";
 import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
@@ -112,6 +116,7 @@ const registry: Record<string, RegistryEntry> = {
   shiori: { Component: Shiori, config: shioriConfig },
   showcase: { Component: Showcase, config: showcaseConfig },
   simple: { Component: Simple, config: simpleConfig },
+  "star-rating": { Component: StarRatingDemo, config: starRatingDemoConfig },
   stat: { Component: Stat, config: statConfig },
   terminal: { Component: Terminal, config: terminalConfig },
   waveform: { Component: WaveformDemo, config: waveformDemoConfig },
