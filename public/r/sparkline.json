@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sparkline",
+  "title": "Sparkline",
+  "description": "A small line chart with an optional filled area, drawn as inline SVG.",
+  "files": [
+    {
+      "path": "registry/components/sparkline.tsx",
+      "content": "export interface SparklineProps {\n  /** Values to plot from left to right. Non-finite values are skipped. */\n  points: number[];\n  /** Width of the chart in pixels. */\n  width?: number;\n  /** Height of the chart in pixels. */\n  height?: number;\n  /** Color of the line and of the area under it. */\n  color?: string;\n  /** Fill the area under the line at 20% opacity. */\n  area?: boolean;\n  /** Thickness of the line in pixels. */\n  strokeWidth?: number;\n}\n\n/** A small line chart drawn as inline SVG for Satori OG images. */\nexport const Sparkline = ({\n  points,\n  width = 240,\n  height = 64,\n  color = \"#22c55e\",\n  area = false,\n  strokeWidth = 3,\n}: SparklineProps) => {\n  const values = points.filter((value) => Number.isFinite(value));\n  // A single value is drawn as a flat line across the chart.\n  const series = values.length === 1 ? [values[0], values[0]] : values;\n  const min = Math.min(...series);\n  const range = Math.max(...series) - min;\n  // Keep the whole stroke inside the box.\n  const inset = strokeWidth / 2;\n  const coords = series.map((value, index) => [\n    inset + (index / (series.length - 1)) * (width - strokeWidth),\n    range === 0\n      ? height / 2\n      : inset + (1 - (value - min) / range) * (height - strokeWidth),\n  ]);\n  const line = coords\n    .map(\n      ([x, y], index) =>\n        `${index === 0 ? \"M\" : \"L\"}${x.toFixed(2)} ${y.toFixed(2)}`\n    )\n    .join(\" \");\n\n  return (\n    <svg height={height} viewBox={`0 0 ${width} ${height}`} width={width}>\n      {coords.length > 0 && area ? (\n        <path\n          d={`${line} L${(width - inset).toFixed(2)} ${height} L${inset.toFixed(2)} ${height} Z`}\n          fill={color}\n          fillOpacity={0.2}\n        />\n      ) : null}\n      {coords.length > 0 ? (\n        <path\n          d={line}\n          fill=\"none\"\n          stroke={color}\n          strokeLinecap=\"round\"\n          strokeLinejoin=\"round\"\n          strokeWidth={strokeWidth}\n        />\n      ) : null}\n    </svg>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/sparkline.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
