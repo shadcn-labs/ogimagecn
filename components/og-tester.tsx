@@ -542,26 +542,28 @@ const Checks = ({
                 key={img.id}
                 className="flex items-center justify-between gap-4 border-b py-2 text-sm last:border-b-0"
               >
-                <span className="shrink-0">{img.label}</span>
+                <span className="shrink-0 whitespace-nowrap">{img.label}</span>
                 <div className="text-muted-foreground flex min-w-0 items-center gap-0.5">
                   <span
                     className={cn(
-                      "text-xs tabular-nums",
+                      "shrink-0 text-xs whitespace-nowrap tabular-nums",
                       statusTone(img.status)
                     )}
                   >
                     {img.status || "failed"}
                   </span>
                   {detail ? (
-                    <span className="truncate text-xs">· {detail}</span>
+                    <span className="min-w-0 truncate text-xs">· {detail}</span>
                   ) : null}
                   {img.redirects > 0 ? (
-                    <span className="text-xs text-amber-600 dark:text-amber-500">
+                    <span className="shrink-0 text-xs whitespace-nowrap text-amber-600 dark:text-amber-500">
                       · {img.redirects} redirect{img.redirects > 1 ? "s" : ""}
                     </span>
                   ) : null}
                   {img.error ? (
-                    <span className="truncate text-xs">· {img.error}</span>
+                    <span className="min-w-0 truncate text-xs">
+                      · {img.error}
+                    </span>
                   ) : null}
                 </div>
               </div>
