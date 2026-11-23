@@ -82,6 +82,19 @@
       ]
     },
     {
+      "name": "progress-bar",
+      "type": "registry:ui",
+      "title": "Progress Bar",
+      "description": "A rounded track that fills to a value, with an optional label and percentage.",
+      "files": [
+        {
+          "path": "registry/components/progress-bar.tsx",
+          "type": "registry:ui",
+          "target": "components/og/progress-bar.tsx"
+        }
+      ]
+    },
+    {
       "name": "simple",
       "type": "registry:block",
       "title": "Simple",

@@ -1,0 +1,63 @@
+---
+title: Progress Bar
+description: A rounded track that fills to a value, with an optional label and percentage.
+---
+
+<ComponentPreview name="progress-bar" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/progress-bar
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="progress-bar" title="components/og/progress-bar.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { ProgressBar } from "@/components/og/progress-bar";
+```
+
+```tsx
+<ProgressBar color="#a78bfa" label="Funding goal" showPercent value={72} />
+```
+
+The fill is `value / max`, clamped between 0 and 100%. The label row only renders when `label` or `showPercent` is set.
+
+## API Reference
+
+| Prop          | Type      | Default                    |
+| ------------- | --------- | -------------------------- |
+| `value`       | `number`  | required                   |
+| `max`         | `number`  | `100`                      |
+| `label`       | `string`  | none                       |
+| `showPercent` | `boolean` | `false`                    |
+| `color`       | `string`  | `"#a78bfa"`                |
+| `trackColor`  | `string`  | `"rgba(250,250,250,0.12)"` |
+| `height`      | `number`  | `16`                       |
+| `gap`         | `number`  | `14`                       |
