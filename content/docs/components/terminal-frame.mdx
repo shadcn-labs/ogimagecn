@@ -1,0 +1,69 @@
+---
+title: Terminal Frame
+description: Terminal window chrome with traffic light dots, an optional title and monospace rows ending in a prompt.
+---
+
+<ComponentPreview name="terminal-frame" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/terminal-frame
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource
+  name="terminal-frame"
+  title="components/og/terminal-frame.tsx"
+/>
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { TerminalFrame } from "@/components/og/terminal-frame";
+```
+
+```tsx
+<TerminalFrame title="~/my-app">
+  <div style={{ display: "flex" }}>$ npx shadcn@latest add @ogimagecn/blog</div>
+  <div style={{ display: "flex" }}>Created components/og/blog.tsx</div>
+</TerminalFrame>
+```
+
+Each child is one row. The last row shows `prompt` followed by a cursor. Pass `prompt=""` to hide it.
+
+Satori only draws fonts you pass to it. To get monospace rows, load a monospace font and set `fontFamily` to its name.
+
+## API Reference
+
+| Prop         | Type            | Default       |
+| ------------ | --------------- | ------------- |
+| `children`   | `ReactNode`     | none          |
+| `title`      | `string`        | none          |
+| `prompt`     | `string`        | `"$"`         |
+| `fontFamily` | `string`        | `"monospace"` |
+| `fontSize`   | `number`        | `28`          |
+| `style`      | `CSSProperties` | none          |

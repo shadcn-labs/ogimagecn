@@ -82,6 +82,19 @@
       ]
     },
     {
+      "name": "terminal-frame",
+      "type": "registry:ui",
+      "title": "Terminal Frame",
+      "description": "Terminal window chrome with traffic light dots, an optional title and monospace rows ending in a prompt.",
+      "files": [
+        {
+          "path": "registry/components/terminal-frame.tsx",
+          "type": "registry:ui",
+          "target": "components/og/terminal-frame.tsx"
+        }
+      ]
+    },
+    {
       "name": "simple",
       "type": "registry:block",
       "title": "Simple",
