@@ -82,6 +82,19 @@
       ]
     },
     {
+      "name": "star-rating",
+      "type": "registry:ui",
+      "title": "Star Rating",
+      "description": "A row of SVG stars filled up to a value, with half stars and an optional score pill.",
+      "files": [
+        {
+          "path": "registry/components/star-rating.tsx",
+          "type": "registry:ui",
+          "target": "components/og/star-rating.tsx"
+        }
+      ]
+    },
+    {
       "name": "simple",
       "type": "registry:block",
       "title": "Simple",
