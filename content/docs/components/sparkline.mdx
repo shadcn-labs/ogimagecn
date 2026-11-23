@@ -1,0 +1,67 @@
+---
+title: Sparkline
+description: A small line chart for Open Graph images.
+---
+
+<ComponentPreview name="sparkline" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/sparkline
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="sparkline" title="components/og/sparkline.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Sparkline } from "@/components/og/sparkline";
+```
+
+```tsx
+<Sparkline
+  points={[12, 18, 15, 24, 21, 30, 27, 38]}
+  width={320}
+  height={80}
+  color="#22c55e"
+  area
+/>
+```
+
+The points are scaled so the lowest value sits at the bottom and the highest at the top, with the stroke kept inside the box. Non-finite values are skipped. A single value or equal values draw a flat line across the middle, and an empty array renders an empty box. With `area`, the space under the line is filled with the line color at 20% opacity.
+
+## API Reference
+
+| Prop          | Type       | Default   |
+| ------------- | ---------- | --------- |
+| `points`      | `number[]` | —         |
+| `width`       | `number`   | `240`     |
+| `height`      | `number`   | `64`      |
+| `color`       | `string`   | `#22c55e` |
+| `area`        | `boolean`  | `false`   |
+| `strokeWidth` | `number`   | `3`       |

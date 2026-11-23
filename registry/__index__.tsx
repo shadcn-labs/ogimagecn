@@ -57,6 +57,10 @@ import {
   GridLinesDemo,
   gridLinesDemoConfig,
 } from "@/registry/examples/grid-lines";
+import {
+  SparklineDemo,
+  sparklineDemoConfig,
+} from "@/registry/examples/sparkline";
 import { WaveformDemo, waveformDemoConfig } from "@/registry/examples/waveform";
 import type { ControlConfig } from "@/registry/lib/customizer-config";
 
@@ -115,6 +119,7 @@ const registry: Record<string, RegistryEntry> = {
   shiori: { Component: Shiori, config: shioriConfig },
   showcase: { Component: Showcase, config: showcaseConfig },
   simple: { Component: Simple, config: simpleConfig },
+  sparkline: { Component: SparklineDemo, config: sparklineDemoConfig },
   stat: { Component: Stat, config: statConfig },
   terminal: { Component: Terminal, config: terminalConfig },
   waveform: { Component: WaveformDemo, config: waveformDemoConfig },

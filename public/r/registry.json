@@ -82,6 +82,19 @@
       ]
     },
     {
+      "name": "sparkline",
+      "type": "registry:ui",
+      "title": "Sparkline",
+      "description": "A small line chart with an optional filled area, drawn as inline SVG.",
+      "files": [
+        {
+          "path": "registry/components/sparkline.tsx",
+          "type": "registry:ui",
+          "target": "components/og/sparkline.tsx"
+        }
+      ]
+    },
+    {
       "name": "simple",
       "type": "registry:block",
       "title": "Simple",
