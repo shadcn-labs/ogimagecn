@@ -1,0 +1,69 @@
+---
+title: Avatar Group
+description: A row of overlapping avatars for Open Graph images.
+---
+
+<ComponentPreview name="avatar-group" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/avatar-group
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Install the [Avatar](/docs/components/avatar) component.</Step>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="avatar-group" title="components/og/avatar-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { AvatarGroup } from "@/components/og/avatar-group";
+```
+
+```tsx
+<AvatarGroup
+  names={["Ada Lovelace", "Grace Hopper", "Alan Turing", "Linus Torvalds"]}
+  srcs={["https://example.com/ada.png"]}
+  max={3}
+  size={96}
+  ringColor="#09090b"
+/>
+```
+
+Each name becomes an `Avatar`, and `srcs` gives the image for the name at the same index. A name without an image shows its initials. Up to `max` avatars are shown, and the rest are counted in a `+N` tile at the end. Each avatar overlaps the previous one by `overlap` pixels, which defaults to a sixth of `size`. Set `ringColor` to the background behind the group so the ring separates the circles.
+
+## API Reference
+
+| Prop        | Type       | Default    |
+| ----------- | ---------- | ---------- |
+| `names`     | `string[]` | —          |
+| `srcs`      | `string[]` | `[]`       |
+| `max`       | `3 \| 4`   | `4`        |
+| `size`      | `number`   | `72`       |
+| `overlap`   | `number`   | `size / 6` |
+| `ringColor` | `string`   | `#ffffff`  |

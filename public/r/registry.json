@@ -17,6 +17,22 @@
       ]
     },
     {
+      "name": "avatar-group",
+      "type": "registry:ui",
+      "title": "Avatar Group",
+      "description": "A row of overlapping avatars with a +N tile for the people that don't fit.",
+      "registryDependencies": [
+        "https://ogimagecn.com/r/avatar.json"
+      ],
+      "files": [
+        {
+          "path": "registry/components/avatar-group.tsx",
+          "type": "registry:ui",
+          "target": "components/og/avatar-group.tsx"
+        }
+      ]
+    },
+    {
       "name": "badge",
       "type": "registry:ui",
       "title": "Badge",

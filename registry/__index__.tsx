@@ -47,6 +47,10 @@ import { statConfig } from "@/registry/blocks/stat/config";
 import { Terminal } from "@/registry/blocks/terminal";
 import { terminalConfig } from "@/registry/blocks/terminal/config";
 import { AvatarDemo, avatarDemoConfig } from "@/registry/examples/avatar";
+import {
+  AvatarGroupDemo,
+  avatarGroupDemoConfig,
+} from "@/registry/examples/avatar-group";
 import { BadgeDemo, badgeDemoConfig } from "@/registry/examples/badge";
 import {
   BrandMarkDemo,
@@ -71,6 +75,7 @@ export interface RegistryEntry {
 // Keys are registry item names: blocks render themselves, components render a demo.
 const registry: Record<string, RegistryEntry> = {
   avatar: { Component: AvatarDemo, config: avatarDemoConfig },
+  "avatar-group": { Component: AvatarGroupDemo, config: avatarGroupDemoConfig },
   badge: { Component: BadgeDemo, config: badgeDemoConfig },
   blog: { Component: Blog, config: blogConfig },
   "brand-mark": { Component: BrandMarkDemo, config: brandMarkDemoConfig },

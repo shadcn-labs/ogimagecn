@@ -3,6 +3,7 @@
   "pages": [
     "index",
     "avatar",
+    "avatar-group",
     "badge",
     "brand-mark",
     "divider",
