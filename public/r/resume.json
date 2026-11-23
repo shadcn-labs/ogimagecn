@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "resume",
+  "title": "Resume",
+  "description": "A resume Open Graph image with a name, role line, skill chips, and a contact URL.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/resume/index.tsx",
+      "content": "import { Badge } from \"@/components/og/badge\";\n\nexport interface ResumeProps {\n  name: string;\n  role: string;\n  skills: string[];\n  url: string;\n}\n\nexport const Resume = ({ name, role, skills, url }: ResumeProps) => (\n  <div\n    style={{\n      backgroundColor: \"#f8fafc\",\n      color: \"#0f172a\",\n      display: \"flex\",\n      height: \"100%\",\n      width: \"100%\",\n    }}\n  >\n    <div style={{ backgroundColor: \"#2563eb\", display: \"flex\", width: \"24px\" }} />\n\n    <div\n      style={{\n        display: \"flex\",\n        flex: 1,\n        flexDirection: \"column\",\n        justifyContent: \"space-between\",\n        padding: \"80px\",\n      }}\n    >\n      <div style={{ display: \"flex\", flexDirection: \"column\" }}>\n        <div\n          style={{\n            color: \"#64748b\",\n            display: \"flex\",\n            fontSize: \"26px\",\n            fontWeight: 600,\n            letterSpacing: \"0.08em\",\n            textTransform: \"uppercase\",\n          }}\n        >\n          Resume\n        </div>\n        <div\n          style={{\n            display: \"block\",\n            fontSize: name.length > 22 ? 76 : 92,\n            fontWeight: 800,\n            letterSpacing: \"-0.03em\",\n            lineClamp: 1,\n            lineHeight: 1.1,\n            marginTop: \"16px\",\n          }}\n        >\n          {name}\n        </div>\n        <div\n          style={{\n            color: \"#2563eb\",\n            display: \"block\",\n            fontSize: \"40px\",\n            fontWeight: 600,\n            lineClamp: 1,\n            marginTop: \"12px\",\n          }}\n        >\n          {role}\n        </div>\n      </div>\n\n      {skills.length > 0 && (\n        <div\n          style={{\n            display: \"flex\",\n            flexWrap: \"wrap\",\n            gap: \"14px\",\n            maxHeight: \"128px\",\n            overflow: \"hidden\",\n          }}\n        >\n          {skills.map((skill) => (\n            <Badge\n              background=\"#e2e8f0\"\n              color=\"#1e293b\"\n              key={skill}\n              style={{ fontSize: \"28px\", padding: \"10px 24px\" }}\n            >\n              {skill}\n            </Badge>\n          ))}\n        </div>\n      )}\n\n      <div\n        style={{\n          alignItems: \"center\",\n          borderTop: \"2px solid #e2e8f0\",\n          color: \"#475569\",\n          display: \"flex\",\n          fontSize: \"30px\",\n          fontWeight: 500,\n          paddingTop: \"28px\",\n        }}\n      >\n        {url}\n      </div>\n    </div>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/resume.tsx"
+    }
+  ],
+  "categories": [
+    "content"
+  ],
+  "type": "registry:block"
+}
