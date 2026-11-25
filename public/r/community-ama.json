@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "community-ama",
+  "title": "Community AMA",
+  "description": "A community AMA Open Graph image with a guest avatar, title, name and role line, and a date chip.",
+  "registryDependencies": [
+    "https://ogimagecn.com/r/avatar.json",
+    "https://ogimagecn.com/r/badge.json"
+  ],
+  "files": [
+    {
+      "path": "registry/blocks/community-ama/index.tsx",
+      "content": "import { Avatar } from \"@/components/og/avatar\";\nimport { Badge } from \"@/components/og/badge\";\n\nexport interface CommunityAmaProps {\n  label: string;\n  title: string;\n  guest: string;\n  role: string;\n  date: string;\n  brand: string;\n  avatar?: string;\n}\n\nexport const CommunityAma = ({\n  label,\n  title,\n  guest,\n  role,\n  date,\n  brand,\n  avatar = \"\",\n}: CommunityAmaProps) => (\n  <div\n    style={{\n      backgroundColor: \"#0a0a0a\",\n      backgroundImage:\n        \"radial-gradient(circle at 0% 100%, rgba(52,211,153,0.18), transparent 55%)\",\n      color: \"#fafafa\",\n      display: \"flex\",\n      flexDirection: \"column\",\n      height: \"100%\",\n      justifyContent: \"space-between\",\n      padding: \"80px\",\n      width: \"100%\",\n    }}\n  >\n    <div\n      style={{\n        alignItems: \"center\",\n        display: \"flex\",\n        justifyContent: \"space-between\",\n      }}\n    >\n      <Badge\n        background=\"rgba(52,211,153,0.15)\"\n        borderColor=\"rgba(52,211,153,0.4)\"\n        color=\"#34d399\"\n        uppercase\n      >\n        {label}\n      </Badge>\n      <div style={{ color: \"#a1a1aa\", display: \"flex\", fontSize: \"28px\" }}>\n        {brand}\n      </div>\n    </div>\n\n    <div style={{ alignItems: \"center\", display: \"flex\", gap: \"56px\" }}>\n      <Avatar\n        background=\"#34d399\"\n        color=\"#0a0a0a\"\n        name={guest}\n        size={200}\n        src={avatar}\n        style={{ border: \"4px solid rgba(52,211,153,0.5)\" }}\n      />\n      <div\n        style={{\n          display: \"flex\",\n          flexDirection: \"column\",\n          flexShrink: 1,\n          gap: \"24px\",\n        }}\n      >\n        <div\n          style={{\n            display: \"flex\",\n            fontSize: title.length > 40 ? 64 : 76,\n            fontWeight: 700,\n            letterSpacing: \"-0.03em\",\n            lineHeight: 1.05,\n          }}\n        >\n          {title}\n        </div>\n        <div style={{ display: \"flex\", fontSize: \"32px\", gap: \"14px\" }}>\n          <div style={{ display: \"flex\", fontWeight: 600 }}>{guest}</div>\n          <div style={{ color: \"#52525b\", display: \"flex\" }}>·</div>\n          <div style={{ color: \"#a1a1aa\", display: \"flex\" }}>{role}</div>\n        </div>\n      </div>\n    </div>\n\n    <Badge\n      borderColor=\"#27272a\"\n      color=\"#e4e4e7\"\n      style={{ alignSelf: \"flex-start\" }}\n    >\n      <svg\n        fill=\"none\"\n        height=\"26\"\n        stroke=\"#34d399\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth=\"2\"\n        viewBox=\"0 0 24 24\"\n        width=\"26\"\n      >\n        <rect height=\"18\" rx=\"2\" width=\"18\" x=\"3\" y=\"4\" />\n        <path d=\"M16 2v4M8 2v4M3 10h18\" />\n      </svg>\n      {date}\n    </Badge>\n  </div>\n);\n",
+      "type": "registry:component",
+      "target": "components/og/community-ama.tsx"
+    }
+  ],
+  "categories": [
+    "product"
+  ],
+  "type": "registry:block"
+}
