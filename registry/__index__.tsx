@@ -52,6 +52,10 @@ import {
   BrandMarkDemo,
   brandMarkDemoConfig,
 } from "@/registry/examples/brand-mark";
+import {
+  ChecklistDemo,
+  checklistDemoConfig,
+} from "@/registry/examples/checklist";
 import { DividerDemo, dividerDemoConfig } from "@/registry/examples/divider";
 import {
   GridLinesDemo,
@@ -75,6 +79,7 @@ const registry: Record<string, RegistryEntry> = {
   blog: { Component: Blog, config: blogConfig },
   "brand-mark": { Component: BrandMarkDemo, config: brandMarkDemoConfig },
   changelog: { Component: Changelog, config: changelogConfig },
+  checklist: { Component: ChecklistDemo, config: checklistDemoConfig },
   divider: { Component: DividerDemo, config: dividerDemoConfig },
   editorial: { Component: Editorial, config: editorialConfig },
   event: { Component: Event, config: eventConfig },

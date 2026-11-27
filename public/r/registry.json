@@ -43,6 +43,19 @@
       ]
     },
     {
+      "name": "checklist",
+      "type": "registry:ui",
+      "title": "Checklist",
+      "description": "A vertical list of checkmarked lines with configurable mark color, gap, and size.",
+      "files": [
+        {
+          "path": "registry/components/checklist.tsx",
+          "type": "registry:ui",
+          "target": "components/og/checklist.tsx"
+        }
+      ]
+    },
+    {
       "name": "divider",
       "type": "registry:ui",
       "title": "Divider",

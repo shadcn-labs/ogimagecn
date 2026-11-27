@@ -1,0 +1,64 @@
+---
+title: Checklist
+description: A vertical list of checkmarked lines with configurable mark color, gap, and size.
+---
+
+<ComponentPreview name="checklist" hideCode />
+
+## Installation
+
+<CodeTabs>
+
+<TabsList>
+  <TabsTrigger value="cli">Command</TabsTrigger>
+  <TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add @ogimagecn/checklist
+```
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource name="checklist" title="components/og/checklist.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</TabsContent>
+
+</CodeTabs>
+
+## Usage
+
+```tsx
+import { Checklist } from "@/components/og/checklist";
+```
+
+```tsx
+<Checklist
+  color="#34d399"
+  gap={24}
+  items={["Unlimited projects", "Custom domains", "Priority support"]}
+  size={40}
+/>
+```
+
+Items render in the order given, each with its own checkmark. `color` only tints the checkmarks; the text inherits its color from the parent. `size` sets both the checkmark and the font size, and long items wrap with the checkmark aligned to the first line. An empty array renders an empty list.
+
+## API Reference
+
+| Prop    | Type       | Default     |
+| ------- | ---------- | ----------- |
+| `items` | `string[]` | —           |
+| `color` | `string`   | `"#34d399"` |
+| `gap`   | `number`   | `20`        |
+| `size`  | `number`   | `34`        |
