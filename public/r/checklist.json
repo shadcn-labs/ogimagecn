@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checklist",
+  "title": "Checklist",
+  "description": "A vertical list of checkmarked lines with configurable mark color, gap, and size.",
+  "files": [
+    {
+      "path": "registry/components/checklist.tsx",
+      "content": "export interface ChecklistProps {\n  /** Lines of the list, in order. Each one gets its own checkmark. */\n  items: string[];\n  /** Color of the checkmarks. The text inherits its color from the parent. */\n  color?: string;\n  /** Space between items in pixels. */\n  gap?: number;\n  /** Checkmark and text size in pixels. */\n  size?: number;\n}\n\n/** A vertical list of checkmarked lines, such as features or shipped changes. */\nexport const Checklist = ({\n  items,\n  color = \"#34d399\",\n  gap = 20,\n  size = 34,\n}: ChecklistProps) => {\n  const lineHeight = Math.round(size * 1.3);\n\n  return (\n    <div\n      style={{\n        display: \"flex\",\n        flexDirection: \"column\",\n        // With `maxWidth`, keeps the list inside its parent so long items wrap.\n        flexShrink: 1,\n        gap,\n        maxWidth: \"100%\",\n      }}\n    >\n      {items.map((item, index) => (\n        <div\n          key={index}\n          style={{ display: \"flex\", gap: Math.round(size * 0.5) }}\n        >\n          <div\n            style={{\n              alignItems: \"center\",\n              display: \"flex\",\n              flexShrink: 0,\n              // One line tall, so the mark stays on the first line of a wrapped item.\n              height: lineHeight,\n            }}\n          >\n            <svg\n              fill=\"none\"\n              height={size}\n              stroke={color}\n              strokeLinecap=\"round\"\n              strokeLinejoin=\"round\"\n              strokeWidth=\"3\"\n              viewBox=\"0 0 24 24\"\n              width={size}\n            >\n              <path d=\"M20 6 9 17l-5-5\" />\n            </svg>\n          </div>\n          <div\n            style={{\n              display: \"flex\",\n              // Satori only breaks lines at the width left beside the mark when\n              // the text box can wrap.\n              flexWrap: \"wrap\",\n              fontSize: size,\n              lineHeight: `${lineHeight}px`,\n              wordBreak: \"break-word\",\n            }}\n          >\n            {item}\n          </div>\n        </div>\n      ))}\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/checklist.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
