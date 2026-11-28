@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "stat-row",
+  "title": "Stat Row",
+  "description": "A row of label and value stats with optional vertical dividers between columns.",
+  "files": [
+    {
+      "path": "registry/components/stat-row.tsx",
+      "content": "export interface StatRowProps {\n  /** Stats rendered left to right. Each entry shows its value above its label. */\n  stats: { label: string; value: string }[];\n  /** Draws a 1px vertical rule to the left of every column except the first. */\n  divider?: boolean;\n  /** Columns per row before wrapping. Omit to keep every stat in one row. */\n  columns?: number;\n}\n\n/**\n * A row of label/value stats sized for Satori OG images. Columns share the\n * row equally and wrap onto a new line when `columns` is set.\n */\nexport const StatRow = ({ stats, divider = false, columns }: StatRowProps) => {\n  const perRow =\n    columns !== undefined && Number.isFinite(columns) && columns >= 1\n      ? Math.floor(columns)\n      : undefined;\n  // Kept just under 100 / perRow so a full row never rounds past the container.\n  const basis = perRow ? `${Math.floor(10_000 / perRow) / 100}%` : 0;\n\n  return (\n    <div\n      style={{\n        alignItems: \"stretch\",\n        display: \"flex\",\n        flexDirection: \"row\",\n        flexWrap: perRow ? \"wrap\" : \"nowrap\",\n        width: \"100%\",\n      }}\n    >\n      {stats.map((stat, index) => {\n        const firstInRow = perRow ? index % perRow === 0 : index === 0;\n        const rule = divider && !firstInRow;\n\n        return (\n          <div\n            key={index}\n            style={{\n              boxSizing: \"border-box\",\n              display: \"flex\",\n              flexBasis: basis,\n              flexDirection: \"column\",\n              flexGrow: 1,\n              flexShrink: 1,\n              gap: \"8px\",\n              padding: \"32px\",\n              // Satori throws on `undefined` style values, so the rule is spread in.\n              ...(rule && { borderLeft: \"1px solid rgba(161,161,170,0.4)\" }),\n            }}\n          >\n            <div\n              style={{\n                display: \"flex\",\n                fontSize: \"56px\",\n                fontWeight: 700,\n                letterSpacing: \"-0.02em\",\n              }}\n            >\n              {stat.value}\n            </div>\n            <div\n              style={{\n                display: \"flex\",\n                fontSize: \"24px\",\n                fontWeight: 500,\n                opacity: 0.7,\n              }}\n            >\n              {stat.label}\n            </div>\n          </div>\n        );\n      })}\n    </div>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/og/stat-row.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}
